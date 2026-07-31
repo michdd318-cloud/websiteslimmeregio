@@ -1,7 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* =====================================================================
    {A}impact - projectwebsite
    Trust-first one-pager. One accent (teal), warm neutrals, dual theme.
-   Buildless: hand-crafted CSS, no framework, no external requests.
+   Stack: Vite + React + TypeScript + Tailwind (tokens below) + GSAP.
+   Component styling lives in these hand-authored rules; Tailwind utilities
+   are available for new components. Colors/radii/shadows are exposed to
+   Tailwind via the CSS variables defined here (see tailwind.config.js).
    ===================================================================== */
 
 /* ---------- Design tokens ---------- */
@@ -20,10 +27,11 @@
   --accent-contrast:#ffffff;
   --shadow-sm: 0 1px 2px rgba(27,28,26,.05), 0 2px 8px rgba(27,28,26,.05);
   --shadow-md: 0 4px 12px rgba(27,28,26,.06), 0 12px 34px rgba(15,122,110,.07);
+  --shadow-halo: 0 4px 18px rgba(27,28,26,.04), 0 24px 52px rgba(27,28,26,.09);
 
-  --radius:   14px;
-  --radius-sm: 9px;
-  --radius-lg: 22px;
+  --radius:   16px;
+  --radius-sm: 11px;
+  --radius-lg: 28px;
 
   --wrap: 1160px;
   --wrap-narrow: 800px;
@@ -52,6 +60,7 @@
     --accent-contrast:#0a1311;
     --shadow-sm: 0 1px 2px rgba(0,0,0,.3), 0 2px 8px rgba(0,0,0,.28);
     --shadow-md: 0 6px 18px rgba(0,0,0,.34), 0 16px 40px rgba(0,0,0,.30);
+    --shadow-halo: 0 6px 20px rgba(0,0,0,.34), 0 26px 54px rgba(0,0,0,.42);
   }
 }
 :root[data-theme="dark"] {
@@ -69,10 +78,10 @@
   --accent-contrast:#0a1311;
   --shadow-sm: 0 1px 2px rgba(0,0,0,.3), 0 2px 8px rgba(0,0,0,.28);
   --shadow-md: 0 6px 18px rgba(0,0,0,.34), 0 16px 40px rgba(0,0,0,.30);
+  --shadow-halo: 0 6px 20px rgba(0,0,0,.34), 0 26px 54px rgba(0,0,0,.42);
 }
 
 /* ---------- Reset / base ---------- */
-*, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
@@ -175,7 +184,7 @@ img { max-width: 100%; display: block; }
 .menu-btn[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
 .menu-btn[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-.mobile-nav { display: none; flex-direction: column; padding: .5rem clamp(20px,5vw,40px) 1.2rem; border-bottom: 1px solid var(--line); background: var(--bg); }
+.mobile-nav { display: flex; flex-direction: column; padding: .5rem clamp(20px,5vw,40px) 1.2rem; border-bottom: 1px solid var(--line); background: var(--bg); }
 .mobile-nav a { padding: .7rem 0; color: var(--ink); text-decoration: none; font-weight: var(--fw-med); border-bottom: 1px solid var(--line); }
 .mobile-nav a:last-child { border-bottom: none; }
 
@@ -196,7 +205,7 @@ img { max-width: 100%; display: block; }
 .preview {
   margin: 0; border-radius: var(--radius-lg); overflow: hidden;
   border: 1px solid var(--line); background: var(--surface-2);
-  box-shadow: var(--shadow-md); aspect-ratio: 4 / 3; position: relative;
+  box-shadow: var(--shadow-halo); aspect-ratio: 4 / 3; position: relative;
 }
 .preview img { width: 100%; height: 100%; object-fit: cover; }
 .preview.is-empty { display: grid; place-items: center; }
@@ -232,7 +241,7 @@ img { max-width: 100%; display: block; }
 .logo-financier::before { content: ""; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 1px; height: 26px; background: var(--line-strong); }
 
 /* Logo slot: styled text placeholder until a real SVG is dropped in.
-   When you add assets/logos/<name>.svg, main.js swaps it for an <img>. */
+   The LogoSlot component swaps it for an <img> when assets/logos/<name>.svg exists. */
 .logo-slot {
   display: inline-flex; align-items: center; height: 34px; padding: 0 .1rem;
   font-weight: var(--fw-semi); font-size: .98rem; color: var(--ink);
@@ -251,8 +260,13 @@ img { max-width: 100%; display: block; }
 
 .section-head { max-width: 62ch; margin-bottom: 2.6rem; }
 .eyebrow {
-  display: inline-block; margin: 0 0 .8rem; font-size: .78rem; font-weight: var(--fw-semi);
+  display: inline-flex; align-items: center; gap: .55rem;
+  margin: 0 0 .8rem; font-size: .78rem; font-weight: var(--fw-semi);
   text-transform: uppercase; letter-spacing: .12em; color: var(--accent-strong);
+}
+.eyebrow::before {
+  content: ""; width: 7px; height: 7px; border-radius: 50%;
+  background: var(--accent); flex: none;
 }
 .lead { font-size: 1.12rem; color: var(--ink-soft); margin-top: 1rem; }
 
@@ -276,7 +290,7 @@ img { max-width: 100%; display: block; }
 .stat { font-size: clamp(2rem, 1.4rem + 2.4vw, 2.9rem); font-weight: var(--fw-bold); color: var(--accent-strong); letter-spacing: -.03em; line-height: 1; margin: 0 0 .7rem; font-variant-numeric: tabular-nums; }
 .stat-label { color: var(--ink); font-weight: var(--fw-med); margin: 0 0 1rem; }
 .challenge-body { color: var(--ink-soft); font-size: .97rem; margin: 0; }
-.mini-list { margin: 0; padding-left: 1.1rem; color: var(--ink-soft); font-size: .97rem; }
+.mini-list { list-style: disc; margin: 0; padding-left: 1.1rem; color: var(--ink-soft); font-size: .97rem; }
 .mini-list li { margin-bottom: .5rem; }
 .challenge-close { margin: 2.2rem auto 0; max-width: 60ch; font-size: 1.14rem; color: var(--ink); font-weight: var(--fw-med); }
 
@@ -388,6 +402,15 @@ img { max-width: 100%; display: block; }
 
 /* ---------- Footer ---------- */
 .site-footer { background: var(--surface-2); border-top: 1px solid var(--line); padding-top: 3.4rem; }
+.footer-lead {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.2rem 2rem;
+  padding-bottom: 2.6rem; margin-bottom: 2.6rem; border-bottom: 1px solid var(--line);
+}
+.footer-lead-text {
+  margin: 0; max-width: 24ch; font-size: clamp(1.4rem, 1.05rem + 1.5vw, 2rem);
+  font-weight: var(--fw-bold); line-height: 1.16; letter-spacing: -.02em; color: var(--ink);
+  text-wrap: balance;
+}
 .footer-top { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 2rem; padding-bottom: 2.4rem; }
 .footer-tag { margin-top: 1rem; color: var(--muted); max-width: 34ch; }
 .footer-contact h3, .footer-support h3 { font-size: .82rem; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); margin-bottom: .8rem; font-weight: var(--fw-semi); }
@@ -402,15 +425,57 @@ img { max-width: 100%; display: block; }
 .footer-links a { color: var(--ink-soft); text-decoration: none; font-size: .87rem; font-weight: var(--fw-med); }
 .footer-links a:hover { color: var(--accent-strong); }
 
-/* ---------- Reveal (progressive enhancement, motion-safe) ---------- */
-.has-js .reveal { opacity: 0; transform: translateY(16px); transition: opacity .7s var(--ease), transform .7s var(--ease); will-change: opacity, transform; }
-.has-js .reveal.is-visible { opacity: 1; transform: none; }
+/* ---------- Tijdlijn (scroll-active release timeline) ---------- */
+.tl-list { display: grid; gap: 3.5rem; margin-top: 2.6rem; }
+.tl-item { position: relative; display: flex; flex-direction: column; gap: 1rem; }
+.tl-meta { display: flex; align-items: center; gap: .85rem; width: 100%; }
+.tl-icon {
+  display: inline-grid; place-items: center; width: 40px; height: 40px; flex: none;
+  border-radius: 11px; background: var(--surface-2); color: var(--muted); border: 1px solid var(--line);
+  transition: background .3s var(--ease), color .3s var(--ease), border-color .3s var(--ease);
+}
+.tl-icon.is-active { background: var(--accent); color: var(--accent-contrast); border-color: var(--accent); }
+.tl-meta-text { display: flex; flex-direction: column; }
+.tl-meta-title { font-weight: var(--fw-semi); color: var(--ink); font-size: .95rem; }
+.tl-meta-sub { font-size: .8rem; color: var(--muted); }
+.tl-sentinel { position: absolute; top: -96px; left: 0; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+.tl-card {
+  flex: 1; min-width: 0; border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--surface); padding: 1.4rem 1.5rem;
+  transition: border-color .3s var(--ease), box-shadow .3s var(--ease), background .3s var(--ease);
+}
+.tl-card.is-active { box-shadow: var(--shadow-md); border-color: color-mix(in srgb, var(--accent) 30%, var(--line)); }
+.tl-heading { font-size: 1.1rem; margin: 0 0 .5rem; color: var(--ink); transition: color .2s var(--ease); }
+.tl-heading.is-dim { color: var(--ink-soft); }
+.tl-desc { margin: 0; color: var(--ink-soft); font-size: .97rem; }
+.tl-desc.is-clamped { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; color: var(--muted); }
+.tl-expand { display: grid; grid-template-rows: 0fr; opacity: 0; transition: grid-template-rows .45s var(--ease), opacity .3s var(--ease); }
+.tl-expand.is-open { grid-template-rows: 1fr; opacity: 1; margin-top: 1rem; }
+.tl-expand-inner { overflow: hidden; }
+.tl-items {
+  list-style: none; margin: 0; padding: 1rem 1.1rem; display: grid; gap: .55rem;
+  border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--surface-2);
+}
+.tl-items li { position: relative; padding-left: 1.3rem; color: var(--ink-soft); font-size: .93rem; }
+.tl-items li::before { content: ""; position: absolute; left: 0; top: .5em; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+.tl-actions { display: flex; justify-content: flex-end; margin-top: 1rem; }
+@media (min-width: 768px) {
+  .tl-list { gap: 5rem; }
+  .tl-item { flex-direction: row; gap: 4rem; }
+  .tl-meta { position: sticky; top: 96px; width: 16rem; flex-shrink: 0; height: min-content; }
+}
 @media (prefers-reduced-motion: reduce) {
-  .has-js .reveal { opacity: 1 !important; transform: none !important; transition: none; }
+  .tl-expand, .tl-card, .tl-icon, .tl-heading { transition: none; }
+}
+
+/* ---------- Reveal (GSAP-armed, motion-safe) ---------- */
+.reveal-armed .reveal { opacity: 0; transform: translateY(16px); will-change: opacity, transform; }
+@media (prefers-reduced-motion: reduce) {
   .faq-item[open] .faq-a { animation: none; }
 }
 
 /* ---------- Responsive ---------- */
+@media (min-width: 941px) { .mobile-nav { display: none; } }
 @media (max-width: 940px) {
   .primary-nav, .nav-cta { display: none; }
   .menu-btn { display: flex; }
