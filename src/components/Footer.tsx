@@ -4,15 +4,6 @@ import { Wordmark, LogoSlot } from "./primitives";
 export function Footer() {
   return (
     <footer className="site-footer" id="contact">
-      <div className="wrap footer-lead">
-        <p className="footer-lead-text">
-          Klaar om erbij te zijn? We bespreken vrijblijvend wat dit voor jouw dienst betekent.
-        </p>
-        <a className="btn btn-primary" href="#aansluiten">
-          Aansluiten
-        </a>
-      </div>
-
       <div className="wrap footer-top">
         <div className="footer-brand">
           <Wordmark lg />

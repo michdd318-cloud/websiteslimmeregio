@@ -377,21 +377,6 @@ const VALUES = [
   },
 ];
 
-const RESPONSIBILITY = [
-  {
-    label: "Wat wij regelen",
-    body: "Verwerkersovereenkomst, technische en organisatorische maatregelen, DPIA/FRIA-basiskader en sjablonen, logging van goedkeuringen, EU-dataopslag, ondersteuning bij de eigen DPO-toetsing.",
-  },
-  {
-    label: "Wat het bestuur regelt",
-    body: "Verwerkingsverantwoordelijkheid, eigen DPO-advies en goedkeuring, interne afspraken over gebruik, aanduiding van wie goedkeurt, informatie aan de cliënt.",
-  },
-  {
-    label: "Wat we samen doen",
-    body: "De rolverdeling onder de AI Act vastleggen, bewaartermijnen bepalen, uitstapscenario en datateruggave afspreken vóór de start.",
-  },
-];
-
 export function Vertrouwen() {
   return (
     <section className="section section-trust" id="vertrouwen" aria-labelledby="ver-title">
@@ -415,24 +400,6 @@ export function Vertrouwen() {
               <p>{body}</p>
             </article>
           ))}
-        </div>
-
-        <div className="responsibility">
-          <div className="responsibility-head">
-            <h3>Wie draagt wat</h3>
-            <p>
-              Voor een algemeen directeur is dit de kernvraag. We zetten ze op voorhand op papier, niet
-              achteraf.
-            </p>
-          </div>
-          <dl className="responsibility-list">
-            {RESPONSIBILITY.map((r) => (
-              <div className="responsibility-row" key={r.label}>
-                <dt>{r.label}</dt>
-                <dd>{r.body}</dd>
-              </div>
-            ))}
-          </dl>
         </div>
       </div>
     </section>
