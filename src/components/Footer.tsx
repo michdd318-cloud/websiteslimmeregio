@@ -44,7 +44,7 @@ export function Footer() {
       <div className="wrap footer-logos">
         <p className="footer-logos-label">Een project van:</p>
         <ul className="logo-row logo-row-footer">
-          {LOGOS.map((l) => (
+          {LOGOS.filter((l) => !l.topOnly).map((l) => (
             <li key={l.name} className={l.financier ? "logo-financier" : undefined}>
               <LogoSlot name={l.name} label={l.label} />
             </li>
@@ -54,7 +54,7 @@ export function Footer() {
 
       <div className="wrap footer-bottom">
         <p>
-          {"© 2026 {A}impact. Een project van WhaiNot, Stad en OCMW Halle, UCLL, ViTeS en Buurthuis Ommekaar."}
+          {"© 2026 {A}impact. Een project van WhaiNot, Stad en OCMW Halle, UCLL en ViTeS."}
         </p>
         <p className="footer-links">
           <a href="#top">Naar boven</a>
