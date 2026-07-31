@@ -352,6 +352,16 @@ img { max-width: 100%; display: block; }
 .financier-note { display: grid; grid-template-columns: 200px 1fr; gap: 1.6rem; align-items: center; margin-top: 1.4rem; padding: 1.5rem 1.6rem; border-radius: var(--radius); background: var(--accent-tint); border: 1px solid color-mix(in srgb, var(--accent) 22%, transparent); }
 .financier-note p { margin: 0; color: var(--ink); }
 
+/* Uploaded logos sit on a white chip, so any format/colour (black, full-colour,
+   or a JPG with a white background) stays legible in both light and dark. */
+.logo-slot:has(img) { filter: none; opacity: 1; height: auto; padding: 0; }
+.logo-slot img {
+  display: block; height: 30px; width: auto; max-width: 168px; object-fit: contain;
+  background: #fff; padding: 7px 11px; border-radius: 8px;
+}
+.partner-mark:has(img) { background: transparent; border-color: transparent; padding: 0; min-height: 0; overflow: visible; }
+.partner-mark .logo-slot img { height: 40px; max-width: 210px; }
+
 /* ---------- Project approach ---------- */
 .approach { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.1rem; margin-top: 1rem; }
 .appr { position: relative; padding: 1.6rem 1.6rem 1.6rem 4.2rem; border-radius: var(--radius); background: var(--surface); border: 1px solid var(--line); }

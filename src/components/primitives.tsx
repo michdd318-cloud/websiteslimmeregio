@@ -30,25 +30,56 @@ export function Wm({ letter = "A", suffix = "impact" }: { letter?: string; suffi
   );
 }
 
+// Accepted logo formats, in order of preference (svg/png keep transparency).
+const LOGO_EXTS = ["svg", "png", "webp", "jpg", "jpeg"];
+
 /**
- * Partner logo slot. Shows a styled text placeholder until a real SVG exists at
- * public/assets/logos/<name>.svg, then swaps to the image automatically.
+ * Partner logo slot. Shows a styled text placeholder until a real logo exists at
+ * public/assets/logos/<name>.<ext>, then swaps to the image automatically.
+ * Probes every accepted extension and uses the highest-priority one that loads,
+ * so any format a partner delivers just works.
  */
 export function LogoSlot({ name, label, className }: { name: string; label: string; className?: string }) {
-  const [ok, setOk] = useState(false);
-  const src = asset(`assets/logos/${name}.svg`);
+  const [src, setSrc] = useState<string | null>(null);
   useEffect(() => {
-    let active = true;
-    const img = new Image();
-    img.onload = () => active && setOk(true);
-    img.src = src;
-    return () => {
-      active = false;
+    let done = false;
+    const candidates = LOGO_EXTS.map((ext) => asset(`assets/logos/${name}.${ext}`));
+    const state: ("pending" | "loaded" | "error")[] = candidates.map(() => "pending");
+    // Commit to the first (highest-priority) candidate that loaded, once every
+    // candidate before it has resolved. Parallel + guarded, so it is robust
+    // against React StrictMode's mount/unmount/remount.
+    const settle = () => {
+      for (let k = 0; k < state.length; k += 1) {
+        if (state[k] === "pending") return;
+        if (state[k] === "loaded") {
+          if (!done) {
+            done = true;
+            setSrc(candidates[k]);
+          }
+          return;
+        }
+      }
     };
-  }, [src]);
+    setSrc(null);
+    candidates.forEach((candidate, k) => {
+      const img = new Image();
+      img.onload = () => {
+        state[k] = "loaded";
+        settle();
+      };
+      img.onerror = () => {
+        state[k] = "error";
+        settle();
+      };
+      img.src = candidate;
+    });
+    return () => {
+      done = true;
+    };
+  }, [name]);
   return (
     <span className={cn("logo-slot", className)} data-logo={name}>
-      {ok ? <img src={src} alt={label} loading="lazy" /> : label}
+      {src ? <img src={src} alt={label} loading="lazy" /> : label}
     </span>
   );
 }
