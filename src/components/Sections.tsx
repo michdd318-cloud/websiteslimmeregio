@@ -72,14 +72,6 @@ export function ActiveringKost() {
             uren, en het is het eerste dat sneuvelt wanneer de caseload stijgt.
           </p>
         </div>
-        <div className="statline">
-          <p className="stat">tot 41%</p>
-          <p className="statline-body">
-            van de arbeidstijd gaat naar administratie. Dat is de uitkomst van een werklastmeting van
-            POD MI en Probis bij 836 medewerkers uit 69 OCMW's. Die meting dateert van 2014. Sindsdien
-            is de caseload gestegen, niet gedaald.
-          </p>
-        </div>
       </div>
     </section>
   );
@@ -94,37 +86,47 @@ export function Uitdaging() {
           <p className="eyebrow">De uitdaging</p>
           <h2 id="uit-title">Meer instroom, dezelfde ploeg.</h2>
         </div>
-        <div className="statline statline-lead">
-          <p className="stat">184.000</p>
-          <p className="statline-body">
-            mensen verliezen naar schatting hun uitkering tussen 1 januari 2026 en 30 juni 2027, met
-            meer dan 10.000 nieuwe instromers per maand.
-          </p>
+
+        <div className="challenge-grid">
+          <article className="challenge challenge-lead reveal">
+            <p className="stat">184.000</p>
+            <p className="stat-label">
+              mensen verliezen naar schatting hun uitkering tussen 1 januari 2026 en 30 juni 2027, met
+              meer dan 10.000 nieuwe instromers per maand.
+            </p>
+            <p className="challenge-body">
+              De beperking van de werkloosheidsuitkering (wet juli 2025) zet OCMW's onder druk die zich
+              niet laat opvangen met extra aanwervingen. Het gaat vaak om mensen voor wie een louter
+              arbeidsgerichte aanpak jarenlang niet werkte. Zij hebben activering nodig in de brede zin,
+              over meerdere levensdomeinen.
+            </p>
+          </article>
+
+          <article className="challenge reveal">
+            <p className="stat">tot 41%</p>
+            <p className="stat-label">van de arbeidstijd van maatschappelijk werkers gaat naar administratie.</p>
+            <p className="challenge-body">
+              Een werklastmeting van POD MI en Probis (836 medewerkers uit 69 OCMW's) bracht dat in
+              kaart. Die meting dateert van 2014; sindsdien is de caseload gestegen, niet gedaald.
+              "Maatschappelijk werker" is een erkend knelpuntberoep.
+            </p>
+          </article>
+
+          <article className="challenge reveal">
+            <p className="stat">3 tekorten</p>
+            <p className="stat-label">bij de cliënt, die elkaar versterken.</p>
+            <ul className="mini-list">
+              <li>geen helder zicht op het eigen traject;</li>
+              <li>weinig eigenaarschap, en afhankelijkheid van de hulpverlener;</li>
+              <li>beperkte zelfpresentatie, versterkt door digitale en taalbarrières.</li>
+            </ul>
+          </article>
         </div>
-        <div className="flow">
-          <p>
-            De beperking van de werkloosheidsuitkering (wet juli 2025) zet OCMW's onder druk die zich
-            niet laat opvangen met extra aanwervingen. Maatschappelijk werker is een erkend
-            knelpuntberoep.
-          </p>
-        </div>
-        <aside className="callout">
-          <h4>Vertaal het naar je eigen bestuur</h4>
-          <p>
-            Met de VVSG-rekentool kom je voor een stad van 40.000 inwoners uit op ongeveer 360
-            verwachte instromers. Dat is geen abstract cijfer meer, dat zijn 360 dossiers en 360
-            trajecten die iemand moet dragen.
-          </p>
-        </aside>
-        <div className="flow">
-          <p>
-            En het gaat om een specifieke groep. Mensen voor wie een louter arbeidsgerichte aanpak
-            jarenlang niet werkte. Zij hebben activering nodig in de brede zin: over meerdere
-            levensdomeinen, met realistische tussenstappen. Dat is intensiever begeleiden, en dus ook
-            meer registreren.
-          </p>
-        </div>
-        <p className="challenge-close">De oplossing ligt niet in méér hulpverleners. Die zijn er niet.</p>
+
+        <p className="challenge-close">
+          De oplossing ligt niet in méér hulpverleners, maar in het structureel versterken van zowel
+          hulpverlener als cliënt.
+        </p>
       </div>
     </section>
   );
