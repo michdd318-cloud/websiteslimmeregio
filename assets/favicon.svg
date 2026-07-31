@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="{A}impact">
+  <rect width="64" height="64" rx="14" fill="#0f7a6e"/>
+  <text x="32" y="43" text-anchor="middle" font-family="Segoe UI, system-ui, Arial, sans-serif" font-size="30" font-weight="700" fill="#ffffff" letter-spacing="-1">
+    <tspan fill="#8fe3d6">{</tspan>A<tspan fill="#8fe3d6">}</tspan>
+  </text>
+</svg>
