@@ -2,14 +2,16 @@ import { useHeaderScrolled, useReveal } from "@/hooks";
 import { Header } from "./components/Header";
 import { Hero } from "./components/Hero";
 import {
-  Wat,
-  Tijdlijn,
+  GeenGreenfield,
+  ActiveringKost,
   Uitdaging,
   Oplossing,
+  WatHetNiet,
+  Tijdlijn,
   Vertrouwen,
   Partners,
   Project,
-  Deelnemen,
+  Aansluiten,
   Faq,
 } from "./components/Sections";
 import { Footer } from "./components/Footer";
@@ -30,14 +32,16 @@ export default function App() {
       <main id="hoofdinhoud">
         <span id="top" />
         <Hero />
-        <Wat />
-        <Tijdlijn />
+        <GeenGreenfield />
+        <ActiveringKost />
         <Uitdaging />
         <Oplossing />
+        <WatHetNiet />
+        <Tijdlijn />
         <Vertrouwen />
         <Partners />
         <Project />
-        <Deelnemen />
+        <Aansluiten />
         <Faq />
       </main>
 

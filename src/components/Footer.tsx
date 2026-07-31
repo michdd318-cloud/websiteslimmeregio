@@ -6,10 +6,10 @@ export function Footer() {
     <footer className="site-footer" id="contact">
       <div className="wrap footer-lead">
         <p className="footer-lead-text">
-          We denken graag met je mee. Sterkere hulpverlening bouwen we samen met de sector.
+          Klaar om erbij te zijn? We bespreken vrijblijvend wat dit voor jouw dienst betekent.
         </p>
-        <a className="btn btn-primary" href="#deelnemen">
-          Doe mee
+        <a className="btn btn-primary" href="#aansluiten">
+          Aansluiten
         </a>
       </div>
 
@@ -17,7 +17,7 @@ export function Footer() {
         <div className="footer-brand">
           <Wordmark lg />
           <p className="footer-tag">
-            AI ten dienste van kwaliteitsvolle hulpverlening. Met de mens aan het stuur.
+            Sterkere activeringstrajecten. Met de mens aan het stuur.
           </p>
         </div>
 
