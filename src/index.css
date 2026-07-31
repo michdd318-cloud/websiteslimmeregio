@@ -1,7 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* =====================================================================
    {A}impact - projectwebsite
    Trust-first one-pager. One accent (teal), warm neutrals, dual theme.
-   Buildless: hand-crafted CSS, no framework, no external requests.
+   Stack: Vite + React + TypeScript + Tailwind (tokens below) + GSAP.
+   Component styling lives in these hand-authored rules; Tailwind utilities
+   are available for new components. Colors/radii/shadows are exposed to
+   Tailwind via the CSS variables defined here (see tailwind.config.js).
    ===================================================================== */
 
 /* ---------- Design tokens ---------- */
@@ -75,7 +82,6 @@
 }
 
 /* ---------- Reset / base ---------- */
-*, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
@@ -178,7 +184,7 @@ img { max-width: 100%; display: block; }
 .menu-btn[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
 .menu-btn[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-.mobile-nav { display: none; flex-direction: column; padding: .5rem clamp(20px,5vw,40px) 1.2rem; border-bottom: 1px solid var(--line); background: var(--bg); }
+.mobile-nav { display: flex; flex-direction: column; padding: .5rem clamp(20px,5vw,40px) 1.2rem; border-bottom: 1px solid var(--line); background: var(--bg); }
 .mobile-nav a { padding: .7rem 0; color: var(--ink); text-decoration: none; font-weight: var(--fw-med); border-bottom: 1px solid var(--line); }
 .mobile-nav a:last-child { border-bottom: none; }
 
@@ -235,7 +241,7 @@ img { max-width: 100%; display: block; }
 .logo-financier::before { content: ""; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 1px; height: 26px; background: var(--line-strong); }
 
 /* Logo slot: styled text placeholder until a real SVG is dropped in.
-   When you add assets/logos/<name>.svg, main.js swaps it for an <img>. */
+   The LogoSlot component swaps it for an <img> when assets/logos/<name>.svg exists. */
 .logo-slot {
   display: inline-flex; align-items: center; height: 34px; padding: 0 .1rem;
   font-weight: var(--fw-semi); font-size: .98rem; color: var(--ink);
@@ -284,7 +290,7 @@ img { max-width: 100%; display: block; }
 .stat { font-size: clamp(2rem, 1.4rem + 2.4vw, 2.9rem); font-weight: var(--fw-bold); color: var(--accent-strong); letter-spacing: -.03em; line-height: 1; margin: 0 0 .7rem; font-variant-numeric: tabular-nums; }
 .stat-label { color: var(--ink); font-weight: var(--fw-med); margin: 0 0 1rem; }
 .challenge-body { color: var(--ink-soft); font-size: .97rem; margin: 0; }
-.mini-list { margin: 0; padding-left: 1.1rem; color: var(--ink-soft); font-size: .97rem; }
+.mini-list { list-style: disc; margin: 0; padding-left: 1.1rem; color: var(--ink-soft); font-size: .97rem; }
 .mini-list li { margin-bottom: .5rem; }
 .challenge-close { margin: 2.2rem auto 0; max-width: 60ch; font-size: 1.14rem; color: var(--ink); font-weight: var(--fw-med); }
 
@@ -419,15 +425,14 @@ img { max-width: 100%; display: block; }
 .footer-links a { color: var(--ink-soft); text-decoration: none; font-size: .87rem; font-weight: var(--fw-med); }
 .footer-links a:hover { color: var(--accent-strong); }
 
-/* ---------- Reveal (progressive enhancement, motion-safe) ---------- */
-.has-js .reveal { opacity: 0; transform: translateY(16px); transition: opacity .7s var(--ease), transform .7s var(--ease); will-change: opacity, transform; }
-.has-js .reveal.is-visible { opacity: 1; transform: none; }
+/* ---------- Reveal (GSAP-armed, motion-safe) ---------- */
+.reveal-armed .reveal { opacity: 0; transform: translateY(16px); will-change: opacity, transform; }
 @media (prefers-reduced-motion: reduce) {
-  .has-js .reveal { opacity: 1 !important; transform: none !important; transition: none; }
   .faq-item[open] .faq-a { animation: none; }
 }
 
 /* ---------- Responsive ---------- */
+@media (min-width: 941px) { .mobile-nav { display: none; } }
 @media (max-width: 940px) {
   .primary-nav, .nav-cta { display: none; }
   .menu-btn { display: flex; }

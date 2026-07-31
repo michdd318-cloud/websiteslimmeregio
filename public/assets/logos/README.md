@@ -19,7 +19,8 @@ tekst-wordmark als plaatshouder. Er hoeft niets in de code aangepast te worden.
 ## Richtlijnen
 
 - Gebruik bij voorkeur **SVG** (schaalt scherp, licht van gewicht). PNG kan ook:
-  pas dan de extensie aan in `main.js` (zoek op `.svg`).
+  pas dan de extensie aan in de `LogoSlot`-component (`src/components/primitives.tsx`,
+  zoek op `.svg`).
 - Lever logo's aan met **transparante achtergrond**.
 - Houd de hoogte visueel in balans (de logobalk toont ze op ~34px hoog).
 - Het logo van de **provincie Vlaams-Brabant** is een verplicht element
