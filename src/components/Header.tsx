@@ -11,16 +11,19 @@ const PRIMARY = [
   ["#partners", "Partners"],
   ["#project", "Project"],
   ["#faq", "FAQ"],
+  ["#aansluiten", "Aansluiten"],
 ];
 
 const MOBILE = [
-  ["#wat", "Wat is {A}impact"],
+  ["#wat", "Geen greenfield"],
+  ["#activering", "Wat het kost"],
   ["#uitdaging", "De uitdaging"],
   ["#oplossing", "De oplossing"],
+  ["#tijdlijn", "Tijdlijn"],
   ["#vertrouwen", "Vertrouwen"],
   ["#partners", "Partners"],
   ["#project", "Het project"],
-  ["#deelnemen", "Deelnemen"],
+  ["#aansluiten", "Aansluiten"],
   ["#faq", "FAQ"],
   ["#contact", "Contact"],
 ];
@@ -55,8 +58,8 @@ export function Header({ scrolled }: { scrolled: boolean }) {
             <Sun className="i-sun" size={18} strokeWidth={1.6} aria-hidden="true" />
             <Moon className="i-moon" size={18} strokeWidth={1.6} aria-hidden="true" />
           </button>
-          <a className="btn btn-primary btn-sm nav-cta" href="#deelnemen">
-            Doe mee
+          <a className="btn btn-primary btn-sm nav-cta" href="#aansluiten">
+            Aansluiten
           </a>
         </div>
 

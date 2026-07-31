@@ -1,6 +1,12 @@
-import { ShieldCheck } from "lucide-react";
+import { ShieldCheck, Check } from "lucide-react";
 import { LOGOS } from "@/data";
-import { Wordmark, Preview, LogoSlot } from "./primitives";
+import { Wordmark, Wm, Preview, LogoSlot } from "./primitives";
+
+const FACTS = [
+  "Operationeel bij OCMW Halle sinds 2025",
+  "Gebouwd in {P}ACT met de OCMW's van Halle, Londerzeel en Grimbergen",
+  "DPIA en FRIA goedgekeurd door meerdere DPO's",
+];
 
 export function Hero() {
   return (
@@ -11,20 +17,19 @@ export function Hero() {
             <p className="hero-brand">
               <Wordmark lg />
             </p>
-            <h1 id="hero-title">Sterkere hulpverlening met AI.</h1>
+            <h1 id="hero-title">Activeringstrajecten wegen zwaar. Vooral op papier.</h1>
             <p className="hero-sub">
-              Minder administratie, meer tijd voor het menselijke contact, en meer eigenaarschap voor
-              de cliënt. Gebouwd op wat vandaag al werkt.
+              Sociaal onderzoek, GPMI, gespreksverslagen, evaluaties, doorverwijzingen. Bij OCMW Halle
+              draait sinds 2025 een module die dat werk mee opmaakt, met de maatschappelijk werker die
+              alles goedkeurt. Binnen <Wm /> maken we die breder inzetbaar voor andere OCMW's, en bouwen
+              we er een ruimte bovenop waarin de cliënt zijn eigen traject ziet.
             </p>
             <div className="hero-cta">
-              <a className="btn btn-primary" href="#nieuwsbrief">
-                Schrijf je in op de nieuwsbrief
+              <a className="btn btn-primary" href="#aansluiten">
+                Wat betekent dit voor mijn dienst
               </a>
-              <a className="btn btn-ghost" href="#deelnemen">
-                Sluit aan als partner
-              </a>
-              <a className="btn btn-quiet" href="#contact">
-                Contact
+              <a className="btn btn-ghost" href="#nieuwsbrief">
+                Blijf op de hoogte
               </a>
             </div>
             <p className="hero-support">
@@ -48,9 +53,24 @@ export function Hero() {
         </div>
       </section>
 
-      <section className="logoband" aria-label="Deelnemende partners">
+      <section className="logoband" aria-label="Vertrouwensbalk en partners">
         <div className="wrap">
-          <p className="logoband-intro">Een breed gedragen samenwerking. Een project van:</p>
+          <ul className="trustfacts">
+            {FACTS.map((f) => (
+              <li key={f}>
+                <Check size={16} strokeWidth={2} aria-hidden="true" />
+                {f.includes("{P}ACT") ? (
+                  <span>
+                    Gebouwd in <Wm letter="P" suffix="ACT" /> met de OCMW's van Halle, Londerzeel en
+                    Grimbergen
+                  </span>
+                ) : (
+                  <span>{f}</span>
+                )}
+              </li>
+            ))}
+          </ul>
+          <p className="logoband-intro">Een project van:</p>
           <ul className="logo-row">
             {LOGOS.map((l) => (
               <li key={l.name} className={l.financier ? "logo-financier" : undefined}>

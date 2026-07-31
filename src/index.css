@@ -483,6 +483,63 @@ img { max-width: 100%; display: block; }
   .tl-expand, .tl-card, .tl-icon, .tl-heading { transition: none; }
 }
 
+/* ---------- v2 content elements ---------- */
+.hero-sub { max-width: 46ch; }
+.callout { background: var(--surface); }
+
+/* Vertrouwensbalk facts */
+.trustfacts {
+  list-style: none; margin: 0 0 1.7rem; padding: 0;
+  display: flex; flex-wrap: wrap; justify-content: center; gap: .6rem 2rem;
+}
+.trustfacts li { display: flex; align-items: center; gap: .5rem; font-size: .9rem; color: var(--ink-soft); font-weight: var(--fw-med); }
+.trustfacts svg { color: var(--accent); flex: none; }
+
+/* Readable prose blocks */
+.flow p { margin: 1.1rem 0 0; color: var(--ink-soft); }
+
+/* Paperwork / cost list (two columns) */
+.cost-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: .65rem 2.2rem; }
+.cost-list li { position: relative; padding-left: 1.4rem; color: var(--ink-soft); font-size: .98rem; }
+.cost-list li::before { content: ""; position: absolute; left: 0; top: .6em; width: 6px; height: 6px; background: var(--accent); transform: rotate(45deg); }
+
+/* Inline big-stat line */
+.statline { display: flex; align-items: baseline; gap: 1.5rem; margin-top: 1.8rem; padding-top: 1.5rem; border-top: 1px solid var(--line); }
+.statline .stat { flex: none; margin: 0; }
+.statline-body { margin: 0; color: var(--ink-soft); }
+
+/* "Wat het niet is" (hairline rows) */
+.notis { border-top: 1px solid var(--line); }
+.notis-item { display: grid; grid-template-columns: minmax(220px, 300px) 1fr; gap: 1.5rem; align-items: baseline; padding: 1.15rem 0; border-bottom: 1px solid var(--line); }
+.notis-item h3 { margin: 0; font-size: 1.08rem; color: var(--ink); }
+.notis-item p { margin: 0; color: var(--ink-soft); }
+
+/* Responsibility panel */
+.responsibility { margin-top: 2.8rem; }
+.responsibility-head { margin-bottom: 1.2rem; }
+.responsibility-head h3 { font-size: 1.2rem; margin-bottom: .4rem; }
+.responsibility-head p { margin: 0; color: var(--ink-soft); }
+.responsibility-list { margin: 0; display: grid; gap: .8rem; }
+.responsibility-row { display: grid; grid-template-columns: 220px 1fr; gap: 1.5rem; padding: 1.1rem 1.35rem; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
+.responsibility-row dt { font-weight: var(--fw-semi); color: var(--accent-strong); }
+.responsibility-row dd { margin: 0; color: var(--ink-soft); }
+
+/* Project workpackage outcome */
+.appr-outcome { margin: .9rem 0 0; padding-top: .8rem; border-top: 1px dashed var(--line-strong); color: var(--accent-strong); font-weight: var(--fw-med); font-size: .95rem; }
+.appr-outcome::before { content: "\2192"; margin-right: .45rem; }
+
+/* Aansluiten "wat het vraagt/krijgt" */
+.asks { margin: 1.1rem 0 0; display: grid; gap: .8rem; flex: 1; }
+.asks dt { font-size: .74rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); font-weight: var(--fw-semi); margin-bottom: .15rem; }
+.asks dd { margin: 0; color: var(--ink-soft); font-size: .95rem; }
+.part-note { font-size: .88rem; color: var(--muted); margin: .9rem 0 0; }
+
+@media (max-width: 768px) {
+  .cost-list { grid-template-columns: 1fr; }
+  .statline { flex-direction: column; gap: .4rem; }
+  .notis-item, .responsibility-row { grid-template-columns: 1fr; gap: .3rem; }
+}
+
 /* ---------- Reveal (GSAP-armed, motion-safe) ---------- */
 .reveal-armed .reveal { opacity: 0; transform: translateY(16px); will-change: opacity, transform; }
 @media (prefers-reduced-motion: reduce) {
