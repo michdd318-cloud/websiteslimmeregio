@@ -12,6 +12,7 @@ export const LOGOS: LogoItem[] = [
   { name: "grimbergen", label: "OCMW Grimbergen", topOnly: true },
   { name: "ucll", label: "UCLL" },
   { name: "vites", label: "ViTeS" },
+  { name: "welzijnskoepel", label: "Welzijnskoepel Vlaams-Brabant", topOnly: true },
   { name: "vlaamsbrabant", label: "Provincie Vlaams-Brabant", financier: true },
 ];
 
