@@ -258,7 +258,7 @@ img { max-width: 100%; display: block; }
 .section-alt { background: var(--surface-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .section-trust { background: var(--accent-tint); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 
-.section-head { max-width: 62ch; margin-bottom: 2.6rem; }
+.section-head { max-width: none; margin-bottom: 2.6rem; }
 .eyebrow {
   display: inline-flex; align-items: center; gap: .55rem;
   margin: 0 0 .8rem; font-size: .78rem; font-weight: var(--fw-semi);
