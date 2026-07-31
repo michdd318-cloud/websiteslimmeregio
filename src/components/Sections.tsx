@@ -7,10 +7,16 @@ import {
   Globe,
   HeartHandshake,
   Unplug,
+  FlaskConical,
+  Lightbulb,
+  Bot,
+  Sparkles,
+  Share2,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { FAQ } from "@/data";
 import { Wm, Preview, LinkArrow, LogoSlot } from "./primitives";
+import { ReleaseTimeLine, type TimelineEntry } from "./ui/release-time-line";
 
 /* ---------------- 2. Wat is {A}impact ---------------- */
 export function Wat() {
@@ -52,6 +58,91 @@ export function Wat() {
           te beginnen. Zo verschuift het traject van "over de cliënt" naar "samen met de cliënt", en
           houdt de hulpverlener meer tijd over voor het menselijke contact.
         </p>
+      </div>
+    </section>
+  );
+}
+
+/* ---------------- Tijdlijn: voortbouwen op wat werkt ---------------- */
+const TIMELINE: TimelineEntry[] = [
+  {
+    icon: FlaskConical,
+    title: "{P}ACT",
+    subtitle: "VLAIO-project",
+    description:
+      "Samen met de OCMW's van Halle, Londerzeel en Grimbergen bouwden we AI-ondersteuning voor administratieve taken. Dat leverde gemiddeld 30% tijdwinst op en een juridisch kader dat door meerdere DPO's werd gevalideerd.",
+    items: [
+      "Gemiddeld 30% tijdwinst op administratieve taken",
+      "DPIA/FRIA-kader, goedgekeurd door meerdere DPO's",
+      "Getest in de dagelijkse praktijk van drie OCMW's",
+    ],
+  },
+  {
+    icon: Lightbulb,
+    title: "AIMPower",
+    subtitle: "Onderzoek en inzichten",
+    description:
+      "De inzichten uit AIMPower brachten in kaart wat hulpverleners en cliënten echt nodig hebben, en welke waarden centraal moeten staan bij AI in de hulpverlening.",
+    items: [
+      "Waarden van hulpverleners en cliënten in kaart gebracht",
+      "Betrouwbaarheid en menselijke controle als uitgangspunt",
+      "Fundament voor een mensgerichte aanpak",
+    ],
+  },
+  {
+    icon: Bot,
+    title: "AI-module bij OCMW Halle",
+    subtitle: "Sinds 2025 · operationeel",
+    description:
+      "Sinds 2025 ondersteunt een AI-module de maatschappelijk werkers van OCMW Halle bij hun administratie. Juridisch gevalideerd en elke dag in gebruik.",
+    items: [
+      "Gespreksverslagen en intakes mee opgemaakt",
+      "GPMI's en andere terugkerende documenten",
+      "cv's en motivatiebrieven voor cliënten",
+    ],
+  },
+  {
+    icon: Sparkles,
+    title: "{A}impact",
+    subtitle: "2026-2028 · Slimme Regio",
+    description:
+      "Binnen {A}impact maken we die bewezen basis breder inzetbaar en bouwen we er een cliëntruimte bovenop, met steun van de provincie Vlaams-Brabant.",
+    items: [
+      "Hulpverlener-module breder inzetbaar en opgeschaald",
+      "Nieuwe cliëntruimte: inzicht, kennis en tools",
+      "Juridisch-ethisch kader uitgebreid naar cliënttoegang",
+    ],
+  },
+  {
+    icon: Share2,
+    title: "Opschaling",
+    subtitle: "Overdraagbaar kader",
+    description:
+      "We vertalen de aanpak naar een overdraagbaar kader voor andere OCMW's in Vlaams-Brabant en daarbuiten, gedocumenteerd als blauwdruk voor de sector.",
+    items: [
+      "Implementatietoolkit en overneembare sjablonen",
+      "Lerend netwerk tussen overheid, kennis, bedrijven en burgers",
+      "Kennisdeling via workshops en open access handleidingen",
+    ],
+    button: { url: "#deelnemen", text: "Sluit aan" },
+  },
+];
+
+export function Tijdlijn() {
+  return (
+    <section className="section" id="tijdlijn" aria-labelledby="tl-title">
+      <div className="wrap">
+        <div className="section-head">
+          <h2 id="tl-title">
+            Van <Wm letter="P" suffix="ACT" /> tot opschaling.
+          </h2>
+          <p className="lead">
+            We bouwen verder op wat al bewezen is. Van de eerste VLAIO-ontwikkeling tot een module die
+            vandaag draait bij OCMW Halle, en van daaruit naar <Wm /> en bredere opschaling. Scroll mee
+            door de tijdlijn.
+          </p>
+        </div>
+        <ReleaseTimeLine entries={TIMELINE} />
       </div>
     </section>
   );

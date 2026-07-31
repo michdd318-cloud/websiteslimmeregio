@@ -1,7 +1,17 @@
 import { useHeaderScrolled, useReveal } from "@/hooks";
 import { Header } from "./components/Header";
 import { Hero } from "./components/Hero";
-import { Wat, Uitdaging, Oplossing, Vertrouwen, Partners, Project, Deelnemen, Faq } from "./components/Sections";
+import {
+  Wat,
+  Tijdlijn,
+  Uitdaging,
+  Oplossing,
+  Vertrouwen,
+  Partners,
+  Project,
+  Deelnemen,
+  Faq,
+} from "./components/Sections";
 import { Footer } from "./components/Footer";
 
 export default function App() {
@@ -21,6 +31,7 @@ export default function App() {
         <span id="top" />
         <Hero />
         <Wat />
+        <Tijdlijn />
         <Uitdaging />
         <Oplossing />
         <Vertrouwen />
