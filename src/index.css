@@ -340,7 +340,7 @@ img { max-width: 100%; display: block; }
 
 /* ---------- Partners ---------- */
 .partners { display: grid; gap: 1rem; }
-.partner { display: grid; grid-template-columns: 200px 1fr; gap: 1.6rem; align-items: start; padding: 1.5rem 1.6rem; border-radius: var(--radius); background: var(--surface); border: 1px solid var(--line); }
+.partner { display: grid; grid-template-columns: 240px 1fr; gap: 1.6rem; align-items: start; padding: 1.5rem 1.6rem; border-radius: var(--radius); background: var(--surface); border: 1px solid var(--line); }
 .partner-mark { display: flex; align-items: center; min-height: 46px; padding: .6rem .9rem; border-radius: var(--radius-sm); background: var(--surface-2); border: 1px solid var(--line); overflow: hidden; }
 .partner-mark .logo-slot { height: auto; font-size: .84rem; white-space: normal; line-height: 1.2; opacity: 1; filter: none; }
 .partner-mark .logo-slot img { height: 34px; }
@@ -349,7 +349,7 @@ img { max-width: 100%; display: block; }
 .partner-role { color: var(--accent-strong); font-weight: var(--fw-semi); font-size: .9rem; margin: 0 0 .6rem; }
 .partner-body p { margin: 0 0 .5rem; color: var(--ink-soft); font-size: .97rem; }
 .partner-contact { font-size: .9rem; color: var(--muted); }
-.financier-note { display: grid; grid-template-columns: 200px 1fr; gap: 1.6rem; align-items: center; margin-top: 1.4rem; padding: 1.5rem 1.6rem; border-radius: var(--radius); background: var(--accent-tint); border: 1px solid color-mix(in srgb, var(--accent) 22%, transparent); }
+.financier-note { display: grid; grid-template-columns: 240px 1fr; gap: 1.6rem; align-items: center; margin-top: 1.4rem; padding: 1.5rem 1.6rem; border-radius: var(--radius); background: var(--accent-tint); border: 1px solid color-mix(in srgb, var(--accent) 22%, transparent); }
 .financier-note p { margin: 0; color: var(--ink); }
 
 /* Uploaded logos sit on a white chip, so any format/colour (black, full-colour,
@@ -360,7 +360,7 @@ img { max-width: 100%; display: block; }
   background: #fff; padding: 7px 11px; border-radius: 8px;
 }
 .partner-mark:has(img) { background: transparent; border-color: transparent; padding: 0; min-height: 0; overflow: visible; }
-.partner-mark .logo-slot img { height: 40px; max-width: 210px; }
+.partner-mark .logo-slot img { height: 64px; max-width: 220px; }
 /* Top logo band: large, prominent logos (draagvlak meteen zichtbaar).
    object-fit: contain keeps the aspect ratio, so logos are never stretched. */
 .logoband { padding: 1.8rem 0 2.8rem; }
