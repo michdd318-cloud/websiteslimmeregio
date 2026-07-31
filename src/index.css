@@ -361,6 +361,8 @@ img { max-width: 100%; display: block; }
 }
 .partner-mark:has(img) { background: transparent; border-color: transparent; padding: 0; min-height: 0; overflow: visible; }
 .partner-mark .logo-slot img { height: 40px; max-width: 210px; }
+/* Top logo band: larger, more prominent logos (draagvlak meteen zichtbaar). */
+.logoband .logo-slot img { height: 48px; max-width: 230px; padding: 9px 14px; }
 
 /* ---------- Project approach ---------- */
 .approach { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.1rem; margin-top: 1rem; }

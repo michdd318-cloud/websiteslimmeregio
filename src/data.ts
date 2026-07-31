@@ -2,14 +2,16 @@ export interface LogoItem {
   name: string;
   label: string;
   financier?: boolean;
+  /** Only shown in the top logo band (hero), not in the footer. */
+  topOnly?: boolean;
 }
 
 export const LOGOS: LogoItem[] = [
   { name: "whainot", label: "WhaiNot" },
   { name: "halle", label: "Stad en OCMW Halle" },
+  { name: "grimbergen", label: "OCMW Grimbergen", topOnly: true },
   { name: "ucll", label: "UCLL" },
   { name: "vites", label: "ViTeS" },
-  { name: "ommekaar", label: "Buurthuis Ommekaar" },
   { name: "vlaamsbrabant", label: "Provincie Vlaams-Brabant", financier: true },
 ];
 

@@ -406,14 +406,6 @@ const PARTNERS = [
     body: "Brengt het werkgeversperspectief binnen de sociale economie in en valideert of de AI-tools aansluiten bij wat werkgevers verwachten.",
     contact: null,
   },
-  {
-    name: "ommekaar",
-    label: "Buurthuis Ommekaar",
-    title: "Buurthuis en sociale kruidenier Ommekaar",
-    role: "Welzijnsschakel in Buizingen (Halle)",
-    body: "Vertegenwoordigt het cliëntperspectief en betrekt bezoekers actief als co-creators bij de ontwikkeling en evaluatie van de cliëntruimte.",
-    contact: null,
-  },
 ];
 
 export function Partners() {
