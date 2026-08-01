@@ -1,4 +1,4 @@
-import { LOGOS } from "@/data";
+import { PROJECT_LOGOS, SUPPORT_LOGOS } from "@/data";
 import { Wm, Preview, LogoSlot } from "./primitives";
 
 export function Hero() {
@@ -49,16 +49,32 @@ export function Hero() {
         </div>
       </section>
 
-      <section className="logoband" aria-label="Vertrouwensbalk en partners">
+      <section className="logoband" aria-label="Partners en steun">
         <div className="wrap">
-          <p className="logoband-intro">Een project van:</p>
-          <ul className="logo-row">
-            {LOGOS.map((l) => (
-              <li key={l.name} className={l.financier ? "logo-financier" : undefined}>
-                <LogoSlot name={l.name} label={l.label} />
-              </li>
-            ))}
-          </ul>
+          <div className="logo-group">
+            <p className="logo-label">Een project van</p>
+            <ul className="logo-row">
+              {PROJECT_LOGOS.map((l) => (
+                <li key={l.name}>
+                  <LogoSlot name={l.name} label={l.label} />
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <hr className="logo-divider" />
+
+          <div className="logo-group">
+            <p className="logo-label">Met steun van</p>
+            <ul className="logo-row logo-row-support">
+              {SUPPORT_LOGOS.map((l) => (
+                <li key={l.name}>
+                  <LogoSlot name={l.name} label={l.label} />
+                </li>
+              ))}
+            </ul>
+            <p className="logo-support-note">Programma Slimme Regio (thema Slim Bestuur).</p>
+          </div>
         </div>
       </section>
     </>

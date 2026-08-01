@@ -6,14 +6,20 @@ export interface LogoItem {
   topOnly?: boolean;
 }
 
-export const LOGOS: LogoItem[] = [
+/** Group 1 of the logo band and the footer: the project partners. */
+export const PROJECT_LOGOS: LogoItem[] = [
   { name: "whainot", label: "WhaiNot" },
   { name: "halle", label: "Stad en OCMW Halle" },
   { name: "grimbergen", label: "OCMW Grimbergen", topOnly: true },
-  { name: "ucll", label: "UCLL" },
+  { name: "welzijnskoepel", label: "Welzijnskoepel West-Brabant", topOnly: true },
+  { name: "ucll", label: "UCLL Research & Expertise" },
   { name: "vites", label: "ViTeS" },
-  { name: "welzijnskoepel", label: "Welzijnskoepel Vlaams-Brabant", topOnly: true },
-  { name: "vlaamsbrabant", label: "Provincie Vlaams-Brabant", financier: true },
+  { name: "ommekaar", label: "Buurthuis Ommekaar", topOnly: true },
+];
+
+/** Group 2 of the logo band: the funders. Kept as an array; more may follow. */
+export const SUPPORT_LOGOS: LogoItem[] = [
+  { name: "vlaamsbrabant", label: "Provincie Vlaams-Brabant" },
 ];
 
 export interface FaqItem {

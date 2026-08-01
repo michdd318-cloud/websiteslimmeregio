@@ -236,7 +236,9 @@ img { max-width: 100%; display: block; }
 
 /* ---------- Logo band ---------- */
 .logoband { padding: 1.4rem 0 2.4rem; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--surface-2); }
-.logoband-intro { text-align: center; color: var(--muted); font-size: .9rem; margin: .4rem 0 1.3rem; letter-spacing: .01em; }
+.logo-label { text-align: center; text-transform: uppercase; letter-spacing: .1em; font-size: .78rem; font-weight: var(--fw-semi); color: var(--muted); margin: 0 0 1.2rem; }
+.logo-divider { border: 0; border-top: 1px solid var(--line); width: 100%; margin: 2.2rem 0; }
+.logo-support-note { text-align: center; color: var(--muted); font-size: .8rem; margin: .9rem 0 0; }
 .logo-row { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 1rem 2.2rem; }
 .logo-row li { display: flex; }
 .logo-financier { position: relative; padding-left: 2.2rem; margin-left: .6rem; }
@@ -365,11 +367,26 @@ img { max-width: 100%; display: block; }
 }
 .partner-mark:has(img) { background: transparent; border-color: transparent; padding: 0; min-height: 0; overflow: visible; }
 .partner-mark .logo-slot img { height: 64px; max-width: 220px; }
-/* Top logo band: large, prominent logos (draagvlak meteen zichtbaar).
-   object-fit: contain keeps the aspect ratio, so logos are never stretched. */
+/* Top logo band: logos sit directly on the background, no chips.
+   A fixed row height plus object-fit: contain normalises the optical size;
+   per-logo overrides correct the ones that read too big or too small. */
 .logoband { padding: 1.8rem 0 2.8rem; }
-.logoband .logo-row { gap: 1.2rem 2rem; }
-.logoband .logo-slot img { height: 62px; max-width: 300px; padding: 10px 16px; object-fit: contain; }
+.logoband .logo-row { gap: 1.1rem 2.6rem; }
+.logoband .logo-row li { height: 48px; display: flex; align-items: center; }
+.logoband .logo-slot { height: 100%; }
+.logoband .logo-slot img {
+  height: 40px; width: auto; max-width: 200px; object-fit: contain;
+  background: transparent; padding: 0; border-radius: 0;
+}
+/* Optical normalisation: wordmark-heavy logos down, compact marks up. */
+.logoband .logo-slot[data-logo="halle"] img { height: 32px; }
+.logoband .logo-slot[data-logo="grimbergen"] img { height: 44px; }
+.logoband .logo-slot[data-logo="welzijnskoepel"] img { height: 44px; }
+.logoband .logo-slot[data-logo="vites"] img { height: 46px; }
+.logoband .logo-slot[data-logo="ommekaar"] img { height: 46px; }
+/* Group 2 (funders): a touch smaller, subordinate to the partners. */
+.logoband .logo-row-support li { height: 40px; }
+.logoband .logo-row-support .logo-slot img { height: 34px; }
 
 /* ---------- Project approach ---------- */
 .approach { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.1rem; margin-top: 1rem; }
