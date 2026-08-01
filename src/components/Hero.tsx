@@ -1,6 +1,5 @@
-import { ShieldCheck } from "lucide-react";
 import { LOGOS } from "@/data";
-import { Wordmark, Wm, Preview, LogoSlot } from "./primitives";
+import { Wm, Preview, LogoSlot } from "./primitives";
 
 export function Hero() {
   return (
@@ -8,26 +7,29 @@ export function Hero() {
       <section className="hero" aria-labelledby="hero-title">
         <div className="wrap hero-grid">
           <div className="hero-copy reveal">
-            <p className="hero-brand">
-              <Wordmark lg />
-            </p>
-            <h1 id="hero-title">Activeringstrajecten wegen zwaar. Vooral op papier.</h1>
+            <p className="eyebrow">Project Slimme Regio · provincie Vlaams-Brabant</p>
+            <h1 id="hero-title">
+              Verslaggeving vreet tijd op de sociale dienst.{" "}
+              <span className="hero-h1-accent">Daar werken we samen aan.</span>
+            </h1>
             <p className="hero-sub">
-              Sociaal onderzoek, GPMI, gespreksverslagen, evaluaties, doorverwijzingen. Bij OCMW Halle
-              draait sinds 2025 een module die dat werk mee opmaakt, met de maatschappelijk werker die
-              alles goedkeurt. Binnen <Wm /> maken we die breder inzetbaar voor andere OCMW's, en bouwen
-              we er een ruimte bovenop waarin de cliënt zijn eigen traject ziet.
+              Maatschappelijk werkers schrijven hun verslagen vaak pas na het gesprek, of na de uren.
+              Bij OCMW Halle draait sinds 2025 een module die dat werk mee opmaakt: van gesprek naar een
+              gestructureerd verslag dat de maatschappelijk werker aanvult en valideert.
+            </p>
+            <p className="hero-body">
+              Binnen <Wm /> maken we die basis breder inzetbaar voor andere OCMW's, en bouwen we er een
+              ruimte bovenop waarin de cliënt zijn eigen traject ziet.
             </p>
             <div className="hero-cta">
               <a className="btn btn-primary" href="#aansluiten">
-                Wat betekent dit voor mijn dienst
+                Sluit aan
               </a>
-              <a className="btn btn-ghost" href="#nieuwsbrief">
-                Blijf op de hoogte
+              <a className="btn btn-ghost" href="#project">
+                Bekijk wat het oplevert
               </a>
             </div>
             <p className="hero-support">
-              <ShieldCheck size={16} strokeWidth={1.6} aria-hidden="true" />
               Met steun van de provincie Vlaams-Brabant, programma Slimme Regio (thema Slim Bestuur).
             </p>
           </div>
