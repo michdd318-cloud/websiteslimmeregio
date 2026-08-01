@@ -10,6 +10,14 @@ import {
   Users,
   Sparkles,
   Share2,
+  CheckCircle2,
+  Building2,
+  Mic,
+  Mail,
+  ClipboardCheck,
+  Route,
+  Languages,
+  ListChecks,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { FAQ } from "@/data";
@@ -24,13 +32,45 @@ export function GeenGreenfield() {
         <div className="section-head">
           <h2 id="wat-title">We beginnen niet opnieuw. We bouwen verder.</h2>
           <p className="lead">
-            Sinds 2025 ondersteunt bij OCMW Halle een module de maatschappelijk werkers in hun
-            administratie: gespreksverslagen, intakes, GPMI's, motivatiebrieven en cv's worden mee
-            opgemaakt. Die module is juridisch doorgelicht (DPIA en FRIA, goedgekeurd door meerdere
-            DPO's) en bouwt zelf voort op het VLAIO-project <Wm letter="P" suffix="ACT" /> en de
-            inzichten uit AIMPower.
+            Sinds 2025 draait bij OCMW Halle een module die maatschappelijk werkers ondersteunt bij
+            hun administratie: gespreksverslagen, intakes, GPMI's, motivatiebrieven en cv's.
           </p>
         </div>
+
+        <div className="values values-3">
+          <article className="value">
+            <span className="v-icon" aria-hidden="true">
+              <CheckCircle2 strokeWidth={1.6} />
+            </span>
+            <p className="proof-label">In gebruik</p>
+            <h3>Operationeel sinds 2025</h3>
+            <p>Elke dag in gebruik bij de sociale dienst van OCMW Halle.</p>
+          </article>
+
+          <article className="value">
+            <span className="v-icon" aria-hidden="true">
+              <Building2 strokeWidth={1.6} />
+            </span>
+            <p className="proof-label">
+              Ontwikkeld in <Wm letter="P" suffix="ACT" />
+            </p>
+            <h3>Drie OCMW's</h3>
+            <p>
+              Gebouwd met Halle, Londerzeel en Grimbergen in het VLAIO-project{" "}
+              <Wm letter="P" suffix="ACT" />.
+            </p>
+          </article>
+
+          <article className="value">
+            <span className="v-icon" aria-hidden="true">
+              <ShieldCheck strokeWidth={1.6} />
+            </span>
+            <p className="proof-label">Juridisch doorgelicht</p>
+            <h3>DPIA en FRIA</h3>
+            <p>Goedgekeurd door meerdere DPO's. Het kader is overdraagbaar.</p>
+          </article>
+        </div>
+
         <p className="rode-draad">
           <Wm /> zet daar de volgende stap op. Geen prototype, geen pilootversie die nog moet bewijzen
           dat het werkt, maar een basis die vandaag elke dag gebruikt wordt, en die we nu breder
@@ -67,11 +107,21 @@ export function ActiveringKost() {
         </ul>
         <div className="flow">
           <p>
-            Dat werk moet gebeuren. Het is de basis van een dossier dat standhoudt, en van een
-            beslissing die uitlegbaar is. Maar het gebeurt vandaag grotendeels handmatig, vaak na de
-            uren, en het is het eerste dat sneuvelt wanneer de caseload stijgt.
+            <Wm /> neemt dat repetitieve werk uit handen. Van gesprek naar een eerste gestructureerd
+            verslag dat de maatschappelijk werker aanvult en valideert. Hetzelfde voor het GPMI en de
+            terugkerende documenten. Niet om de hulpverlening te automatiseren, maar om tijd vrij te
+            maken voor de kern van het werk.
           </p>
         </div>
+        <blockquote className="pull-quote">
+          <p>
+            “Onze sociale dienst voelt de druk vandaag al toenemen. We willen niet wachten tot de
+            problemen zich opstapelen, maar actief onderzoeken hoe technologie onze maatschappelijk
+            werkers kan ondersteunen. Voor ons is het belangrijk dat AI geen afstand creëert tussen
+            hulpverlener en cliënt, maar net ruimte vrijmaakt voor betere begeleiding.”
+          </p>
+          <cite>Jeroen Hofmans, voorzitter Bijzonder Comité Sociale Dienst OCMW Halle</cite>
+        </blockquote>
       </div>
     </section>
   );
@@ -133,82 +183,80 @@ export function Uitdaging() {
 }
 
 /* ---------------- 6. De oplossing ---------------- */
+const WORKER_ROWS = [
+  { Icon: Mic, title: "Gesprek wordt verslag", body: "Intake, evaluatie, contactverslag" },
+  { Icon: FileText, title: "GPMI opmaken en actualiseren", body: "Ook bij elke wijziging" },
+  { Icon: Mail, title: "Brieven en beslissingen", body: "Terugkerende documenten" },
+  { Icon: ClipboardCheck, title: "De MA vult aan en valideert", body: "Niets gaat door zonder goedkeuring" },
+];
+
+const CLIENT_ROWS = [
+  { Icon: Route, title: "Waar sta ik", body: "Traject over alle levensdomeinen" },
+  { Icon: Languages, title: "In begrijpelijke taal", body: "Beslissingen, rechten en plichten" },
+  { Icon: ListChecks, title: "Wat is de volgende stap", body: "Afspraken en openstaande taken" },
+  { Icon: Sparkles, title: "Zelf aan de slag", body: "Cv, motivatiebrief, sollicitatie oefenen" },
+];
+
 export function Oplossing() {
   return (
     <section className="section section-alt" id="oplossing" aria-labelledby="opl-title">
       <div className="wrap">
         <div className="section-head">
           <p className="eyebrow">De oplossing</p>
-          <h2 id="opl-title">Eén traject, twee kanten.</h2>
+          <h2 id="opl-title">Eén traject, twee kanten</h2>
           <p className="lead">
-            <Wm /> vertrekt van het activeringstraject zelf. Aan de ene kant staat de maatschappelijk
-            werker, die vandaag verdrinkt in de administratie van dat traject. Aan de andere kant staat
-            de cliënt, die geen zicht heeft op datzelfde traject.
+            De hulpverlener verdrinkt in de administratie van het traject. De cliënt heeft er geen
+            zicht op. <Wm /> pakt beide kanten aan.
           </p>
         </div>
 
-        <div className="solution">
-          <article className="sol-block sol-worker">
-            <header className="sol-head">
-              <p className="track-tag">Voor de maatschappelijk werker · het vertrekpunt</p>
-              <h3>Minder administratie, meer directe hulpverlening</h3>
+        <div className="two-tracks">
+          <article className="track-card track-card-worker">
+            <header className="track-card-head">
+              <div>
+                <p className="track-card-tag">
+                  <UserRound size={14} strokeWidth={1.7} aria-hidden="true" /> Hulpverlener
+                </p>
+                <h3>Het dossier volgt mee</h3>
+              </div>
+              <span className="track-badge">Draait al</span>
             </header>
-            <p>De module ondersteunt bij het werk dat een activeringstraject genereert:</p>
-            <ul className="check-list">
-              <li>
-                gespreksverslagen, intakes en evaluatiegesprekken automatisch omzetten naar bruikbare
-                verslagen;
-              </li>
-              <li>het GPMI opmaken en actualiseren;</li>
-              <li>terugkerende documenten, brieven en beslissingen mee opstellen;</li>
-              <li>cv's en motivatiebrieven voor cliënten.</li>
+            <ul className="track-rows">
+              {WORKER_ROWS.map(({ Icon, title, body }) => (
+                <li className="track-row" key={title}>
+                  <Icon className="track-row-icon" size={17} strokeWidth={1.6} aria-hidden="true" />
+                  <div className="track-row-text">
+                    <h4>{title}</h4>
+                    <p>{body}</p>
+                  </div>
+                </li>
+              ))}
             </ul>
-            <p className="sol-note">
-              Dit deel is niet nieuw. Het draait sinds 2025 bij OCMW Halle en werd in{" "}
-              <Wm letter="P" suffix="ACT" /> gevalideerd, met gemiddeld 30% tijdwinst op de taken die
-              geautomatiseerd werden, en een juridisch kader dat door meerdere DPO's is goedgekeurd.
-              Binnen <Wm /> ligt de focus op bredere adoptie en opschaling naar andere OCMW's.
-            </p>
-            <p className="sol-note">
-              De basis werkt ook buiten activering: intakes, verslagen en dossieropbouw zijn dezelfde
-              handelingen. We beginnen waar de druk vandaag het hoogst ligt.
-            </p>
           </article>
 
-          <article className="sol-block sol-client">
-            <header className="sol-head">
-              <p className="track-tag">Voor de cliënt · de nieuwe uitbreiding</p>
-              <h3>Zicht op het eigen traject</h3>
+          <article className="track-card track-card-client">
+            <header className="track-card-head">
+              <div>
+                <p className="track-card-tag">
+                  <UserRound size={14} strokeWidth={1.7} aria-hidden="true" /> Cliënt
+                </p>
+                <h3>Zicht op het eigen traject</h3>
+              </div>
+              <span className="track-badge track-badge-new">Nieuw</span>
             </header>
-            <p>
-              Wie inlogt, ziet zijn traject op één plek. Niet als extra dossier, maar als de cliëntkant
-              van het dossier dat de hulpverlener al bijhoudt.
-            </p>
-            <div className="pillars">
-              <div className="pillar">
-                <h4>Inzicht en kennis</h4>
-                <ul className="check-list">
-                  <li>overzicht van het volledige traject over alle levensdomeinen;</li>
-                  <li>beslissingsbrieven en verslagen ook voor de cliënt, in begrijpelijke taal;</li>
-                  <li>uitleg over sociale rechten en begrippen (leefloon, GPMI, activeringsladder, REMI);</li>
-                  <li>rechten én plichten van beide partijen transparant gemaakt;</li>
-                  <li>afspraken, openstaande taken, gezette stappen en geactiveerde rechten.</li>
-                </ul>
-              </div>
-              <div className="pillar">
-                <h4>Tools om zelf een stap te zetten</h4>
-                <ul className="check-list">
-                  <li>een cv opbouwen op basis van het volledige profiel, inclusief buitenlandse werkervaring;</li>
-                  <li>motivatiebrieven op basis van een concrete vacature;</li>
-                  <li>overheidstaal vertaald naar duidelijke taal;</li>
-                  <li>sollicitaties voorbereiden: oefenen, structureren, eigen sterktes leren verwoorden.</li>
-                </ul>
-              </div>
-            </div>
-            <p className="sol-note">
-              Deze cliëntruimte bouwen we tijdens het project, samen met cliënten als co-creators. We
-              ontwerpen ze bewust voor de digitale vaardigheden van de doelgroep, en we toetsen onderweg
-              af wat werkt en wat niet.
+            <ul className="track-rows">
+              {CLIENT_ROWS.map(({ Icon, title, body }) => (
+                <li className="track-row" key={title}>
+                  <Icon className="track-row-icon" size={17} strokeWidth={1.6} aria-hidden="true" />
+                  <div className="track-row-text">
+                    <h4>{title}</h4>
+                    <p>{body}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+            <p className="track-foot">
+              Wordt tijdens het project gebouwd, samen met cliënten als co-creators.
             </p>
           </article>
         </div>
@@ -219,24 +267,6 @@ export function Oplossing() {
           caption="Wireframe/screenshot hulpverlener-module én cliëntruimte (toevoegen: assets/img/oplossing.png)"
           wide
         />
-
-        <aside className="callout">
-          <h4>Activering in de brede zin</h4>
-          <p>
-            <Wm /> gaat uit van activering als recht, niet als sanctie. Het traject documenteert ook
-            wat níet arbeidsgericht is: stabiliteit in huisvesting, grip op schulden, aandacht voor
-            gezondheid, taal, sociale contacten. Die basis bepaalt of een stap richting werk ooit
-            standhoudt.
-          </p>
-        </aside>
-
-        <aside className="callout">
-          <h4>Complementair aan 'Mijn Loopbaan' (VDAB)</h4>
-          <p>
-            We bouwen geen parallel systeem, maar een laag die de brede activering zichtbaar maakt,
-            precies het deel dat vandaag nergens gestructureerd staat.
-          </p>
-        </aside>
       </div>
     </section>
   );
@@ -430,7 +460,7 @@ const PARTNERS = [
     name: "ucll",
     title: "UCLL Research & Expertise",
     role: "Kennispartner",
-    body: "Wetenschappelijke onderbouwing en validatie, voor- en nametingen, kennisdeling via publicaties en open access handleidingen.",
+    body: "Wetenschappelijke onderbouwing en validatie via het project GPT Academy, met voor- en nametingen en kennisdeling via publicaties en open access handleidingen.",
     contact: null,
   },
   {
