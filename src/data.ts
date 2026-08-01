@@ -71,8 +71,12 @@ export const FAQ: FaqItem[] = [
     a: "Nee. We werken met open standaarden, sluiten aan bij OSLO en de Vlaamse bouwstenen, en spreken vooraf af hoe je je data terugkrijgt als je stopt.",
   },
   {
+    q: "Wat bedoelen jullie met activering in de brede zin?",
+    a: "{A}impact gaat uit van activering als recht, niet als sanctie. Het traject documenteert ook wat niet arbeidsgericht is: stabiliteit in huisvesting, grip op schulden, aandacht voor gezondheid, taal, sociale contacten. Die basis bepaalt of een stap richting werk ooit standhoudt.",
+  },
+  {
     q: "Hoe verhoudt dit zich tot 'Mijn Loopbaan' van VDAB?",
-    a: "Complementair. Mijn Loopbaan documenteert het arbeidsgerichte deel. {A}impact maakt het bredere activeringstraject zichtbaar: huisvesting, schulden, gezondheid, taal, sociale contacten.",
+    a: "Complementair. Mijn Loopbaan documenteert het arbeidsgerichte deel. {A}impact maakt het bredere activeringstraject zichtbaar: huisvesting, schulden, gezondheid, taal, sociale contacten. We bouwen geen parallel systeem, maar een laag die precies het deel zichtbaar maakt dat vandaag nergens gestructureerd staat.",
   },
   {
     q: "Wie financiert het project?",
