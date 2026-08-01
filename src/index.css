@@ -239,6 +239,7 @@ img { max-width: 100%; display: block; }
 .logo-label { text-align: center; text-transform: uppercase; letter-spacing: .1em; font-size: .78rem; font-weight: var(--fw-semi); color: var(--muted); margin: 0 0 1.2rem; }
 .logo-divider { border: 0; border-top: 1px solid var(--line); width: 100%; margin: 2.2rem 0; }
 .logo-support-note { text-align: center; color: var(--muted); font-size: .8rem; margin: .9rem 0 0; }
+.logo-klankbord { text-align: center; color: var(--ink-soft); font-size: .95rem; font-weight: var(--fw-med); margin: 0; }
 .logo-row { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 1rem 2.2rem; }
 .logo-row li { display: flex; }
 .logo-financier { position: relative; padding-left: 2.2rem; margin-left: .6rem; }
@@ -285,6 +286,12 @@ img { max-width: 100%; display: block; }
 .rode-draad {
   margin: 2.2rem 0 0; padding: 1.5rem 1.7rem; border-radius: var(--radius);
   background: var(--accent-tint); color: var(--ink); font-size: 1.05rem; border: 1px solid color-mix(in srgb, var(--accent) 22%, transparent);
+}
+.pull-quote { margin: 2rem 0 0; padding: .2rem 0 .2rem 1.5rem; border-left: 3px solid var(--accent); }
+.pull-quote p { margin: 0; font-size: 1.18rem; font-style: italic; line-height: 1.55; color: var(--ink); max-width: 60ch; }
+.pull-quote cite {
+  display: block; margin-top: 1rem; font-style: normal; font-size: .8rem;
+  text-transform: uppercase; letter-spacing: .06em; color: var(--muted); font-weight: var(--fw-semi);
 }
 
 /* ---------- Uitdaging ---------- */
@@ -380,10 +387,7 @@ img { max-width: 100%; display: block; }
 }
 /* Optical normalisation: wordmark-heavy logos down, compact marks up. */
 .logoband .logo-slot[data-logo="halle"] img { height: 32px; }
-.logoband .logo-slot[data-logo="grimbergen"] img { height: 44px; }
-.logoband .logo-slot[data-logo="welzijnskoepel"] img { height: 44px; }
 .logoband .logo-slot[data-logo="vites"] img { height: 46px; }
-.logoband .logo-slot[data-logo="ommekaar"] img { height: 46px; }
 /* Group 2 (funders): a touch smaller, subordinate to the partners. */
 .logoband .logo-row-support li { height: 40px; }
 .logoband .logo-row-support .logo-slot img { height: 34px; }

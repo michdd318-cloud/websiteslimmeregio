@@ -101,11 +101,21 @@ export function ActiveringKost() {
         </ul>
         <div className="flow">
           <p>
-            Dat werk moet gebeuren. Het is de basis van een dossier dat standhoudt, en van een
-            beslissing die uitlegbaar is. Maar het gebeurt vandaag grotendeels handmatig, vaak na de
-            uren, en het is het eerste dat sneuvelt wanneer de caseload stijgt.
+            <Wm /> neemt dat repetitieve werk uit handen. Van gesprek naar een eerste gestructureerd
+            verslag dat de maatschappelijk werker aanvult en valideert. Hetzelfde voor het GPMI en de
+            terugkerende documenten. Niet om de hulpverlening te automatiseren, maar om tijd vrij te
+            maken voor de kern van het werk.
           </p>
         </div>
+        <blockquote className="pull-quote">
+          <p>
+            “Onze sociale dienst voelt de druk vandaag al toenemen. We willen niet wachten tot de
+            problemen zich opstapelen, maar actief onderzoeken hoe technologie onze maatschappelijk
+            werkers kan ondersteunen. Voor ons is het belangrijk dat AI geen afstand creëert tussen
+            hulpverlener en cliënt, maar net ruimte vrijmaakt voor betere begeleiding.”
+          </p>
+          <cite>Jeroen Hofmans, voorzitter Bijzonder Comité Sociale Dienst OCMW Halle</cite>
+        </blockquote>
       </div>
     </section>
   );
@@ -464,7 +474,7 @@ const PARTNERS = [
     name: "ucll",
     title: "UCLL Research & Expertise",
     role: "Kennispartner",
-    body: "Wetenschappelijke onderbouwing en validatie, voor- en nametingen, kennisdeling via publicaties en open access handleidingen.",
+    body: "Wetenschappelijke onderbouwing en validatie via het project GPT Academy, met voor- en nametingen en kennisdeling via publicaties en open access handleidingen.",
     contact: null,
   },
   {

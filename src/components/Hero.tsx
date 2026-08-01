@@ -9,17 +9,19 @@ export function Hero() {
           <div className="hero-copy reveal">
             <p className="eyebrow">Project Slimme Regio · provincie Vlaams-Brabant</p>
             <h1 id="hero-title">
-              Verslaggeving vreet tijd op de sociale dienst.{" "}
-              <span className="hero-h1-accent">Daar werken we samen aan.</span>
+              Meer mensen kloppen aan.{" "}
+              <span className="hero-h1-accent">Dezelfde ploeg.</span>
             </h1>
             <p className="hero-sub">
-              Maatschappelijk werkers schrijven hun verslagen vaak pas na het gesprek, of na de uren.
-              Bij OCMW Halle draait sinds 2025 een module die dat werk mee opmaakt: van gesprek naar een
-              gestructureerd verslag dat de maatschappelijk werker aanvult en valideert.
+              De beperking van de werkloosheidsuitkering brengt de komende jaren meer mensen bij het
+              OCMW. Dat verhoogt de druk op sociale diensten die nu al kampen met hoge administratieve
+              lasten en moeilijk in te vullen vacatures.
             </p>
             <p className="hero-body">
-              Binnen <Wm /> maken we die basis breder inzetbaar voor andere OCMW's, en bouwen we er een
-              ruimte bovenop waarin de cliënt zijn eigen traject ziet.
+              <Wm /> zet technologie in om die druk te helpen verlichten, niet om de hulpverlening te
+              automatiseren. Repetitief administratief werk gaat uit handen, zodat er tijd overblijft
+              voor de kern: de persoonlijke begeleiding van mensen. Daarnaast bouwen we een digitale
+              cliëntruimte waarin mensen meer grip krijgen op hun eigen traject.
             </p>
             <div className="hero-cta">
               <a className="btn btn-primary" href="#aansluiten">
@@ -60,6 +62,15 @@ export function Hero() {
                 </li>
               ))}
             </ul>
+          </div>
+
+          <hr className="logo-divider" />
+
+          <div className="logo-group">
+            <p className="logo-label">Klankbordgroep</p>
+            <p className="logo-klankbord">
+              Welzijnskoepel West-Brabant, OCMW Grimbergen, Federgon
+            </p>
           </div>
 
           <hr className="logo-divider" />
