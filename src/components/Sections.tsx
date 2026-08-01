@@ -10,6 +10,8 @@ import {
   Users,
   Sparkles,
   Share2,
+  CheckCircle2,
+  Building2,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { FAQ } from "@/data";
@@ -24,13 +26,45 @@ export function GeenGreenfield() {
         <div className="section-head">
           <h2 id="wat-title">We beginnen niet opnieuw. We bouwen verder.</h2>
           <p className="lead">
-            Sinds 2025 ondersteunt bij OCMW Halle een module de maatschappelijk werkers in hun
-            administratie: gespreksverslagen, intakes, GPMI's, motivatiebrieven en cv's worden mee
-            opgemaakt. Die module is juridisch doorgelicht (DPIA en FRIA, goedgekeurd door meerdere
-            DPO's) en bouwt zelf voort op het VLAIO-project <Wm letter="P" suffix="ACT" /> en de
-            inzichten uit AIMPower.
+            Sinds 2025 draait bij OCMW Halle een module die maatschappelijk werkers ondersteunt bij
+            hun administratie: gespreksverslagen, intakes, GPMI's, motivatiebrieven en cv's.
           </p>
         </div>
+
+        <div className="values values-3">
+          <article className="value">
+            <span className="v-icon" aria-hidden="true">
+              <CheckCircle2 strokeWidth={1.6} />
+            </span>
+            <p className="proof-label">In gebruik</p>
+            <h3>Operationeel sinds 2025</h3>
+            <p>Elke dag in gebruik bij de sociale dienst van OCMW Halle.</p>
+          </article>
+
+          <article className="value">
+            <span className="v-icon" aria-hidden="true">
+              <Building2 strokeWidth={1.6} />
+            </span>
+            <p className="proof-label">
+              Ontwikkeld in <Wm letter="P" suffix="ACT" />
+            </p>
+            <h3>Drie OCMW's</h3>
+            <p>
+              Gebouwd met Halle, Londerzeel en Grimbergen in het VLAIO-project{" "}
+              <Wm letter="P" suffix="ACT" />.
+            </p>
+          </article>
+
+          <article className="value">
+            <span className="v-icon" aria-hidden="true">
+              <ShieldCheck strokeWidth={1.6} />
+            </span>
+            <p className="proof-label">Juridisch doorgelicht</p>
+            <h3>DPIA en FRIA</h3>
+            <p>Goedgekeurd door meerdere DPO's. Het kader is overdraagbaar.</p>
+          </article>
+        </div>
+
         <p className="rode-draad">
           <Wm /> zet daar de volgende stap op. Geen prototype, geen pilootversie die nog moet bewijzen
           dat het werkt, maar een basis die vandaag elke dag gebruikt wordt, en die we nu breder

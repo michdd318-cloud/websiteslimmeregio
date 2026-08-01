@@ -324,7 +324,9 @@ img { max-width: 100%; display: block; }
 
 /* ---------- Vertrouwen values ---------- */
 .values { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.1rem; }
+.values-3 { grid-template-columns: repeat(3, 1fr); }
 .value { padding: 1.5rem 1.45rem; border-radius: var(--radius); background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow-sm); }
+.proof-label { margin: 0 0 .35rem; font-size: .78rem; font-weight: var(--fw-semi); color: var(--accent-strong); text-transform: uppercase; letter-spacing: .08em; }
 .value h3 { font-size: 1.06rem; margin-bottom: .55rem; }
 .value p { margin: 0; font-size: .94rem; color: var(--ink-soft); }
 .v-icon { display: inline-grid; place-items: center; width: 42px; height: 42px; border-radius: 11px; background: var(--accent-tint); color: var(--accent-strong); margin-bottom: 1rem; }
@@ -486,14 +488,6 @@ img { max-width: 100%; display: block; }
 /* ---------- v2 content elements ---------- */
 .hero-sub { max-width: 46ch; }
 .callout { background: var(--surface); }
-
-/* Vertrouwensbalk facts */
-.trustfacts {
-  list-style: none; margin: 0 0 1.7rem; padding: 0;
-  display: flex; flex-wrap: wrap; justify-content: center; gap: .6rem 2rem;
-}
-.trustfacts li { display: flex; align-items: center; gap: .5rem; font-size: .9rem; color: var(--ink-soft); font-weight: var(--fw-med); }
-.trustfacts svg { color: var(--accent); flex: none; }
 
 /* Readable prose blocks */
 .flow p { margin: 1.1rem 0 0; color: var(--ink-soft); }

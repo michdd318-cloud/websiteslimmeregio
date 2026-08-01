@@ -1,12 +1,6 @@
-import { ShieldCheck, Check } from "lucide-react";
+import { ShieldCheck } from "lucide-react";
 import { LOGOS } from "@/data";
 import { Wordmark, Wm, Preview, LogoSlot } from "./primitives";
-
-const FACTS = [
-  "Operationeel bij OCMW Halle sinds 2025",
-  "Gebouwd in {P}ACT met de OCMW's van Halle, Londerzeel en Grimbergen",
-  "DPIA en FRIA goedgekeurd door meerdere DPO's",
-];
 
 export function Hero() {
   return (
@@ -55,21 +49,6 @@ export function Hero() {
 
       <section className="logoband" aria-label="Vertrouwensbalk en partners">
         <div className="wrap">
-          <ul className="trustfacts">
-            {FACTS.map((f) => (
-              <li key={f}>
-                <Check size={16} strokeWidth={2} aria-hidden="true" />
-                {f.includes("{P}ACT") ? (
-                  <span>
-                    Gebouwd in <Wm letter="P" suffix="ACT" /> met de OCMW's van Halle, Londerzeel en
-                    Grimbergen
-                  </span>
-                ) : (
-                  <span>{f}</span>
-                )}
-              </li>
-            ))}
-          </ul>
           <p className="logoband-intro">Een project van:</p>
           <ul className="logo-row">
             {LOGOS.map((l) => (
