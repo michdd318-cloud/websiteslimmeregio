@@ -44,23 +44,12 @@ export function Hero() {
                   <span className="hp-check" aria-hidden="true">✓</span>Bewezen bij OCMW Halle
                 </li>
               </ul>
-              <p className="hero-lead2">
-                Dit project zet nu de stap naar een bredere, schaalbare en cliëntgerichte toepassing. De
-                focus ligt daarbij op:
-              </p>
-              <div className="hero-focus">
-                <div className="hero-focus-card hf-1">
-                  <p className="hf-label">Drempels wegnemen</p>
-                  <p className="hf-body">Adoptiedrempels wegnemen bij hulpverlener én cliënt.</p>
-                </div>
-                <span className="hero-focus-plus" aria-hidden="true">+</span>
-                <div className="hero-focus-card hf-2">
-                  <p className="hf-label">Cliëntruimte maken</p>
-                  <p className="hf-body">
-                    Cliënten zien hun eigen traject en gaan er zelf mee aan de slag.
-                  </p>
-                </div>
-              </div>
+              <p className="hero-lead2">Dit project ontwikkelt de toepassing nu verder:</p>
+              <ul className="hero-tags">
+                <li>Breder</li>
+                <li>Schaalbaar</li>
+                <li>Cliëntgericht</li>
+              </ul>
             </div>
           </div>
 
