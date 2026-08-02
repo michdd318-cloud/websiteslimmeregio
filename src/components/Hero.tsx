@@ -1,5 +1,5 @@
 import { PROJECT_LOGOS, SUPPORT_LOGOS } from "@/data";
-import { Wm, Preview, LogoSlot } from "./primitives";
+import { Preview, LogoSlot } from "./primitives";
 
 export function Hero() {
   return (
@@ -7,9 +7,6 @@ export function Hero() {
       <section className="hero" aria-labelledby="hero-title">
         <div className="wrap hero-grid">
           <div className="hero-copy reveal">
-            <p className="eyebrow">
-              <Wm />
-            </p>
             <h1 id="hero-title">
               Minder tijd in het dossier.{" "}
               <span className="hero-h1-accent">Meer tijd voor de cliënt.</span>
@@ -36,9 +33,6 @@ export function Hero() {
                 </p>
               </div>
             </div>
-            <p className="hero-support">
-              Met steun van de provincie Vlaams-Brabant, programma Slimme Regio (thema Slim Bestuur).
-            </p>
           </div>
 
           <div className="hero-visual reveal">

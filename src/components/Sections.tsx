@@ -11,11 +11,11 @@ import {
   Sparkles,
   Share2,
   Mic,
-  Mail,
   ClipboardCheck,
   Route,
-  Languages,
-  ListChecks,
+  RefreshCw,
+  Trash2,
+  BookOpen,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { FAQ } from "@/data";
@@ -25,7 +25,7 @@ import { ReleaseTimeLine, type TimelineEntry } from "./ui/release-time-line";
 /* ---------------- 4. Wat een activeringstraject vandaag kost ---------------- */
 export function ActiveringKost() {
   return (
-    <section className="section section-alt" id="activering" aria-labelledby="akost-title">
+    <section className="section" id="activering" aria-labelledby="akost-title">
       <div className="wrap">
         <div className="section-head">
           <p className="eyebrow">De werklast</p>
@@ -65,7 +65,7 @@ export function ActiveringKost() {
 /* ---------------- 5. De uitdaging ---------------- */
 export function Uitdaging() {
   return (
-    <section className="section" id="uitdaging" aria-labelledby="uit-title">
+    <section className="section section-alt" id="uitdaging" aria-labelledby="uit-title">
       <div className="wrap">
         <div className="section-head">
           <p className="eyebrow">De uitdaging</p>
@@ -122,17 +122,17 @@ export function Uitdaging() {
 
 /* ---------------- 6. De oplossing ---------------- */
 const WORKER_ROWS = [
-  { Icon: Mic, title: "Gesprek wordt verslag", body: "Intake, evaluatie, contactverslag" },
-  { Icon: FileText, title: "GPMI opmaken en actualiseren", body: "Ook bij elke wijziging" },
-  { Icon: Mail, title: "Brieven en beslissingen", body: "Terugkerende documenten" },
-  { Icon: ClipboardCheck, title: "De MA vult aan en valideert", body: "Niets gaat door zonder goedkeuring" },
+  { Icon: Mic, title: "Opname en transcriptie", body: "Het gesprek wordt opgenomen en automatisch uitgeschreven" },
+  { Icon: FileText, title: "Een eerste gestructureerd verslag", body: "AI vult de sjablonen van de dienst in: sociaal verslag, profielschets, GPMI" },
+  { Icon: RefreshCw, title: "Het cliëntprofiel blijft actueel", body: "Elk gesprek werkt bij wat al in het dossier staat" },
+  { Icon: ClipboardCheck, title: "De maatschappelijk werker vult aan en valideert", body: "Niets gaat door zonder goedkeuring" },
+  { Icon: Trash2, title: "De audio verdwijnt na verwerking", body: "Permanent, met instelbare bewaartermijnen" },
 ];
 
 const CLIENT_ROWS = [
-  { Icon: Route, title: "Waar sta ik", body: "Traject over alle levensdomeinen" },
-  { Icon: Languages, title: "In begrijpelijke taal", body: "Beslissingen, rechten en plichten" },
-  { Icon: ListChecks, title: "Wat is de volgende stap", body: "Afspraken en openstaande taken" },
-  { Icon: Sparkles, title: "Zelf aan de slag", body: "Cv, motivatiebrief, sollicitatie oefenen" },
+  { Icon: BookOpen, title: "Het eigen dossier leesbaar gemaakt", body: "Beslissingen, verslagen, afspraken, automatisch in klare taal" },
+  { Icon: Route, title: "Overzicht van het hele traject", body: "Wat moet, wat is er gedaan en wat staat er nog open" },
+  { Icon: FileText, title: "Cv, motivatiebrief en meer", body: "De cliënt bouwt ze zelf op, op basis van de eigen data" },
 ];
 
 export function Oplossing() {
@@ -143,8 +143,8 @@ export function Oplossing() {
           <p className="eyebrow">De oplossing</p>
           <h2 id="opl-title">Eén traject, twee kanten</h2>
           <p className="lead">
-            De hulpverlener verdrinkt in de administratie van het traject. De cliënt heeft er geen
-            zicht op. <Wm /> pakt beide kanten aan.
+            Het activeringstraject genereert aan beide kanten hetzelfde probleem: de hulpverlener
+            verliest tijd aan de administratie ervan, de cliënt heeft er geen zicht op.
           </p>
         </div>
 
@@ -155,7 +155,7 @@ export function Oplossing() {
                 <p className="track-card-tag">
                   <UserRound size={14} strokeWidth={1.7} aria-hidden="true" /> Hulpverlener
                 </p>
-                <h3>Het dossier volgt mee</h3>
+                <h3>Van gesprek naar verslag</h3>
               </div>
               <span className="track-badge">Draait al</span>
             </header>
@@ -170,6 +170,7 @@ export function Oplossing() {
                 </li>
               ))}
             </ul>
+            <p className="track-foot">In gebruik bij OCMW Halle sinds 2025.</p>
           </article>
 
           <article className="track-card track-card-client">
@@ -178,7 +179,7 @@ export function Oplossing() {
                 <p className="track-card-tag">
                   <UserRound size={14} strokeWidth={1.7} aria-hidden="true" /> Cliënt
                 </p>
-                <h3>Zicht op het eigen traject</h3>
+                <h3>Zicht op het eigen traject via een eigen cliëntruimte</h3>
               </div>
               <span className="track-badge track-badge-new">Nieuw</span>
             </header>
