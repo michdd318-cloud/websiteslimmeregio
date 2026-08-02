@@ -250,7 +250,6 @@ img { max-width: 100%; display: block; }
 .section, .site-footer, [id] { scroll-margin-top: 88px; }
 .section { padding: clamp(3.4rem, 2.4rem + 4vw, 6rem) 0; }
 .section-alt { background: var(--surface-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-.section-trust { background: var(--accent-tint); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 
 .section-head { max-width: none; margin-bottom: 2.6rem; }
 .eyebrow {
@@ -355,22 +354,6 @@ img { max-width: 100%; display: block; }
 .callout { margin-top: 2.4rem; padding: 1.7rem 1.8rem; border-radius: var(--radius); border: 1px dashed var(--line-strong); background: var(--surface-2); }
 .callout h4 { color: var(--accent-strong); margin-bottom: .5rem; }
 .callout p { margin: 0; color: var(--ink-soft); }
-
-/* ---------- Vertrouwen values ---------- */
-.values { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.1rem; }
-.value { padding: 1.5rem 1.45rem; border-radius: var(--radius); background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow-sm); }
-.value h3 { font-size: 1.06rem; margin-bottom: .55rem; }
-.value p { margin: 0; font-size: .94rem; color: var(--ink-soft); }
-.v-icon { display: inline-grid; place-items: center; width: 42px; height: 42px; border-radius: 11px; background: var(--accent-tint); color: var(--accent-strong); margin-bottom: 1rem; }
-.v-icon svg { width: 22px; height: 22px; }
-.value-cta { background: var(--ink); color: #f4f3ef; grid-column: span 1; display: flex; flex-direction: column; }
-.value-cta h3 { color: #fff; }
-.value-cta p { color: color-mix(in srgb, #f4f3ef 82%, transparent); flex: 1; }
-.value-cta .link-arrow { color: var(--accent); margin-top: .8rem; }
-:root[data-theme="dark"] .value-cta { background: #0c1512; border-color: var(--line-strong); }
-@media (prefers-color-scheme: dark) { :root[data-theme="auto"] .value-cta { background: #0c1512; border-color: var(--line-strong); } }
-
-/* Values grid: 8 cards -> clean 4x2, no ragged empty cells. */
 
 /* ---------- Partners ---------- */
 .partners { display: grid; gap: 1rem; }
@@ -586,7 +569,6 @@ img { max-width: 100%; display: block; }
   .workload { grid-template-columns: 1fr; gap: 2.2rem; }
   .workload-list { padding-right: 0; }
   .workload-quote { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); padding-top: 1.6rem; }
-  .values { grid-template-columns: repeat(2, 1fr); }
   .participate { grid-template-columns: 1fr; }
   .footer-top { grid-template-columns: 1fr 1fr; }
   .footer-brand { grid-column: span 2; }
@@ -600,7 +582,6 @@ img { max-width: 100%; display: block; }
   .workload-list { grid-template-columns: 1fr; grid-template-rows: none; grid-auto-flow: row; }
   .workload-list li:nth-child(4) { border-bottom: 1px solid var(--line); }
   .workload-list li:nth-child(8) { border-bottom: 0; }
-  .values { grid-template-columns: 1fr; }
   .partner, .financier-note { grid-template-columns: 1fr; gap: .9rem; }
   .partner-mark { max-width: 240px; }
   .signup-row { flex-direction: column; }

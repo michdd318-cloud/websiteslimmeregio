@@ -6,7 +6,6 @@ import {
   Uitdaging,
   Oplossing,
   Tijdlijn,
-  Vertrouwen,
   Partners,
   Project,
   Aansluiten,
@@ -34,9 +33,8 @@ export default function App() {
         <ActiveringKost />
         <Oplossing />
         <Tijdlijn />
-        <Vertrouwen />
-        <Partners />
         <Project />
+        <Partners />
         <Aansluiten />
         <Faq />
       </main>

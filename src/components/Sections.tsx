@@ -1,8 +1,6 @@
 import { useState } from "react";
 import {
-  ShieldCheck,
   FileText,
-  Lock,
   UserRound,
   Mic,
   ClipboardCheck,
@@ -255,59 +253,6 @@ export function Tijdlijn() {
     <section className="section section-alt" id="tijdlijn" aria-labelledby="tl-title">
       <div className="wrap">
         <ReleaseTimeLine intro={PARCOURS_INTRO} steps={PARCOURS_STEPS} />
-      </div>
-    </section>
-  );
-}
-
-/* ---------------- 9. Vertrouwen ---------------- */
-const VALUES = [
-  {
-    Icon: ShieldCheck,
-    title: "De hulpverlener blijft aan het stuur",
-    body: "Niets gaat door zonder goedkeuring. Die goedkeuringsstap is een bewuste grendel tegen fouten en wordt gelogd. De eindverantwoordelijkheid ligt bij de mens.",
-  },
-  {
-    Icon: FileText,
-    title: "De AI verzint niets",
-    body: "Ze vertrekt altijd van wat in het dossier of het gesprek staat en trekt geen eigen conclusies. Resultaten blijven controleerbaar en corrigeerbaar.",
-  },
-  {
-    Icon: Lock,
-    title: "Privacy en juridisch kader",
-    body: "Audio wordt na verwerking permanent verwijderd. Bewaartermijnen zijn instelbaar per organisatie. Conform GDPR en AI Act, vanuit een DPIA/FRIA-kader dat door meerdere DPO's is gevalideerd. We leggen de essentie helder uit, niet in een document van 120 pagina's.",
-  },
-  {
-    Icon: UserRound,
-    title: "De cliënt beslist en kijkt mee",
-    body: "De cliënt kiest wanneer en waarvoor AI-ondersteuning wordt gebruikt, kan meekijken op het scherm en krijgt heldere uitleg. Ook voor wie de taal minder machtig is. Output is standaard in het Nederlands, conform de taalwetgeving; vertaling of hertaling is optioneel en per bestuur uitschakelbaar.",
-  },
-];
-
-export function Vertrouwen() {
-  return (
-    <section className="section section-trust" id="vertrouwen" aria-labelledby="ver-title">
-      <div className="wrap">
-        <div className="section-head">
-          <p className="eyebrow">Vertrouwen</p>
-          <h2 id="ver-title">Waarop je kan terugvallen.</h2>
-          <p className="lead">
-            AI in de hulpverlening staat of valt met vertrouwen. Dit project is ontworpen rond de
-            waarden die hulpverleners en cliënten zelf het belangrijkst noemen.
-          </p>
-        </div>
-
-        <div className="values values-4">
-          {VALUES.map(({ Icon, title, body }) => (
-            <article className="value" key={title}>
-              <span className="v-icon" aria-hidden="true">
-                <Icon strokeWidth={1.6} />
-              </span>
-              <h3>{title}</h3>
-              <p>{body}</p>
-            </article>
-          ))}
-        </div>
       </div>
     </section>
   );
