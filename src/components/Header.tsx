@@ -7,20 +7,18 @@ import { Wordmark } from "./primitives";
 const PRIMARY = [
   ["#activering", "Wat"],
   ["#oplossing", "Oplossing"],
-  ["#vertrouwen", "Vertrouwen"],
-  ["#partners", "Partners"],
   ["#project", "Project"],
+  ["#partners", "Partners"],
   ["#faq", "FAQ"],
 ];
 
 const MOBILE = [
-  ["#activering", "Wat het kost"],
   ["#uitdaging", "De uitdaging"],
+  ["#activering", "Wat het kost"],
   ["#oplossing", "De oplossing"],
   ["#tijdlijn", "Tijdlijn"],
-  ["#vertrouwen", "Vertrouwen"],
-  ["#partners", "Partners"],
   ["#project", "Het project"],
+  ["#partners", "Partners"],
   ["#aansluiten", "Aansluiten"],
   ["#faq", "FAQ"],
   ["#contact", "Contact"],

@@ -1,42 +1,42 @@
-import { useEffect, useRef, useState, type ComponentType } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
-export type TimelineEntry = {
-  icon: ComponentType<{ className?: string; size?: number; strokeWidth?: number }>;
-  title: string;
-  subtitle: string;
-  description: string;
-  items?: string[];
-  button?: { url: string; text: string };
+export type TimelineStep = {
+  num: string;
+  meta: string;
+  title: ReactNode;
+  description: ReactNode;
+  cta?: { url: string; text: string };
+};
+
+export type TimelineIntro = {
+  eyebrow: string;
+  title: ReactNode;
+  subtitle: ReactNode;
 };
 
 /**
- * Vertical release-style timeline. Only the entry nearest the top-third of the
- * viewport is "active" and expands to reveal its detail; the others stay
- * collapsed. Adapted to the project's theme-aware design tokens (works in both
- * light and dark, under prefers-color-scheme and the manual toggle).
+ * Scroll-driven "parcours": a sticky intro with a progress bar on the left, and
+ * a column of steps on the right. The active step (the furthest one whose top
+ * has passed the viewport midpoint) lights up; at the bottom the last step is
+ * forced active. Progress runs first -> last as you scroll. Theme-aware via the
+ * design tokens; respects prefers-reduced-motion (transitions disabled in CSS).
  */
-export function ReleaseTimeLine({ entries }: { entries: TimelineEntry[] }) {
+export function ReleaseTimeLine({ intro, steps }: { intro: TimelineIntro; steps: TimelineStep[] }) {
   const [active, setActive] = useState(0);
-  const sentinels = useRef<(HTMLDivElement | null)[]>([]);
+  const refs = useRef<(HTMLLIElement | null)[]>([]);
 
   useEffect(() => {
     let raf = 0;
     const compute = () => {
       raf = 0;
-      const centerY = window.innerHeight / 3;
+      const mid = window.innerHeight * 0.5;
       let best = 0;
-      let bestDist = Infinity;
-      sentinels.current.forEach((node, i) => {
-        if (!node) return;
-        const rect = node.getBoundingClientRect();
-        const mid = rect.top + rect.height / 2;
-        const dist = Math.abs(mid - centerY);
-        if (dist < bestDist) {
-          bestDist = dist;
-          best = i;
-        }
+      refs.current.forEach((el, i) => {
+        if (el && el.getBoundingClientRect().top <= mid) best = i;
       });
+      const doc = document.documentElement;
+      if (window.scrollY + window.innerHeight >= doc.scrollHeight - 4) best = steps.length - 1;
       setActive(best);
     };
     const onScroll = () => {
@@ -50,59 +50,60 @@ export function ReleaseTimeLine({ entries }: { entries: TimelineEntry[] }) {
       window.removeEventListener("resize", onScroll);
       if (raf) cancelAnimationFrame(raf);
     };
-  }, []);
+  }, [steps.length]);
+
+  const total = steps.length;
+  const pct = ((active + 1) / total) * 100;
+  const label = `${String(active + 1).padStart(2, "0")} / ${String(total).padStart(2, "0")}`;
 
   return (
-    <div className="tl-list">
-      {entries.map((entry, index) => {
-        const on = index === active;
-        const Icon = entry.icon;
-        return (
-          <div className="tl-item" key={entry.title} aria-current={on ? "true" : "false"}>
-            <div className="tl-meta">
-              <span className={cn("tl-icon", on && "is-active")} aria-hidden="true">
-                <Icon size={18} strokeWidth={1.6} />
-              </span>
-              <span className="tl-meta-text">
-                <span className="tl-meta-title">{entry.title}</span>
-                <span className="tl-meta-sub">{entry.subtitle}</span>
-              </span>
-            </div>
+    <div className="parcours">
+      <div className="parcours-aside">
+        <p className="eyebrow">{intro.eyebrow}</p>
+        <h2 id="tl-title" className="parcours-title">
+          {intro.title}
+        </h2>
+        <span className="parcours-bar" aria-hidden="true" />
+        <p className="parcours-sub">{intro.subtitle}</p>
+        <div className="parcours-progress" aria-hidden="true">
+          <span className="pp-label">{label}</span>
+          <span className="pp-track">
+            <span className="pp-fill" style={{ width: `${pct}%` }} />
+          </span>
+        </div>
+      </div>
 
-            <div
-              className="tl-sentinel"
-              aria-hidden="true"
+      <ol className="parcours-steps">
+        {steps.map((step, i) => {
+          const on = i === active;
+          return (
+            <li
+              key={step.num}
+              className={cn("parcours-step", on && "is-active")}
+              aria-current={on ? "step" : undefined}
               ref={(el) => {
-                sentinels.current[index] = el;
+                refs.current[i] = el;
               }}
-            />
-
-            <article className={cn("tl-card", on && "is-active")}>
-              <h3 className={cn("tl-heading", !on && "is-dim")}>{entry.title}</h3>
-              <p className={cn("tl-desc", !on && "is-clamped")}>{entry.description}</p>
-
-              <div className={cn("tl-expand", on && "is-open")} aria-hidden={!on}>
-                <div className="tl-expand-inner">
-                  {entry.items && entry.items.length > 0 && (
-                    <ul className="tl-items">
-                      {entry.items.map((item) => (
-                        <li key={item}>{item}</li>
-                      ))}
-                    </ul>
-                  )}
-                  {entry.button && (
-                    <div className="tl-actions">
-                      <a className="btn btn-primary btn-sm" href={entry.button.url}>
-                        {entry.button.text}
-                      </a>
-                    </div>
-                  )}
-                </div>
+            >
+              <div className="ps-meta">
+                <span className="ps-num">{step.num}</span>
+                <span className="ps-metatxt">{step.meta}</span>
               </div>
-            </article>
-          </div>
-        );
-      })}
+              <div className="ps-body">
+                <h3 className="ps-title">{step.title}</h3>
+                <p className="ps-desc">{step.description}</p>
+                {on && step.cta && (
+                  <div className="ps-cta">
+                    <a className="btn btn-primary" href={step.cta.url}>
+                      {step.cta.text}
+                    </a>
+                  </div>
+                )}
+              </div>
+            </li>
+          );
+        })}
+      </ol>
     </div>
   );
 }

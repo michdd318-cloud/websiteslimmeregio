@@ -1,15 +1,7 @@
 import { useState } from "react";
 import {
-  ShieldCheck,
   FileText,
-  Lock,
   UserRound,
-  FlaskConical,
-  Lightbulb,
-  Bot,
-  Users,
-  Sparkles,
-  Share2,
   Mic,
   ClipboardCheck,
   Route,
@@ -20,7 +12,7 @@ import {
 import { cn } from "@/lib/utils";
 import { FAQ } from "@/data";
 import { Wm, Preview, LogoSlot } from "./primitives";
-import { ReleaseTimeLine, type TimelineEntry } from "./ui/release-time-line";
+import { ReleaseTimeLine, type TimelineIntro, type TimelineStep } from "./ui/release-time-line";
 
 /* ---------------- 4. Wat een activeringstraject vandaag kost ---------------- */
 export function ActiveringKost() {
@@ -211,50 +203,48 @@ export function Oplossing() {
   );
 }
 
-/* ---------------- 8. Tijdlijn ---------------- */
-const TIMELINE: TimelineEntry[] = [
+/* ---------------- 8. Tijdlijn: het parcours ---------------- */
+const PARCOURS_INTRO: TimelineIntro = {
+  eyebrow: "Het parcours",
+  title: "We beginnen niet opnieuw. We bouwen verder.",
+  subtitle:
+    "Geen prototype, maar bestaande praktijk die we breed uitgerold krijgen. Scroll door het parcours van de partners.",
+};
+
+const PARCOURS_STEPS: TimelineStep[] = [
   {
-    icon: FlaskConical,
-    title: "{P}ACT",
-    subtitle: "VLAIO-project",
+    num: "01",
+    meta: "Innovatie",
+    title: <Wm letter="P" suffix="ACT" />,
     description:
-      "Samen met de OCMW's van Halle, Londerzeel en Grimbergen bouwden we AI-ondersteuning voor administratieve taken. Resultaat: gemiddeld 30% tijdwinst op de geautomatiseerde taken, en een DPIA/FRIA-kader dat door meerdere DPO's werd gevalideerd. Getest in de dagelijkse praktijk van drie OCMW's.",
+      "Samen met OCMW's bouwden we AI-ondersteuning voor administratieve taken: transcriptie van cliëntcontacten, automatische verslaggeving. En dit in lijn met de AI Act, met een veilige architectuur en een DPIA en FRIA van de module.",
   },
   {
-    icon: Lightbulb,
+    num: "02",
+    meta: "Onderzoek en inzichten",
     title: "AIMPower",
-    subtitle: "Onderzoek en inzichten",
     description:
-      "Bracht in kaart wat hulpverleners en cliënten echt nodig hebben, en welke waarden centraal moeten staan bij AI in de hulpverlening.",
+      "Bracht in kaart wat hulpverleners en cliënten écht nodig hebben, en welke waarden centraal moeten staan bij AI in de hulpverlening.",
   },
   {
-    icon: Bot,
-    title: "AI-module bij OCMW Halle",
-    subtitle: "Sinds 2025 · operationeel",
-    description:
-      "Ondersteunt de maatschappelijk werkers van OCMW Halle elke dag bij hun administratie. Juridisch doorgelicht en in gebruik.",
+    num: "03",
+    meta: "Operationeel sinds 2025",
+    title: "AI-ondersteunde hulpverlening bij OCMW",
+    description: "Ondersteunt maatschappelijk werkers elke dag bij hun administratie.",
   },
   {
-    icon: Users,
-    title: "Co-creatieworkshop begeleidingsethiek",
-    subtitle: "Mei 2026",
-    description:
-      "Onder leiding van het Kenniscentrum Data & Maatschappij, met cliënten en maatschappelijk werkers samen aan tafel. Eén van de conclusies: geef die verslagen, to-do's en cv's ook aan de cliënt zelf. Dat is waar de cliëntruimte vandaan komt.",
+    num: "04",
+    meta: "2026-2028 · Slimme Regio",
+    title: <Wm />,
+    description: "De bewezen basis breder inzetbaar maken, en er de cliëntruimte op bouwen.",
   },
   {
-    icon: Sparkles,
-    title: "{A}impact",
-    subtitle: "2026-2028 · Slimme Regio",
-    description:
-      "De bewezen basis breder inzetbaar maken, en er de cliëntruimte op bouwen. Met steun van de provincie Vlaams-Brabant.",
-  },
-  {
-    icon: Share2,
+    num: "05",
+    meta: "Overdraagbaar kader",
     title: "Opschaling",
-    subtitle: "Overdraagbaar kader",
     description:
-      "De aanpak vertalen naar instrumenten die andere OCMW's kunnen overnemen, gedocumenteerd als blauwdruk voor de sector.",
-    button: { url: "#aansluiten", text: "Ik doe mee" },
+      "De aanpak en ervaringen vertalen naar instrumenten die andere OCMW's kunnen overnemen, gedocumenteerd als blauwdruk voor de sector.",
+    cta: { url: "#aansluiten", text: "Ik doe mee" },
   },
 ];
 
@@ -262,67 +252,7 @@ export function Tijdlijn() {
   return (
     <section className="section section-alt" id="tijdlijn" aria-labelledby="tl-title">
       <div className="wrap">
-        <div className="section-head">
-          <h2 id="tl-title">We beginnen niet opnieuw. We bouwen verder.</h2>
-          <p className="lead">
-            We maken geen prototype maar hebben als doel de bestaande praktijk breed uitgerold te
-            krijgen. Scroll hieronder doorheen het parcours van de partners.
-          </p>
-        </div>
-        <ReleaseTimeLine entries={TIMELINE} />
-      </div>
-    </section>
-  );
-}
-
-/* ---------------- 9. Vertrouwen ---------------- */
-const VALUES = [
-  {
-    Icon: ShieldCheck,
-    title: "De hulpverlener blijft aan het stuur",
-    body: "Niets gaat door zonder goedkeuring. Die goedkeuringsstap is een bewuste grendel tegen fouten en wordt gelogd. De eindverantwoordelijkheid ligt bij de mens.",
-  },
-  {
-    Icon: FileText,
-    title: "De AI verzint niets",
-    body: "Ze vertrekt altijd van wat in het dossier of het gesprek staat en trekt geen eigen conclusies. Resultaten blijven controleerbaar en corrigeerbaar.",
-  },
-  {
-    Icon: Lock,
-    title: "Privacy en juridisch kader",
-    body: "Audio wordt na verwerking permanent verwijderd. Bewaartermijnen zijn instelbaar per organisatie. Conform GDPR en AI Act, vanuit een DPIA/FRIA-kader dat door meerdere DPO's is gevalideerd. We leggen de essentie helder uit, niet in een document van 120 pagina's.",
-  },
-  {
-    Icon: UserRound,
-    title: "De cliënt beslist en kijkt mee",
-    body: "De cliënt kiest wanneer en waarvoor AI-ondersteuning wordt gebruikt, kan meekijken op het scherm en krijgt heldere uitleg. Ook voor wie de taal minder machtig is. Output is standaard in het Nederlands, conform de taalwetgeving; vertaling of hertaling is optioneel en per bestuur uitschakelbaar.",
-  },
-];
-
-export function Vertrouwen() {
-  return (
-    <section className="section section-trust" id="vertrouwen" aria-labelledby="ver-title">
-      <div className="wrap">
-        <div className="section-head">
-          <p className="eyebrow">Vertrouwen</p>
-          <h2 id="ver-title">Waarop je kan terugvallen.</h2>
-          <p className="lead">
-            AI in de hulpverlening staat of valt met vertrouwen. Dit project is ontworpen rond de
-            waarden die hulpverleners en cliënten zelf het belangrijkst noemen.
-          </p>
-        </div>
-
-        <div className="values values-4">
-          {VALUES.map(({ Icon, title, body }) => (
-            <article className="value" key={title}>
-              <span className="v-icon" aria-hidden="true">
-                <Icon strokeWidth={1.6} />
-              </span>
-              <h3>{title}</h3>
-              <p>{body}</p>
-            </article>
-          ))}
-        </div>
+        <ReleaseTimeLine intro={PARCOURS_INTRO} steps={PARCOURS_STEPS} />
       </div>
     </section>
   );
