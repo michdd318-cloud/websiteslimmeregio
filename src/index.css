@@ -207,14 +207,8 @@ img { max-width: 100%; display: block; }
 .hero-pills { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: .6rem; }
 .hero-pills li { display: flex; align-items: center; gap: .6rem; background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: .45rem .95rem .45rem .5rem; font-size: .9rem; font-weight: var(--fw-semi); color: var(--ink); }
 .hp-check { flex: none; width: 24px; height: 24px; border-radius: 50%; background: #0f5140; color: #fff; display: inline-grid; place-items: center; font-size: .78rem; font-weight: var(--fw-bold); }
-.hero-focus { display: grid; grid-template-columns: 1fr auto 1fr; align-items: stretch; gap: .8rem; }
-.hero-focus-card { border-radius: 14px; padding: 1rem 1.15rem; display: flex; flex-direction: column; gap: .35rem; }
-.hf-1 { background: #edf3ef; }
-.hf-2 { background: #d3e4db; }
-.hf-label { margin: 0; font-size: .72rem; font-weight: var(--fw-bold); letter-spacing: .12em; text-transform: uppercase; color: #17795f; }
-.hf-2 .hf-label { color: #0f5140; }
-.hf-body { margin: 0; font-size: .92rem; line-height: 1.4; color: #2c3532; }
-.hero-focus-plus { display: flex; align-items: center; justify-content: center; font-size: 1.4rem; font-weight: var(--fw-bold); color: #b7cfc4; }
+.hero-tags { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: .6rem; }
+.hero-tags li { background: #edf3ef; border-radius: 12px; padding: .85rem 1rem; text-align: center; font-size: .8rem; font-weight: var(--fw-bold); letter-spacing: .1em; text-transform: uppercase; color: #0f5140; }
 
 .hero-visual { position: relative; background: #0e5347; border-radius: var(--radius-lg); padding: clamp(1.1rem, .5rem + 2vw, 2.3rem); display: flex; }
 .hero-visual .preview { flex: 1; min-height: 320px; border: 0; border-radius: 16px; box-shadow: 0 24px 60px rgba(0,0,0,.28); aspect-ratio: auto; }
@@ -611,8 +605,6 @@ img { max-width: 100%; display: block; }
   body { font-size: 16px; }
   .header-inner { height: 60px; gap: .8rem; }
   .hero-pills { grid-template-columns: 1fr; }
-  .hero-focus { grid-template-columns: 1fr; }
-  .hero-focus-plus { padding: .2rem 0; }
   .workload-list { grid-template-columns: 1fr; grid-template-rows: none; grid-auto-flow: row; }
   .workload-list li:nth-child(4) { border-bottom: 1px solid var(--line); }
   .workload-list li:nth-child(8) { border-bottom: 0; }
