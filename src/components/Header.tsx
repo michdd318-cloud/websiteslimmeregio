@@ -5,7 +5,7 @@ import { useThemeToggle } from "@/hooks";
 import { Wordmark } from "./primitives";
 
 const PRIMARY = [
-  ["#wat", "Wat"],
+  ["#activering", "Wat"],
   ["#oplossing", "Oplossing"],
   ["#vertrouwen", "Vertrouwen"],
   ["#partners", "Partners"],
@@ -14,7 +14,6 @@ const PRIMARY = [
 ];
 
 const MOBILE = [
-  ["#wat", "Geen greenfield"],
   ["#activering", "Wat het kost"],
   ["#uitdaging", "De uitdaging"],
   ["#oplossing", "De oplossing"],

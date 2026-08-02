@@ -19,6 +19,14 @@ export const SUPPORT_LOGOS: LogoItem[] = [
   { name: "vlaamsbrabant", label: "Provincie Vlaams-Brabant" },
 ];
 
+/** Middle group of the logo band: the sounding board. Logo where we have one,
+ *  otherwise LogoSlot falls back to the name as text (and swaps in the logo later). */
+export const KLANKBORD_LOGOS: LogoItem[] = [
+  { name: "welzijnskoepel", label: "Welzijnskoepel West-Brabant" },
+  { name: "grimbergen", label: "OCMW Grimbergen" },
+  { name: "federgon", label: "Federgon" },
+];
+
 export interface FaqItem {
   q: string;
   a: string;

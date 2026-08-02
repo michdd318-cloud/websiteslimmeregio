@@ -59,12 +59,14 @@ public/assets/
 render.yaml  .node-version  tailwind.config.js  postcss.config.js  vite.config.ts
 ```
 
-**Sectievolgorde (App.tsx):** Hero → Vertrouwensbalk (in Hero.tsx) →
-GeenGreenfield (`#wat`) → ActiveringKost (`#activering`) → Uitdaging
-(`#uitdaging`) → Oplossing (`#oplossing`) → WatHetNiet (`#watnietis`) →
-Tijdlijn (`#tijdlijn`) → Vertrouwen (`#vertrouwen`) → Partners (`#partners`) →
-Project (`#project`) → Aansluiten (`#aansluiten`) → Faq (`#faq`) → Footer
-(`#contact`). Nagenoeg alle sectie-inhoud staat in `src/components/Sections.tsx`.
+**Sectievolgorde (App.tsx):** Hero → logoband (in Hero.tsx) →
+ActiveringKost (`#activering`) → Uitdaging (`#uitdaging`) → Oplossing
+(`#oplossing`) → Tijdlijn (`#tijdlijn`) → Vertrouwen (`#vertrouwen`) →
+Partners (`#partners`) → Project (`#project`) → Aansluiten (`#aansluiten`) →
+Faq (`#faq`) → Footer (`#contact`). Nagenoeg alle sectie-inhoud staat in
+`src/components/Sections.tsx`. De secties GeenGreenfield (`#wat`) en WatHetNiet
+(`#watnietis`) zijn verwijderd; de kop "We beginnen niet opnieuw. We bouwen
+verder." leeft nu op de Tijdlijn, en de nav-link "Wat" wijst naar `#activering`.
 
 ## Design-systeem & conventies (belangrijk)
 
