@@ -7,7 +7,6 @@ export function Hero() {
       <section className="hero" aria-labelledby="hero-title">
         <div className="wrap hero-grid">
           <div className="hero-copy reveal">
-            <p className="eyebrow">Project Slimme Regio · provincie Vlaams-Brabant</p>
             <h1 id="hero-title">
               Meer mensen kloppen aan.{" "}
               <span className="hero-h1-accent">Dezelfde ploeg.</span>
