@@ -1,4 +1,4 @@
-import { PROJECT_LOGOS, SUPPORT_LOGOS, KLANKBORD_LOGOS } from "@/data";
+import { PROJECT_LOGOS, SUPPORT_LOGOS } from "@/data";
 import { Wm, Preview, LogoSlot } from "./primitives";
 
 export function Hero() {
@@ -44,19 +44,6 @@ export function Hero() {
             <p className="logo-label">Een project van</p>
             <ul className="logo-row">
               {PROJECT_LOGOS.map((l) => (
-                <li key={l.name}>
-                  <LogoSlot name={l.name} label={l.label} />
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <hr className="logo-divider" />
-
-          <div className="logo-group">
-            <p className="logo-label">Klankbordgroep</p>
-            <ul className="logo-row logo-row-klankbord">
-              {KLANKBORD_LOGOS.map((l) => (
                 <li key={l.name}>
                   <LogoSlot name={l.name} label={l.label} />
                 </li>
