@@ -138,17 +138,15 @@ export function Oplossing() {
               </div>
               <span className="track-badge">Verder ontwikkelen</span>
             </header>
-            <ul className="track-rows">
-              {WORKER_ROWS.map(({ num, title, body }) => (
-                <li className="track-row" key={num}>
-                  <span className="track-row-num" aria-hidden="true">{num}</span>
-                  <div className="track-row-text">
-                    <h4>{title}</h4>
-                    <p>{body}</p>
-                  </div>
-                </li>
-              ))}
-            </ul>
+            {WORKER_ROWS.map(({ num, title, body }) => (
+              <div className="track-row" key={num}>
+                <span className="track-row-num" aria-hidden="true">{num}</span>
+                <div className="track-row-text">
+                  <h4>{title}</h4>
+                  <p>{body}</p>
+                </div>
+              </div>
+            ))}
             <p className="track-foot">De focus ligt op het wegnemen van adoptiedrempels.</p>
           </article>
 
@@ -160,17 +158,18 @@ export function Oplossing() {
               </div>
               <span className="track-badge track-badge-new">Nieuw</span>
             </header>
-            <ul className="track-rows">
-              {CLIENT_ROWS.map(({ num, title, body }) => (
-                <li className="track-row" key={num}>
-                  <span className="track-row-num" aria-hidden="true">{num}</span>
-                  <div className="track-row-text">
-                    <h4>{title}</h4>
-                    <p>{body}</p>
-                  </div>
-                </li>
-              ))}
-            </ul>
+            {CLIENT_ROWS.map(({ num, title, body }) => (
+              <div className="track-row" key={num}>
+                <span className="track-row-num" aria-hidden="true">{num}</span>
+                <div className="track-row-text">
+                  <h4>{title}</h4>
+                  <p>{body}</p>
+                </div>
+              </div>
+            ))}
+            {Array.from({ length: WORKER_ROWS.length - CLIENT_ROWS.length }).map((_, i) => (
+              <span className="track-fill" aria-hidden="true" key={`fill-${i}`} />
+            ))}
             <p className="track-foot">
               Wordt tijdens het project gebouwd, samen met cliënten als co-creatoren.
             </p>

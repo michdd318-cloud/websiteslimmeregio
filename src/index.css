@@ -315,11 +315,11 @@ img { max-width: 100%; display: block; }
 .cc-text span { color: #7fc3ac; }
 
 /* ---------- Oplossing: twee gevulde sporen ---------- */
-.two-tracks { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.4rem; align-items: stretch; margin-top: 2.4rem; }
-.track-card { display: flex; flex-direction: column; gap: 1.4rem; padding: clamp(1.6rem, 2vw, 2.4rem); border-radius: 20px; }
+.two-tracks { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: repeat(7, auto); gap: 0 1.4rem; margin-top: 2.4rem; }
+.track-card { grid-row: span 7; display: grid; grid-template-rows: subgrid; padding: clamp(1.6rem, 2vw, 2.4rem); border-radius: 20px; }
 .track-card-worker { background: #edf3ef; color: #14181a; }
 .track-card-client { background: #0f5140; color: #f3f7f5; }
-.track-card-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; }
+.track-card-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; }
 .track-card-tag { margin: 0 0 .4rem; font-size: .74rem; font-weight: var(--fw-bold); text-transform: uppercase; letter-spacing: .16em; color: #17795f; }
 .track-card-client .track-card-tag { color: #7fc3ac; }
 .track-card-head h3 { margin: 0; font-size: clamp(1.4rem, 1.1rem + 1.1vw, 1.85rem); line-height: 1.05; letter-spacing: -.02em; color: #101614; }
@@ -330,7 +330,6 @@ img { max-width: 100%; display: block; }
   background: #fff; color: #0f5140; border: 1.5px solid #b7cfc4;
 }
 .track-badge-new { background: #7fc3ac; color: #0f5140; border-color: #7fc3ac; }
-.track-rows { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; flex: 1; }
 .track-row { display: grid; grid-template-columns: 32px minmax(0, 1fr); gap: 1rem; align-items: baseline; padding: .9rem 0; border-top: 1px solid #d7e3dc; }
 .track-card-client .track-row { border-top-color: rgba(255, 255, 255, .2); }
 .track-row-num { font-size: .8rem; font-weight: var(--fw-bold); color: #17795f; }
@@ -560,6 +559,10 @@ img { max-width: 100%; display: block; }
 
 @media (max-width: 768px) {
   .wp-grid { grid-template-columns: 1fr; }
+  .two-tracks { grid-template-columns: 1fr; grid-template-rows: none; row-gap: 1.4rem; }
+  .track-card { grid-row: auto; display: flex; flex-direction: column; }
+  .track-fill { display: none; }
+  .track-foot { margin-top: auto; }
   .statline { flex-direction: column; gap: .4rem; }
   .responsibility-row { grid-template-columns: 1fr; gap: .3rem; }
 }
