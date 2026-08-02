@@ -1,14 +1,4 @@
 import { useState } from "react";
-import {
-  FileText,
-  UserRound,
-  Mic,
-  ClipboardCheck,
-  Route,
-  RefreshCw,
-  Trash2,
-  BookOpen,
-} from "lucide-react";
 import { cn } from "@/lib/utils";
 import { FAQ } from "@/data";
 import { Wm, Preview, LogoSlot } from "./primitives";
@@ -114,17 +104,17 @@ export function Uitdaging() {
 
 /* ---------------- 6. De oplossing ---------------- */
 const WORKER_ROWS = [
-  { Icon: Mic, title: "Opname en transcriptie", body: "Het gesprek wordt opgenomen en automatisch uitgeschreven" },
-  { Icon: FileText, title: "Een eerste gestructureerd verslag", body: "AI vult de sjablonen van de dienst in: sociaal verslag, profielschets, GPMI" },
-  { Icon: RefreshCw, title: "Het cliëntprofiel blijft actueel", body: "Elk gesprek werkt bij wat al in het dossier staat" },
-  { Icon: ClipboardCheck, title: "De maatschappelijk werker vult aan en valideert", body: "Niets gaat door zonder goedkeuring" },
-  { Icon: Trash2, title: "De audio verdwijnt na verwerking", body: "Permanent, met instelbare bewaartermijnen" },
+  { num: "01", title: "Opname en transcriptie", body: "Het gesprek wordt opgenomen en automatisch uitgeschreven" },
+  { num: "02", title: "Een eerste gestructureerd verslag", body: "AI vult de sjablonen van de dienst in: sociaal verslag, profielschets, GPMI" },
+  { num: "03", title: "Het cliëntprofiel blijft actueel", body: "Elk gesprek werkt bij wat al in het dossier staat" },
+  { num: "04", title: "De maatschappelijk werker vult aan en valideert", body: "Niets gaat door zonder goedkeuring" },
+  { num: "05", title: "De audio verdwijnt na verwerking", body: "Permanent, met instelbare bewaartermijnen" },
 ];
 
 const CLIENT_ROWS = [
-  { Icon: BookOpen, title: "Het eigen dossier leesbaar gemaakt", body: "Beslissingen, verslagen, afspraken, automatisch in klare taal" },
-  { Icon: Route, title: "Overzicht van het hele traject", body: "Wat moet, wat is er gedaan en wat staat er nog open" },
-  { Icon: FileText, title: "Cv, motivatiebrief en meer", body: "De cliënt bouwt ze zelf op, op basis van de eigen data" },
+  { num: "01", title: "Het eigen dossier leesbaar gemaakt", body: "Beslissingen, verslagen, afspraken, automatisch in klare taal" },
+  { num: "02", title: "Overzicht van het hele traject", body: "Wat moet, wat is er gedaan en wat staat er nog open" },
+  { num: "03", title: "Cv, motivatiebrief en meer", body: "De cliënt bouwt ze zelf op, op basis van de eigen data" },
 ];
 
 export function Oplossing() {
@@ -144,17 +134,15 @@ export function Oplossing() {
           <article className="track-card track-card-worker">
             <header className="track-card-head">
               <div>
-                <p className="track-card-tag">
-                  <UserRound size={14} strokeWidth={1.7} aria-hidden="true" /> Hulpverlener
-                </p>
+                <p className="track-card-tag">Hulpverlener</p>
                 <h3>Van gesprek naar verslag</h3>
               </div>
-              <span className="track-badge">Draait al</span>
+              <span className="track-badge">Verder ontwikkelen</span>
             </header>
             <ul className="track-rows">
-              {WORKER_ROWS.map(({ Icon, title, body }) => (
-                <li className="track-row" key={title}>
-                  <Icon className="track-row-icon" size={17} strokeWidth={1.6} aria-hidden="true" />
+              {WORKER_ROWS.map(({ num, title, body }) => (
+                <li className="track-row" key={num}>
+                  <span className="track-row-num" aria-hidden="true">{num}</span>
                   <div className="track-row-text">
                     <h4>{title}</h4>
                     <p>{body}</p>
@@ -162,23 +150,21 @@ export function Oplossing() {
                 </li>
               ))}
             </ul>
-            <p className="track-foot">In gebruik bij OCMW Halle sinds 2025.</p>
+            <p className="track-foot">De focus ligt op het wegnemen van adoptiedrempels.</p>
           </article>
 
           <article className="track-card track-card-client">
             <header className="track-card-head">
               <div>
-                <p className="track-card-tag">
-                  <UserRound size={14} strokeWidth={1.7} aria-hidden="true" /> Cliënt
-                </p>
-                <h3>Zicht op het eigen traject via een eigen cliëntruimte</h3>
+                <p className="track-card-tag">Cliënt</p>
+                <h3>Zicht op het eigen traject</h3>
               </div>
               <span className="track-badge track-badge-new">Nieuw</span>
             </header>
             <ul className="track-rows">
-              {CLIENT_ROWS.map(({ Icon, title, body }) => (
-                <li className="track-row" key={title}>
-                  <Icon className="track-row-icon" size={17} strokeWidth={1.6} aria-hidden="true" />
+              {CLIENT_ROWS.map(({ num, title, body }) => (
+                <li className="track-row" key={num}>
+                  <span className="track-row-num" aria-hidden="true">{num}</span>
                   <div className="track-row-text">
                     <h4>{title}</h4>
                     <p>{body}</p>
@@ -187,7 +173,7 @@ export function Oplossing() {
               ))}
             </ul>
             <p className="track-foot">
-              Wordt tijdens het project gebouwd, samen met cliënten als co-creators.
+              Wordt tijdens het project gebouwd, samen met cliënten als co-creatoren.
             </p>
           </article>
         </div>
