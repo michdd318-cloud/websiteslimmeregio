@@ -48,16 +48,8 @@ export const FAQ: FaqItem[] = [
     a: "Nee. Het komt naast wat je vandaag gebruikt.",
   },
   {
-    q: "Levert dit echt tijdwinst op?",
-    a: "In {P}ACT werd gemiddeld 30% tijdwinst gemeten op de taken die geautomatiseerd werden. Dat is niet hetzelfde als 30% van de totale administratieve tijd. Wat het netto oplevert in jouw dienst, hangt af van je processen. Dat is precies wat we in dit project verder meten, samen met UCLL.",
-  },
-  {
     q: "Wat gebeurt er met de gegevens van de cliënt?",
     a: "Data blijft binnen de EU. Bewaartermijnen zijn instelbaar per organisatie. Audio wordt na verwerking permanent verwijderd. Er wordt niet getraind op jullie data.",
-  },
-  {
-    q: "Trekt de AI eigen conclusies?",
-    a: "Nee. Ze vertrekt van wat in het dossier of het gesprek staat. Beoordelen en beslissen blijft mensenwerk.",
   },
   {
     q: "Wie is verantwoordelijk als er iets fout gaat?",
@@ -66,10 +58,6 @@ export const FAQ: FaqItem[] = [
   {
     q: "Werkt dit voor anderstalige cliënten?",
     a: "Output is standaard in het Nederlands, conform de taalwetgeving. Vertaling of hertaling naar begrijpelijke taal is optioneel en per bestuur uit te schakelen.",
-  },
-  {
-    q: "Wordt dit ons opgelegd?",
-    a: "Nee. Elk bestuur beslist zelf, en elke hulpverlener beslist per document of hij de ondersteuning gebruikt.",
   },
   {
     q: "Zitten we vast aan één leverancier?",
