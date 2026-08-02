@@ -17,10 +17,10 @@ export function Hero() {
               lasten en moeilijk in te vullen vacatures.
             </p>
             <p className="hero-body">
-              <Wm /> zet technologie in om die druk te helpen verlichten, niet om de hulpverlening te
-              automatiseren. Repetitief administratief werk gaat uit handen, zodat er tijd overblijft
-              voor de kern: de persoonlijke begeleiding van mensen. Daarnaast bouwen we een digitale
-              cliëntruimte waarin mensen meer grip krijgen op hun eigen traject.
+              <Wm /> neemt repetitief administratief werk uit handen, niet om de hulpverlening te
+              automatiseren, maar om tijd vrij te maken voor persoonlijke begeleiding. Daarnaast bouwen
+              we een digitale cliëntruimte waarin mensen meer grip krijgen op hun eigen
+              activeringstraject.
             </p>
             <p className="hero-support">
               Met steun van de provincie Vlaams-Brabant, programma Slimme Regio (thema Slim Bestuur).
