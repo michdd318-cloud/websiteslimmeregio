@@ -447,7 +447,7 @@ function NewsletterForm() {
 
   return (
     <form className="signup" onSubmit={onSubmit} noValidate>
-      <label htmlFor="nb-email">E-mailadres</label>
+      <label htmlFor="nb-email" className="sr-only">E-mailadres</label>
       <div className="signup-row">
         <input
           type="email"
@@ -472,92 +472,111 @@ function NewsletterForm() {
 
 export function Aansluiten() {
   return (
-    <section className="section section-alt" id="aansluiten" aria-labelledby="aan-title">
+    <section className="section" id="aansluiten" aria-labelledby="aan-title">
       <div className="wrap">
         <div className="section-head">
           <p className="eyebrow">Aansluiten</p>
           <h2 id="aan-title">Drie manieren om erbij te zijn.</h2>
-          <p className="lead">
-            Het consortium ligt vast. Maar het project is opgezet om over te dragen, en daar kan je nu
-            al bij aansluiten. De regionale focus ligt op Vlaams-Brabant.
-          </p>
         </div>
 
-        <div className="participate">
-          <article className="part-card" id="nieuwsbrief">
-            <h3>Meelezen</h3>
-            <dl className="asks">
-              <div>
-                <dt>Wat het vraagt</dt>
-                <dd>Je e-mailadres.</dd>
+        <div className="join">
+          <article className="join-card join-1" id="nieuwsbrief">
+            <header className="join-head">
+              <span className="join-num" aria-hidden="true">01</span>
+              <h3>Meelezen</h3>
+            </header>
+            <div className="join-rows">
+              <div className="join-row">
+                <span className="join-label">Wat het vraagt</span>
+                <div className="join-val">Je e-mailadres.</div>
               </div>
-              <div>
-                <dt>Wat je krijgt</dt>
-                <dd>
-                  De voortgang, de resultaten van de bevraging bij maatschappelijk werkers, en een
-                  seintje wanneer de open access instrumenten klaar zijn.
-                </dd>
+              <div className="join-row">
+                <span className="join-label">Je ontvangt</span>
+                <ul className="join-list">
+                  <li>de voortgang van het project;</li>
+                  <li>de resultaten van de bevraging bij maatschappelijk werkers;</li>
+                  <li>een seintje wanneer de open access instrumenten klaar zijn.</li>
+                </ul>
               </div>
-            </dl>
-            <NewsletterForm />
+              <div className="join-row">
+                <span className="join-label">Voor wie</span>
+                <div className="join-val">
+                  Maatschappelijk werkers, hoofdmaatschappelijk werkers, diensthoofden sociale dienst,
+                  DPO's, algemeen directeur, stafmedewerkers, IT.
+                </div>
+              </div>
+            </div>
+            <div className="join-cta">
+              <NewsletterForm />
+            </div>
           </article>
 
-          <article className="part-card">
-            <h3>Meedenken</h3>
-            <dl className="asks">
-              <div>
-                <dt>Wat het vraagt</dt>
-                <dd>Een halve dag per semester, en de bereidheid om eerlijk te zeggen wat niet werkt.</dd>
+          <article className="join-card join-2">
+            <header className="join-head">
+              <span className="join-num" aria-hidden="true">02</span>
+              <h3>Meedenken</h3>
+            </header>
+            <div className="join-rows">
+              <div className="join-row">
+                <span className="join-label">Wat het vraagt</span>
+                <div className="join-val">Een halve dag per semester neem je deel aan de klankbordgroep.</div>
               </div>
-              <div>
-                <dt>Wat je krijgt</dt>
-                <dd>
+              <div className="join-row">
+                <span className="join-label">Je ontvangt</span>
+                <div className="join-val">
                   Vroege toegang tot het juridisch kader en de adoptiehandleiding, en invloed op wat we
                   bouwen.
-                </dd>
+                </div>
               </div>
-              <div>
-                <dt>Voor wie</dt>
-                <dd>Hoofdmaatschappelijk werkers, diensthoofden sociale dienst, DPO's.</dd>
+              <div className="join-row">
+                <span className="join-label">Voor wie</span>
+                <div className="join-val">
+                  Maatschappelijk werkers, hoofdmaatschappelijk werkers, diensthoofden sociale dienst,
+                  DPO's.
+                </div>
               </div>
-            </dl>
-            <a
-              className="btn btn-primary"
-              href="mailto:info@whainot.be?subject=Aanmelden%20voor%20de%20klankbordgroep%20van%20%7BA%7Dimpact"
-            >
-              Aanmelden voor de klankbordgroep
-            </a>
+            </div>
+            <div className="join-cta">
+              <a
+                href="mailto:info@whainot.be?subject=Aanmelden%20voor%20de%20klankbordgroep%20van%20%7BA%7Dimpact"
+              >
+                Aanmelden voor de klankbordgroep
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
           </article>
 
-          <article className="part-card">
-            <h3>Meedraaien</h3>
-            <dl className="asks">
-              <div>
-                <dt>Wat het vraagt</dt>
-                <dd>
-                  Een beslissing van je bestuur, de betrokkenheid van je DPO, en tijd van je team voor
-                  introductie en opvolging.
-                </dd>
+          <article className="join-card join-3">
+            <header className="join-head">
+              <span className="join-num" aria-hidden="true">03</span>
+              <h3>Mee doen</h3>
+            </header>
+            <div className="join-rows">
+              <div className="join-row">
+                <span className="join-label">Wat het vraagt</span>
+                <div className="join-val">
+                  Een beslissing van je bestuur en tijd van enkele leden van je team voor introductie en
+                  opvolging.
+                </div>
               </div>
-              <div>
-                <dt>Wat je krijgt</dt>
-                <dd>De module in je eigen dienst, met begeleiding bij de invoering.</dd>
+              <div className="join-row">
+                <span className="join-label">Je ontvangt</span>
+                <div className="join-val">De module in je eigen dienst, met begeleiding bij de invoering.</div>
               </div>
-              <div>
-                <dt>Wanneer</dt>
-                <dd>Vanaf maart 2027.</dd>
+              <div className="join-row">
+                <span className="join-label">Voor wie</span>
+                <div className="join-val">
+                  Maatschappelijk werkers, hoofdmaatschappelijk werkers en diensthoofden sociale dienst
+                  OCMW.
+                </div>
               </div>
-            </dl>
-            <p className="part-note">
-              Wat het kost en onder welke voorwaarden, bespreken we in een gesprek van een halfuur, voor
-              je iets tekent, en zonder verplichting.
-            </p>
-            <a
-              className="btn btn-ghost"
-              href="mailto:info@whainot.be?subject=Gesprek%20over%20meedraaien%20met%20%7BA%7Dimpact"
-            >
-              Een gesprek inplannen
-            </a>
+            </div>
+            <div className="join-cta">
+              <a href="mailto:info@whainot.be?subject=Gesprek%20over%20meedoen%20met%20%7BA%7Dimpact">
+                Een gesprek inplannen
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
           </article>
         </div>
       </div>
