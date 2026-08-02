@@ -7,9 +7,15 @@ export function Hero() {
       <section className="hero" aria-labelledby="hero-title">
         <div className="wrap hero-grid">
           <div className="hero-copy reveal">
-            <h1 id="hero-title">
-              Minder tijd in het dossier.{" "}
-              <span className="hero-h1-accent">Meer tijd voor de cliënt.</span>
+            <h1 id="hero-title" className="hero-h1">
+              <span className="h1-under">
+                <span className="h1-arrow h1-arrow-down" aria-hidden="true">▼</span>
+                Minder tijd aan administratie.
+              </span>
+              <span className="h1-over">
+                <span className="h1-arrow h1-arrow-up" aria-hidden="true">▲</span>
+                Meer tijd voor hulpverlening.
+              </span>
             </h1>
             <span className="hero-bar" aria-hidden="true" />
             <p className="hero-sub">
@@ -17,20 +23,43 @@ export function Hero() {
               OCMW. Dat verhoogt de druk op sociale diensten die nu al kampen met hoge administratieve
               lasten en moeilijk in te vullen vacatures.
             </p>
-            <div className="hero-split">
-              <div className="hero-split-col">
-                <p className="hero-split-label">Voor de hulpverlener</p>
-                <p className="hero-split-text">
-                  Repetitief administratief werk uit handen, niet om de hulpverlening te automatiseren,
-                  maar om tijd vrij te maken voor persoonlijke begeleiding.
-                </p>
-              </div>
-              <div className="hero-split-col">
-                <p className="hero-split-label">Voor de cliënt</p>
-                <p className="hero-split-text">
-                  Een digitale cliëntruimte waarin mensen meer grip krijgen op hun eigen
-                  activeringstraject.
-                </p>
+
+            <div className="hero-more">
+              <p className="hero-kicker">Van werkend naar breed inzetbaar</p>
+              <p className="hero-lead2">
+                De vraag is niet meer óf AI hier een rol speelt, maar hoe je dat verantwoord doet.
+                Verschillende partners uit dit project bouwden daar de voorbije twee jaar samen aan:
+              </p>
+              <ul className="hero-pills">
+                <li>
+                  <span className="hp-check" aria-hidden="true">✓</span>Juridisch kader (DPIA / FRIA)
+                </li>
+                <li>
+                  <span className="hp-check" aria-hidden="true">✓</span>Een applicatie
+                </li>
+                <li>
+                  <span className="hp-check" aria-hidden="true">✓</span>Praktijkervaring
+                </li>
+                <li>
+                  <span className="hp-check" aria-hidden="true">✓</span>Bewezen bij OCMW Halle
+                </li>
+              </ul>
+              <p className="hero-lead2">
+                Dit project zet nu de stap naar een bredere, schaalbare en cliëntgerichte toepassing. De
+                focus ligt daarbij op:
+              </p>
+              <div className="hero-focus">
+                <div className="hero-focus-card hf-1">
+                  <p className="hf-label">Drempels wegnemen</p>
+                  <p className="hf-body">Adoptiedrempels wegnemen bij hulpverlener én cliënt.</p>
+                </div>
+                <span className="hero-focus-plus" aria-hidden="true">+</span>
+                <div className="hero-focus-card hf-2">
+                  <p className="hf-label">Cliëntruimte maken</p>
+                  <p className="hf-body">
+                    Cliënten zien hun eigen traject en gaan er zelf mee aan de slag.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
