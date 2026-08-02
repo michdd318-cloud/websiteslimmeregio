@@ -2,7 +2,6 @@ import { useHeaderScrolled, useReveal } from "@/hooks";
 import { Header } from "./components/Header";
 import { Hero } from "./components/Hero";
 import {
-  GeenGreenfield,
   ActiveringKost,
   Uitdaging,
   Oplossing,
@@ -31,7 +30,6 @@ export default function App() {
       <main id="hoofdinhoud">
         <span id="top" />
         <Hero />
-        <GeenGreenfield />
         <ActiveringKost />
         <Uitdaging />
         <Oplossing />

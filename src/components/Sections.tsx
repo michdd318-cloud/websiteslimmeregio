@@ -10,8 +10,6 @@ import {
   Users,
   Sparkles,
   Share2,
-  CheckCircle2,
-  Building2,
   Mic,
   Mail,
   ClipboardCheck,
@@ -23,63 +21,6 @@ import { cn } from "@/lib/utils";
 import { FAQ } from "@/data";
 import { Wm, Preview, LogoSlot } from "./primitives";
 import { ReleaseTimeLine, type TimelineEntry } from "./ui/release-time-line";
-
-/* ---------------- 3. Geen greenfield ---------------- */
-export function GeenGreenfield() {
-  return (
-    <section className="section" id="wat" aria-labelledby="wat-title">
-      <div className="wrap">
-        <div className="section-head">
-          <h2 id="wat-title">We beginnen niet opnieuw. We bouwen verder.</h2>
-          <p className="lead">
-            Sinds 2025 draait bij OCMW Halle een module die maatschappelijk werkers ondersteunt bij
-            hun administratie: gespreksverslagen, intakes, GPMI's, motivatiebrieven en cv's.
-          </p>
-        </div>
-
-        <div className="values values-3">
-          <article className="value">
-            <span className="v-icon" aria-hidden="true">
-              <CheckCircle2 strokeWidth={1.6} />
-            </span>
-            <p className="proof-label">In gebruik</p>
-            <h3>Operationeel sinds 2025</h3>
-            <p>Elke dag in gebruik bij de sociale dienst van OCMW Halle.</p>
-          </article>
-
-          <article className="value">
-            <span className="v-icon" aria-hidden="true">
-              <Building2 strokeWidth={1.6} />
-            </span>
-            <p className="proof-label">
-              Ontwikkeld in <Wm letter="P" suffix="ACT" />
-            </p>
-            <h3>Drie OCMW's</h3>
-            <p>
-              Gebouwd met Halle, Londerzeel en Grimbergen in het VLAIO-project{" "}
-              <Wm letter="P" suffix="ACT" />.
-            </p>
-          </article>
-
-          <article className="value">
-            <span className="v-icon" aria-hidden="true">
-              <ShieldCheck strokeWidth={1.6} />
-            </span>
-            <p className="proof-label">Juridisch doorgelicht</p>
-            <h3>DPIA en FRIA</h3>
-            <p>Goedgekeurd door meerdere DPO's. Het kader is overdraagbaar.</p>
-          </article>
-        </div>
-
-        <p className="rode-draad">
-          <Wm /> zet daar de volgende stap op. Geen prototype, geen pilootversie die nog moet bewijzen
-          dat het werkt, maar een basis die vandaag elke dag gebruikt wordt, en die we nu breder
-          inzetbaar en overdraagbaar maken.
-        </p>
-      </div>
-    </section>
-  );
-}
 
 /* ---------------- 4. Wat een activeringstraject vandaag kost ---------------- */
 export function ActiveringKost() {
@@ -324,13 +265,10 @@ export function Tijdlijn() {
     <section className="section section-alt" id="tijdlijn" aria-labelledby="tl-title">
       <div className="wrap">
         <div className="section-head">
-          <h2 id="tl-title">
-            Van <Wm letter="P" suffix="ACT" /> tot opschaling.
-          </h2>
+          <h2 id="tl-title">We beginnen niet opnieuw. We bouwen verder.</h2>
           <p className="lead">
-            We bouwen verder op wat al bewezen is. Van de eerste VLAIO-ontwikkeling tot een module die
-            vandaag draait bij OCMW Halle, en van daaruit naar <Wm /> en bredere opschaling. Scroll mee
-            door de tijdlijn.
+            We maken geen prototype maar hebben als doel de bestaande praktijk breed uitgerold te
+            krijgen. Scroll hieronder doorheen het parcours van de partners.
           </p>
         </div>
         <ReleaseTimeLine entries={TIMELINE} />

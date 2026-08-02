@@ -271,10 +271,6 @@ img { max-width: 100%; display: block; }
 .track p { margin: 0; color: var(--ink-soft); }
 .track-base { border-left: 3px solid var(--accent); }
 .track-new { border-left: 3px solid var(--line-strong); }
-.rode-draad {
-  margin: 2.2rem 0 0; padding: 1.5rem 1.7rem; border-radius: var(--radius);
-  background: var(--accent-tint); color: var(--ink); font-size: 1.05rem; border: 1px solid color-mix(in srgb, var(--accent) 22%, transparent);
-}
 .pull-quote { margin: 2rem 0 0; padding: .2rem 0 .2rem 1.5rem; border-left: 3px solid var(--accent); }
 .pull-quote p { margin: 0; font-size: 1.18rem; font-style: italic; line-height: 1.55; color: var(--ink); max-width: 60ch; }
 .pull-quote cite {
@@ -341,9 +337,7 @@ img { max-width: 100%; display: block; }
 
 /* ---------- Vertrouwen values ---------- */
 .values { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.1rem; }
-.values-3 { grid-template-columns: repeat(3, 1fr); }
 .value { padding: 1.5rem 1.45rem; border-radius: var(--radius); background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow-sm); }
-.proof-label { margin: 0 0 .35rem; font-size: .78rem; font-weight: var(--fw-semi); color: var(--accent-strong); text-transform: uppercase; letter-spacing: .08em; }
 .value h3 { font-size: 1.06rem; margin-bottom: .55rem; }
 .value p { margin: 0; font-size: .94rem; color: var(--ink-soft); }
 .v-icon { display: inline-grid; place-items: center; width: 42px; height: 42px; border-radius: 11px; background: var(--accent-tint); color: var(--accent-strong); margin-bottom: 1rem; }
