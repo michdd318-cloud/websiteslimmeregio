@@ -23,14 +23,6 @@ export function Hero() {
               voor de kern: de persoonlijke begeleiding van mensen. Daarnaast bouwen we een digitale
               cliëntruimte waarin mensen meer grip krijgen op hun eigen traject.
             </p>
-            <div className="hero-cta">
-              <a className="btn btn-primary" href="#aansluiten">
-                Sluit aan
-              </a>
-              <a className="btn btn-ghost" href="#project">
-                Bekijk wat het oplevert
-              </a>
-            </div>
             <p className="hero-support">
               Met steun van de provincie Vlaams-Brabant, programma Slimme Regio (thema Slim Bestuur).
             </p>
