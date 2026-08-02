@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { FAQ } from "@/data";
 import { Wm, Preview, LogoSlot } from "./primitives";
@@ -123,10 +122,10 @@ export function Oplossing() {
       <div className="wrap">
         <div className="section-head">
           <p className="eyebrow">De oplossing</p>
-          <h2 id="opl-title">Eén traject, twee kanten</h2>
+          <h2 id="opl-title">Eén traject, twee actoren</h2>
           <p className="lead">
-            Het activeringstraject genereert aan beide kanten hetzelfde probleem: de hulpverlener
-            verliest tijd aan de administratie ervan, de cliënt heeft er geen zicht op.
+            Het activeringstraject geeft langs beide kanten een uitdaging: de hulpverlener verliest
+            tijd aan de administratie ervan, de cliënt heeft er geen zicht op.
           </p>
         </div>
 
@@ -404,55 +403,6 @@ export function Project() {
 }
 
 /* ---------------- 12. Aansluiten ---------------- */
-function NewsletterForm() {
-  const [email, setEmail] = useState("");
-  const [hint, setHint] = useState("We gebruiken je adres enkel voor de nieuwsbrief van {A}impact.");
-  const [status, setStatus] = useState<"" | "error" | "ok">("");
-
-  const onSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const val = email.trim();
-    const ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
-    if (!ok) {
-      setHint("Geef een geldig e-mailadres in.");
-      setStatus("error");
-      return;
-    }
-    setHint("Bedankt. Je e-mailprogramma opent om de inschrijving te bevestigen.");
-    setStatus("ok");
-    const subject = encodeURIComponent("Inschrijving nieuwsbrief {A}impact");
-    const body = encodeURIComponent(
-      "Ik schrijf me graag in op de nieuwsbrief van {A}impact.\n\nE-mailadres: " + val
-    );
-    window.location.href = `mailto:info@whainot.be?subject=${subject}&body=${body}`;
-    setEmail("");
-  };
-
-  return (
-    <form className="signup" onSubmit={onSubmit} noValidate>
-      <label htmlFor="nb-email" className="sr-only">E-mailadres</label>
-      <div className="signup-row">
-        <input
-          type="email"
-          id="nb-email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          inputMode="email"
-          autoComplete="email"
-          placeholder="jij@bestuur.be"
-          required
-        />
-        <button className="btn btn-primary" type="submit">
-          Inschrijven
-        </button>
-      </div>
-      <p className={cn("form-hint", status === "error" && "is-error", status === "ok" && "is-ok")}>
-        {hint}
-      </p>
-    </form>
-  );
-}
-
 export function Aansluiten() {
   return (
     <section className="section" id="aansluiten" aria-labelledby="aan-title">
@@ -468,8 +418,7 @@ export function Aansluiten() {
               <span className="join-num" aria-hidden="true">01</span>
               <h3>Meelezen</h3>
             </header>
-            <div className="join-rows">
-              <div className="join-row">
+            <div className="join-row">
                 <span className="join-label">Wat het vraagt</span>
                 <div className="join-val">Je e-mailadres.</div>
               </div>
@@ -488,9 +437,11 @@ export function Aansluiten() {
                   DPO's, algemeen directeur, stafmedewerkers, IT.
                 </div>
               </div>
-            </div>
             <div className="join-cta">
-              <NewsletterForm />
+              <a href="mailto:info@whainot.be?subject=Inschrijving%20nieuwsbrief%20%7BA%7Dimpact&body=Ik%20schrijf%20me%20graag%20in%20op%20de%20nieuwsbrief%20van%20%7BA%7Dimpact.">
+                Inschrijven op de nieuwsbrief
+                <span aria-hidden="true">→</span>
+              </a>
             </div>
           </article>
 
@@ -499,8 +450,7 @@ export function Aansluiten() {
               <span className="join-num" aria-hidden="true">02</span>
               <h3>Meedenken</h3>
             </header>
-            <div className="join-rows">
-              <div className="join-row">
+            <div className="join-row">
                 <span className="join-label">Wat het vraagt</span>
                 <div className="join-val">Een halve dag per semester neem je deel aan de klankbordgroep.</div>
               </div>
@@ -518,7 +468,6 @@ export function Aansluiten() {
                   DPO's.
                 </div>
               </div>
-            </div>
             <div className="join-cta">
               <a
                 href="mailto:info@whainot.be?subject=Aanmelden%20voor%20de%20klankbordgroep%20van%20%7BA%7Dimpact"
@@ -534,8 +483,7 @@ export function Aansluiten() {
               <span className="join-num" aria-hidden="true">03</span>
               <h3>Mee doen</h3>
             </header>
-            <div className="join-rows">
-              <div className="join-row">
+            <div className="join-row">
                 <span className="join-label">Wat het vraagt</span>
                 <div className="join-val">
                   Een beslissing van je bestuur en tijd van enkele leden van je team voor introductie en
@@ -553,7 +501,6 @@ export function Aansluiten() {
                   OCMW.
                 </div>
               </div>
-            </div>
             <div className="join-cta">
               <a href="mailto:info@whainot.be?subject=Gesprek%20over%20meedoen%20met%20%7BA%7Dimpact">
                 Een gesprek inplannen
