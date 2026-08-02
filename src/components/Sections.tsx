@@ -472,6 +472,14 @@ const PARTNERS = [
   },
 ];
 
+/* Klankbordgroep: logo where we have one, name as text fallback otherwise. */
+const KLANKBORD = [
+  { name: "welzijnskoepel", label: "Welzijnskoepel West-Brabant" },
+  { name: "grimbergen", label: "OCMW Grimbergen" },
+  { name: "openarmen", label: "Open Armen vzw" },
+  { name: "federgon", label: "Federgon" },
+];
+
 export function Partners() {
   return (
     <section className="section section-alt" id="partners" aria-labelledby="par-title">
@@ -499,10 +507,16 @@ export function Partners() {
 
         <aside className="callout klankbord">
           <h4>Klankbordgroep</h4>
-          <p>
-            Welzijnskoepel West-Brabant, OCMW Grimbergen, Open Armen vzw en Federgon testen mee en
-            leveren feedback vanuit hun eigen praktijk.
-          </p>
+          <p>Testen mee en leveren feedback vanuit hun eigen praktijk.</p>
+          <ul className="klankbord-logos">
+            {KLANKBORD.map((k) => (
+              <li key={k.name}>
+                <div className="partner-mark">
+                  <LogoSlot name={k.name} label={k.label} />
+                </div>
+              </li>
+            ))}
+          </ul>
         </aside>
 
         <div className="financier-note">

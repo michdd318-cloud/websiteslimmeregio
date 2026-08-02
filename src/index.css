@@ -380,6 +380,11 @@ img { max-width: 100%; display: block; }
 .partner-role { color: var(--accent-strong); font-weight: var(--fw-semi); font-size: .9rem; margin: 0 0 .6rem; }
 .partner-body p { margin: 0 0 .5rem; color: var(--ink-soft); font-size: .97rem; }
 .partner-contact { font-size: .9rem; color: var(--muted); }
+.klankbord-logos { list-style: none; margin: 1.1rem 0 0; padding: 0; display: flex; flex-wrap: wrap; align-items: center; gap: .9rem 1.4rem; }
+.klankbord-logos li { display: flex; }
+.klankbord-logos .partner-mark { min-height: 46px; }
+.klankbord-logos .partner-mark .logo-slot img { height: 38px; max-width: 170px; }
+.klankbord-logos .partner-mark .logo-slot { font-size: .84rem; }
 .financier-note { display: grid; grid-template-columns: 240px 1fr; gap: 1.6rem; align-items: center; margin-top: 1.4rem; padding: 1.5rem 1.6rem; border-radius: var(--radius); background: var(--accent-tint); border: 1px solid color-mix(in srgb, var(--accent) 22%, transparent); }
 .financier-note p { margin: 0; color: var(--ink); }
 
