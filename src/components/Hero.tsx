@@ -8,14 +8,8 @@ export function Hero() {
         <div className="wrap hero-grid">
           <div className="hero-copy reveal">
             <h1 id="hero-title" className="hero-h1">
-              <span className="h1-under">
-                <span className="h1-arrow h1-arrow-down" aria-hidden="true">▼</span>
-                Minder tijd aan administratie.
-              </span>
-              <span className="h1-over">
-                <span className="h1-arrow h1-arrow-up" aria-hidden="true">▲</span>
-                Meer tijd voor hulpverlening.
-              </span>
+              <span className="h1-under">Minder tijd aan administratie.</span>
+              <span className="h1-over">Meer tijd voor hulpverlening.</span>
             </h1>
             <span className="hero-bar" aria-hidden="true" />
             <p className="hero-sub">
