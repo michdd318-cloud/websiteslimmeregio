@@ -25,7 +25,7 @@ import { ReleaseTimeLine, type TimelineEntry } from "./ui/release-time-line";
 /* ---------------- 4. Wat een activeringstraject vandaag kost ---------------- */
 export function ActiveringKost() {
   return (
-    <section className="section section-alt" id="activering" aria-labelledby="akost-title">
+    <section className="section" id="activering" aria-labelledby="akost-title">
       <div className="wrap">
         <div className="section-head">
           <p className="eyebrow">De werklast</p>
@@ -65,7 +65,7 @@ export function ActiveringKost() {
 /* ---------------- 5. De uitdaging ---------------- */
 export function Uitdaging() {
   return (
-    <section className="section" id="uitdaging" aria-labelledby="uit-title">
+    <section className="section section-alt" id="uitdaging" aria-labelledby="uit-title">
       <div className="wrap">
         <div className="section-head">
           <p className="eyebrow">De uitdaging</p>

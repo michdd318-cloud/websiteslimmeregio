@@ -30,8 +30,8 @@ export default function App() {
       <main id="hoofdinhoud">
         <span id="top" />
         <Hero />
-        <ActiveringKost />
         <Uitdaging />
+        <ActiveringKost />
         <Oplossing />
         <Tijdlijn />
         <Vertrouwen />
