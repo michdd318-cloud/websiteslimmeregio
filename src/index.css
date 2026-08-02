@@ -225,15 +225,6 @@ img { max-width: 100%; display: block; }
 }
 .preview-wide { aspect-ratio: 16 / 7; margin-top: 2.4rem; }
 
-.hero-badge {
-  position: absolute; left: -12px; bottom: -14px;
-  display: inline-flex; align-items: center; gap: .5rem;
-  background: var(--surface); color: var(--ink); border: 1px solid var(--line-strong);
-  padding: .5rem .8rem; border-radius: 999px; font-size: .84rem; font-weight: var(--fw-med);
-  box-shadow: var(--shadow-sm);
-}
-.hero-badge .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); flex: none; }
-
 /* ---------- Logo band ---------- */
 .logoband { padding: 1.4rem 0 2.4rem; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--surface-2); }
 .logo-label { text-align: center; text-transform: uppercase; letter-spacing: .1em; font-size: .78rem; font-weight: var(--fw-semi); color: var(--muted); margin: 0 0 1.2rem; }
@@ -380,6 +371,11 @@ img { max-width: 100%; display: block; }
 .partner-role { color: var(--accent-strong); font-weight: var(--fw-semi); font-size: .9rem; margin: 0 0 .6rem; }
 .partner-body p { margin: 0 0 .5rem; color: var(--ink-soft); font-size: .97rem; }
 .partner-contact { font-size: .9rem; color: var(--muted); }
+.klankbord-logos { list-style: none; margin: 1.1rem 0 0; padding: 0; display: flex; flex-wrap: wrap; align-items: center; gap: .9rem 1.4rem; }
+.klankbord-logos li { display: flex; }
+.klankbord-logos .partner-mark { min-height: 46px; }
+.klankbord-logos .partner-mark .logo-slot img { height: 38px; max-width: 170px; }
+.klankbord-logos .partner-mark .logo-slot { font-size: .84rem; }
 .financier-note { display: grid; grid-template-columns: 240px 1fr; gap: 1.6rem; align-items: center; margin-top: 1.4rem; padding: 1.5rem 1.6rem; border-radius: var(--radius); background: var(--accent-tint); border: 1px solid color-mix(in srgb, var(--accent) 22%, transparent); }
 .financier-note p { margin: 0; color: var(--ink); }
 
@@ -475,9 +471,6 @@ img { max-width: 100%; display: block; }
 .footer-contact p { margin: 0 0 .4rem; color: var(--ink-soft); }
 .footer-support .partner-mark { margin-bottom: .7rem; max-width: 220px; }
 .footer-support p { margin: 0; color: var(--muted); font-size: .92rem; }
-.footer-logos { padding: 2rem 0; border-top: 1px solid var(--line); }
-.footer-logos-label { text-align: center; color: var(--muted); font-size: .85rem; margin: 0 0 1.2rem; }
-.logo-row-footer { gap: .9rem 2rem; }
 .footer-bottom { display: flex; flex-wrap: wrap; gap: .6rem 1.5rem; justify-content: space-between; align-items: center; padding: 1.4rem 0 2.2rem; border-top: 1px solid var(--line); }
 .footer-bottom p { margin: 0; font-size: .87rem; color: var(--muted); }
 .footer-links a { color: var(--ink-soft); text-decoration: none; font-size: .87rem; font-weight: var(--fw-med); }
@@ -543,11 +536,6 @@ img { max-width: 100%; display: block; }
 .statline .stat { flex: none; margin: 0; }
 .statline-body { margin: 0; color: var(--ink-soft); }
 
-/* "Wat het niet is" (hairline rows) */
-.notis { border-top: 1px solid var(--line); }
-.notis-item { display: grid; grid-template-columns: minmax(220px, 300px) 1fr; gap: 1.5rem; align-items: baseline; padding: 1.15rem 0; border-bottom: 1px solid var(--line); }
-.notis-item h3 { margin: 0; font-size: 1.08rem; color: var(--ink); }
-.notis-item p { margin: 0; color: var(--ink-soft); }
 
 /* Responsibility panel */
 .responsibility { margin-top: 2.8rem; }
@@ -572,7 +560,7 @@ img { max-width: 100%; display: block; }
 @media (max-width: 768px) {
   .cost-list { grid-template-columns: 1fr; }
   .statline { flex-direction: column; gap: .4rem; }
-  .notis-item, .responsibility-row { grid-template-columns: 1fr; gap: .3rem; }
+  .responsibility-row { grid-template-columns: 1fr; gap: .3rem; }
 }
 
 /* ---------- Reveal (GSAP-armed, motion-safe) ---------- */

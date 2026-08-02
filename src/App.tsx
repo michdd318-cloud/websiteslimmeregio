@@ -6,7 +6,6 @@ import {
   ActiveringKost,
   Uitdaging,
   Oplossing,
-  WatHetNiet,
   Tijdlijn,
   Vertrouwen,
   Partners,
@@ -36,7 +35,6 @@ export default function App() {
         <ActiveringKost />
         <Uitdaging />
         <Oplossing />
-        <WatHetNiet />
         <Tijdlijn />
         <Vertrouwen />
         <Partners />

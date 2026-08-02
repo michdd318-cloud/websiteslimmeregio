@@ -272,50 +272,6 @@ export function Oplossing() {
   );
 }
 
-/* ---------------- 7. Wat het niet is ---------------- */
-const NOTIS = [
-  {
-    title: "Geen nieuw dossiersysteem",
-    body: "Het komt naast wat je vandaag gebruikt, niet in de plaats van.",
-  },
-  {
-    title: "Geen extra registratielast",
-    body: "Als het netto meer werk oplevert, doen we iets fout.",
-  },
-  {
-    title: "Geen vervanging van de hulpverlener",
-    body: "Elke output passeert langs een mens die goedkeurt of corrigeert.",
-  },
-  {
-    title: "Geen black box",
-    body: "Wat de AI voorstelt, is terug te voeren op wat in het dossier of het gesprek staat.",
-  },
-  {
-    title: "Geen lock-in",
-    body: "Open standaarden, aansluiting op OSLO en de Vlaamse bouwstenen van Digitaal Vlaanderen.",
-  },
-];
-
-export function WatHetNiet() {
-  return (
-    <section className="section" id="watnietis" aria-labelledby="wni-title">
-      <div className="wrap">
-        <div className="section-head">
-          <h2 id="wni-title">Wat het niet is.</h2>
-        </div>
-        <div className="notis">
-          {NOTIS.map((n) => (
-            <article className="notis-item" key={n.title}>
-              <h3>{n.title}</h3>
-              <p>{n.body}</p>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 /* ---------------- 8. Tijdlijn ---------------- */
 const TIMELINE: TimelineEntry[] = [
   {
@@ -472,6 +428,14 @@ const PARTNERS = [
   },
 ];
 
+/* Klankbordgroep: logo where we have one, name as text fallback otherwise. */
+const KLANKBORD = [
+  { name: "welzijnskoepel", label: "Welzijnskoepel West-Brabant" },
+  { name: "grimbergen", label: "OCMW Grimbergen" },
+  { name: "openarmen", label: "Open Armen vzw" },
+  { name: "federgon", label: "Federgon" },
+];
+
 export function Partners() {
   return (
     <section className="section section-alt" id="partners" aria-labelledby="par-title">
@@ -499,10 +463,16 @@ export function Partners() {
 
         <aside className="callout klankbord">
           <h4>Klankbordgroep</h4>
-          <p>
-            Welzijnskoepel West-Brabant, OCMW Grimbergen, Open Armen vzw en Federgon testen mee en
-            leveren feedback vanuit hun eigen praktijk.
-          </p>
+          <p>Testen mee en leveren feedback vanuit hun eigen praktijk.</p>
+          <ul className="klankbord-logos">
+            {KLANKBORD.map((k) => (
+              <li key={k.name}>
+                <div className="partner-mark">
+                  <LogoSlot name={k.name} label={k.label} />
+                </div>
+              </li>
+            ))}
+          </ul>
         </aside>
 
         <div className="financier-note">

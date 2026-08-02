@@ -1,10 +1,4 @@
-import { PROJECT_LOGOS, SUPPORT_LOGOS } from "@/data";
 import { Wordmark, LogoSlot } from "./primitives";
-
-const FOOTER_LOGOS = [
-  ...PROJECT_LOGOS.filter((l) => !l.topOnly),
-  ...SUPPORT_LOGOS.map((l) => ({ ...l, financier: true })),
-];
 
 export function Footer() {
   return (
@@ -35,17 +29,6 @@ export function Footer() {
           </div>
           <p>Programma Slimme Regio, thema Slim Bestuur.</p>
         </div>
-      </div>
-
-      <div className="wrap footer-logos">
-        <p className="footer-logos-label">Een project van:</p>
-        <ul className="logo-row logo-row-footer">
-          {FOOTER_LOGOS.map((l) => (
-            <li key={l.name} className={l.financier ? "logo-financier" : undefined}>
-              <LogoSlot name={l.name} label={l.label} />
-            </li>
-          ))}
-        </ul>
       </div>
 
       <div className="wrap footer-bottom">

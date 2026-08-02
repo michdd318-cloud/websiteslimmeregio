@@ -43,10 +43,6 @@ export function Hero() {
               caption="Screenshot cliëntruimte + hulpverlener-module (toevoegen: assets/img/hero-clientruimte.png)"
               eager
             />
-            <div className="hero-badge">
-              <span className="dot" aria-hidden="true" />
-              Operationeel bij OCMW Halle sinds 2025
-            </div>
           </div>
         </div>
       </section>
