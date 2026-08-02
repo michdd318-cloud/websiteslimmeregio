@@ -439,7 +439,7 @@ export function Aansluiten() {
               </div>
             <div className="join-cta">
               <a href="mailto:info@whainot.be?subject=Inschrijving%20nieuwsbrief%20%7BA%7Dimpact&body=Ik%20schrijf%20me%20graag%20in%20op%20de%20nieuwsbrief%20van%20%7BA%7Dimpact.">
-                Inschrijven op de nieuwsbrief
+                Inschrijven
                 <span aria-hidden="true">→</span>
               </a>
             </div>
@@ -472,7 +472,7 @@ export function Aansluiten() {
               <a
                 href="mailto:info@whainot.be?subject=Aanmelden%20voor%20de%20klankbordgroep%20van%20%7BA%7Dimpact"
               >
-                Aanmelden voor de klankbordgroep
+                Aanmelden
                 <span aria-hidden="true">→</span>
               </a>
             </div>
@@ -503,7 +503,7 @@ export function Aansluiten() {
               </div>
             <div className="join-cta">
               <a href="mailto:info@whainot.be?subject=Gesprek%20over%20meedoen%20met%20%7BA%7Dimpact">
-                Een gesprek inplannen
+                Gesprek aanvragen
                 <span aria-hidden="true">→</span>
               </a>
             </div>
