@@ -342,12 +342,12 @@ export function Partners() {
 }
 
 /* ---------------- 11. Het project ---------------- */
-const WORKPACKAGES = [
+const WORKPACKAGES: { num: string; title: string; body: string; outcome: string; dark?: boolean }[] = [
   {
     num: "01",
     title: "Juridisch-ethisch kader",
     body: "Het bestaande DPIA/FRIA-kader uitgebreid naar cliënttoegang en data-eigenaarschap, plus sjablonen: toestemmingsformulieren, verwerkersovereenkomsten, privacyverklaringen, protocollen voor gegevensuitwisseling.",
-    outcome: "Bespaart een bestuur naar schatting 6 tot 9 maanden juridisch voorbereidingswerk.",
+    outcome: "Bespaart een bestuur 6 tot 9 maanden juridisch voorbereidingswerk.",
   },
   {
     num: "02",
@@ -359,13 +359,14 @@ const WORKPACKAGES = [
     num: "03",
     title: "Empowerment",
     body: "Meten of een eigen digitale ruimte cliënten meer inzicht en eigenaarschap geeft, met cliënten als actieve co-creators. Resultaat: opleidingsmateriaal voor cliënten en toegankelijkheidsrichtlijnen.",
-    outcome: "Direct toepasbaar materiaal, inclusief wat níet bleek te werken.",
+    outcome: "Direct toepasbaar materiaal, inclusief wat niet bleek te werken.",
   },
   {
     num: "04",
     title: "Samenwerking",
     body: "Een lerend netwerk tussen bestuur, kennisinstelling, bedrijven en burgers, gedocumenteerd als blauwdruk voor andere regio's.",
-    outcome: null,
+    outcome: "Een samenwerkingsmodel dat je in je eigen regio kan kopiëren.",
+    dark: true,
   },
 ];
 
@@ -374,33 +375,29 @@ export function Project() {
     <section className="section" id="project" aria-labelledby="pro-title">
       <div className="wrap">
         <div className="section-head">
+          <p className="eyebrow">Overdraagbaar</p>
           <h2 id="pro-title">Wat het oplevert voor andere OCMW's.</h2>
           <p className="lead">
-            <Wm /> loopt van 2026 tot 2028. Het doel is niet alleen dat het werkt in Halle, maar dat een
-            ander bestuur het kan overnemen zonder alles opnieuw te doen. Elk werkpakket levert daarom
-            iets op dat je zelf kan gebruiken.
+            <Wm /> loopt van 2026 tot 2028. Er worden verschillende werkpakketten samengesteld die open
+            access ter beschikking worden gesteld:
           </p>
         </div>
 
-        <div className="approach">
+        <div className="wp-grid">
           {WORKPACKAGES.map((w) => (
-            <article className="appr" key={w.num}>
-              <span className="appr-num" aria-hidden="true">
-                {w.num}
-              </span>
-              <h3>{w.title}</h3>
-              <p>{w.body}</p>
-              {w.outcome && <p className="appr-outcome">{w.outcome}</p>}
+            <article className={cn("wp-card", w.dark && "wp-card-dark")} key={w.num}>
+              <div className="wp-head">
+                <span className="wp-num" aria-hidden="true">{w.num}</span>
+                <h3>{w.title}</h3>
+              </div>
+              <p className="wp-body">{w.body}</p>
+              <p className="wp-outcome">
+                <span className="wp-arrow" aria-hidden="true">→</span>
+                {w.outcome}
+              </p>
             </article>
           ))}
         </div>
-
-        <p className="project-share">
-          <strong>Kennisdeling.</strong> Minimaal twee workshops voor OCMW's in Vlaams-Brabant, een
-          presentatie op een sectoraal congres, een wetenschappelijke publicatie en een praktijkgerichte
-          handleiding als open access publicatie. Alle sjablonen, protocollen en handleidingen komen
-          vrij beschikbaar, ook voor besturen die niet meedoen.
-        </p>
       </div>
     </section>
   );
