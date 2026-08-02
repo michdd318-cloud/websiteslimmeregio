@@ -447,28 +447,17 @@ img { max-width: 100%; display: block; }
 .join-list li { position: relative; padding-left: 1.1rem; }
 .join-list li::before { content: ""; position: absolute; left: 0; top: .5em; width: 6px; height: 6px; border-radius: 50%; background: #17795f; }
 .join-cta { margin-top: auto; padding-top: .3rem; }
-.join-2 .join-cta a, .join-3 .join-cta a {
+.join-cta a {
   display: inline-flex; align-items: center; gap: .6rem; text-decoration: none;
   font-size: .95rem; font-weight: var(--fw-bold); line-height: 1.2;
   padding: .8rem 1.5rem; border-radius: 999px; border: 2px solid; transition: background .2s var(--ease), color .2s var(--ease);
 }
+.join-1 .join-cta a { color: #f6f5f0; background: #0f5140; border-color: #0f5140; }
+.join-1 .join-cta a:hover { background: #17795f; border-color: #17795f; }
 .join-2 .join-cta a { color: #0f5140; background: transparent; border-color: #0f5140; }
 .join-2 .join-cta a:hover { background: #0f5140; color: #f6f5f0; }
 .join-3 .join-cta a { color: #0f5140; background: #fff; border-color: #fff; }
 .join-3 .join-cta a:hover { background: #7fc3ac; border-color: #7fc3ac; }
-.signup { margin-top: 0; }
-.signup-row { display: flex; gap: .5rem; flex-wrap: wrap; }
-.signup input {
-  flex: 1 1 160px; min-width: 0; font: inherit; font-size: .95rem; padding: .72rem .95rem;
-  border-radius: 999px; border: 1px solid #cfd6d2; background: #ffffff; color: #14181a;
-}
-.signup input::placeholder { color: var(--muted); }
-.signup input:focus-visible { border-color: var(--accent); }
-.signup .btn { border-radius: 999px; align-self: flex-start; }
-.form-hint { margin: .6rem 0 0; font-size: .82rem; color: #6f7a75; }
-.form-hint.is-error { color: #b4442f; }
-.form-hint.is-ok { color: var(--accent-strong); }
-:root[data-theme="dark"] .form-hint.is-error { color: #f0a08c; }
 
 /* ---------- FAQ ---------- */
 .faq { display: grid; gap: .1rem; border-top: 1px solid var(--line); }
@@ -614,8 +603,6 @@ img { max-width: 100%; display: block; }
   .workload-list li:nth-child(8) { border-bottom: 0; }
   .partner, .financier-note { grid-template-columns: 1fr; gap: .9rem; }
   .partner-mark { max-width: 240px; }
-  .signup-row { flex-direction: column; }
-  .signup input, .signup .btn { width: 100%; }
   .footer-top { grid-template-columns: 1fr; }
   .footer-brand { grid-column: span 1; }
   .logo-financier { padding-left: 0; margin-left: 0; }

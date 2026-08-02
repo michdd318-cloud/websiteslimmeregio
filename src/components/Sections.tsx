@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { FAQ } from "@/data";
 import { Wm, Preview, LogoSlot } from "./primitives";
@@ -123,10 +122,10 @@ export function Oplossing() {
       <div className="wrap">
         <div className="section-head">
           <p className="eyebrow">De oplossing</p>
-          <h2 id="opl-title">Eén traject, twee kanten</h2>
+          <h2 id="opl-title">Eén traject, twee actoren</h2>
           <p className="lead">
-            Het activeringstraject genereert aan beide kanten hetzelfde probleem: de hulpverlener
-            verliest tijd aan de administratie ervan, de cliënt heeft er geen zicht op.
+            Het activeringstraject geeft langs beide kanten een uitdaging: de hulpverlener verliest
+            tijd aan de administratie ervan, de cliënt heeft er geen zicht op.
           </p>
         </div>
 
@@ -404,55 +403,6 @@ export function Project() {
 }
 
 /* ---------------- 12. Aansluiten ---------------- */
-function NewsletterForm() {
-  const [email, setEmail] = useState("");
-  const [hint, setHint] = useState("We gebruiken je adres enkel voor de nieuwsbrief van {A}impact.");
-  const [status, setStatus] = useState<"" | "error" | "ok">("");
-
-  const onSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const val = email.trim();
-    const ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
-    if (!ok) {
-      setHint("Geef een geldig e-mailadres in.");
-      setStatus("error");
-      return;
-    }
-    setHint("Bedankt. Je e-mailprogramma opent om de inschrijving te bevestigen.");
-    setStatus("ok");
-    const subject = encodeURIComponent("Inschrijving nieuwsbrief {A}impact");
-    const body = encodeURIComponent(
-      "Ik schrijf me graag in op de nieuwsbrief van {A}impact.\n\nE-mailadres: " + val
-    );
-    window.location.href = `mailto:info@whainot.be?subject=${subject}&body=${body}`;
-    setEmail("");
-  };
-
-  return (
-    <form className="signup" onSubmit={onSubmit} noValidate>
-      <label htmlFor="nb-email" className="sr-only">E-mailadres</label>
-      <div className="signup-row">
-        <input
-          type="email"
-          id="nb-email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          inputMode="email"
-          autoComplete="email"
-          placeholder="jij@bestuur.be"
-          required
-        />
-        <button className="btn btn-primary" type="submit">
-          Inschrijven
-        </button>
-      </div>
-      <p className={cn("form-hint", status === "error" && "is-error", status === "ok" && "is-ok")}>
-        {hint}
-      </p>
-    </form>
-  );
-}
-
 export function Aansluiten() {
   return (
     <section className="section" id="aansluiten" aria-labelledby="aan-title">
@@ -490,7 +440,10 @@ export function Aansluiten() {
               </div>
             </div>
             <div className="join-cta">
-              <NewsletterForm />
+              <a href="mailto:info@whainot.be?subject=Inschrijving%20nieuwsbrief%20%7BA%7Dimpact&body=Ik%20schrijf%20me%20graag%20in%20op%20de%20nieuwsbrief%20van%20%7BA%7Dimpact.">
+                Inschrijven op de nieuwsbrief
+                <span aria-hidden="true">→</span>
+              </a>
             </div>
           </article>
 
