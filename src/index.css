@@ -394,7 +394,7 @@ img { max-width: 100%; display: block; }
 /* Top logo band: logos sit directly on the background, no chips.
    A fixed row height plus object-fit: contain normalises the optical size;
    per-logo overrides correct the ones that read too big or too small. */
-.logoband { padding: 1.8rem 0 2.8rem; }
+.logoband { padding: clamp(3.2rem, 2.2rem + 3vw, 5rem) 0 2.8rem; }
 .logoband .logo-row { gap: 1.1rem 2.6rem; }
 .logoband .logo-row li { height: 48px; display: flex; align-items: center; }
 .logoband .logo-slot { height: 100%; }
