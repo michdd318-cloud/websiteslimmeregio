@@ -1,4 +1,4 @@
-import { PROJECT_LOGOS, SUPPORT_LOGOS } from "@/data";
+import { PROJECT_LOGOS, SUPPORT_LOGOS, KLANKBORD_LOGOS } from "@/data";
 import { Wm, Preview, LogoSlot } from "./primitives";
 
 export function Hero() {
@@ -56,9 +56,13 @@ export function Hero() {
 
           <div className="logo-group">
             <p className="logo-label">Klankbordgroep</p>
-            <p className="logo-klankbord">
-              Welzijnskoepel West-Brabant, OCMW Grimbergen, Federgon
-            </p>
+            <ul className="logo-row logo-row-klankbord">
+              {KLANKBORD_LOGOS.map((l) => (
+                <li key={l.name}>
+                  <LogoSlot name={l.name} label={l.label} />
+                </li>
+              ))}
+            </ul>
           </div>
 
           <hr className="logo-divider" />
@@ -72,7 +76,6 @@ export function Hero() {
                 </li>
               ))}
             </ul>
-            <p className="logo-support-note">Programma Slimme Regio (thema Slim Bestuur).</p>
           </div>
         </div>
       </section>

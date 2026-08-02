@@ -228,8 +228,6 @@ img { max-width: 100%; display: block; }
 .logoband { padding: 1.4rem 0 2.4rem; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--surface-2); }
 .logo-label { text-align: center; text-transform: uppercase; letter-spacing: .1em; font-size: .78rem; font-weight: var(--fw-semi); color: var(--muted); margin: 0 0 1.2rem; }
 .logo-divider { border: 0; border-top: 1px solid var(--line); width: 100%; margin: 2.2rem 0; }
-.logo-support-note { text-align: center; color: var(--muted); font-size: .8rem; margin: .9rem 0 0; }
-.logo-klankbord { text-align: center; color: var(--ink-soft); font-size: .95rem; font-weight: var(--fw-med); margin: 0; }
 .logo-row { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 1rem 2.2rem; }
 .logo-row li { display: flex; }
 .logo-financier { position: relative; padding-left: 2.2rem; margin-left: .6rem; }
@@ -404,6 +402,9 @@ img { max-width: 100%; display: block; }
 /* Group 2 (funders): a touch smaller, subordinate to the partners. */
 .logoband .logo-row-support li { height: 40px; }
 .logoband .logo-row-support .logo-slot img { height: 34px; }
+/* Klankbordgroep: subordinate to the project partners, a touch smaller. */
+.logoband .logo-row-klankbord li { height: 40px; }
+.logoband .logo-row-klankbord .logo-slot img { height: 32px; }
 
 /* ---------- Project approach ---------- */
 .approach { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.1rem; margin-top: 1rem; }
