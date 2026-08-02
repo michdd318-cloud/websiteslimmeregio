@@ -253,7 +253,7 @@ const TIMELINE: TimelineEntry[] = [
     subtitle: "Overdraagbaar kader",
     description:
       "De aanpak vertalen naar instrumenten die andere OCMW's kunnen overnemen, gedocumenteerd als blauwdruk voor de sector.",
-    button: { url: "#aansluiten", text: "Sluit aan" },
+    button: { url: "#aansluiten", text: "Ik doe mee" },
   },
 ];
 
