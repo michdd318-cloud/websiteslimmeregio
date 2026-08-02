@@ -8,8 +8,8 @@ export function Hero() {
         <div className="wrap hero-grid">
           <div className="hero-copy reveal">
             <h1 id="hero-title">
-              Meer mensen kloppen aan.{" "}
-              <span className="hero-h1-accent">Dezelfde ploeg.</span>
+              Minder tijd in het dossier.{" "}
+              <span className="hero-h1-accent">Meer tijd voor de cliënt.</span>
             </h1>
             <p className="hero-sub">
               De beperking van de werkloosheidsuitkering brengt de komende jaren meer mensen bij het
