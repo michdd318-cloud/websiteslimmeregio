@@ -1,4 +1,4 @@
-import { PROJECT_LOGOS, SUPPORT_LOGOS, KLANKBORD_LOGOS } from "@/data";
+import { PROJECT_LOGOS, SUPPORT_LOGOS } from "@/data";
 import { Wm, Preview, LogoSlot } from "./primitives";
 
 export function Hero() {
@@ -7,21 +7,35 @@ export function Hero() {
       <section className="hero" aria-labelledby="hero-title">
         <div className="wrap hero-grid">
           <div className="hero-copy reveal">
+            <p className="eyebrow">
+              <Wm />
+            </p>
             <h1 id="hero-title">
               Minder tijd in het dossier.{" "}
               <span className="hero-h1-accent">Meer tijd voor de cliënt.</span>
             </h1>
+            <span className="hero-bar" aria-hidden="true" />
             <p className="hero-sub">
               De beperking van de werkloosheidsuitkering brengt de komende jaren meer mensen bij het
               OCMW. Dat verhoogt de druk op sociale diensten die nu al kampen met hoge administratieve
               lasten en moeilijk in te vullen vacatures.
             </p>
-            <p className="hero-body">
-              <Wm /> neemt repetitief administratief werk uit handen, niet om de hulpverlening te
-              automatiseren, maar om tijd vrij te maken voor persoonlijke begeleiding. Daarnaast bouwen
-              we een digitale cliëntruimte waarin mensen meer grip krijgen op hun eigen
-              activeringstraject.
-            </p>
+            <div className="hero-split">
+              <div className="hero-split-col">
+                <p className="hero-split-label">Voor de hulpverlener</p>
+                <p className="hero-split-text">
+                  Repetitief administratief werk uit handen, niet om de hulpverlening te automatiseren,
+                  maar om tijd vrij te maken voor persoonlijke begeleiding.
+                </p>
+              </div>
+              <div className="hero-split-col">
+                <p className="hero-split-label">Voor de cliënt</p>
+                <p className="hero-split-text">
+                  Een digitale cliëntruimte waarin mensen meer grip krijgen op hun eigen
+                  activeringstraject.
+                </p>
+              </div>
+            </div>
             <p className="hero-support">
               Met steun van de provincie Vlaams-Brabant, programma Slimme Regio (thema Slim Bestuur).
             </p>
@@ -44,19 +58,6 @@ export function Hero() {
             <p className="logo-label">Een project van</p>
             <ul className="logo-row">
               {PROJECT_LOGOS.map((l) => (
-                <li key={l.name}>
-                  <LogoSlot name={l.name} label={l.label} />
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <hr className="logo-divider" />
-
-          <div className="logo-group">
-            <p className="logo-label">Klankbordgroep</p>
-            <ul className="logo-row logo-row-klankbord">
-              {KLANKBORD_LOGOS.map((l) => (
                 <li key={l.name}>
                   <LogoSlot name={l.name} label={l.label} />
                 </li>

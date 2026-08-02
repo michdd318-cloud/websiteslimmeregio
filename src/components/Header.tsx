@@ -57,7 +57,7 @@ export function Header({ scrolled }: { scrolled: boolean }) {
             <Moon className="i-moon" size={18} strokeWidth={1.6} aria-hidden="true" />
           </button>
           <a className="btn btn-primary btn-sm nav-cta" href="#aansluiten">
-            Sluit aan
+            Ik doe mee
           </a>
         </div>
 

@@ -6,25 +6,22 @@ export interface LogoItem {
   topOnly?: boolean;
 }
 
-/** Group 1 of the logo band and the footer: the project partners. */
+/** Banner 1 of the logo band: project partners plus the sounding board.
+ *  LogoSlot shows a logo where we have one, otherwise the name as text
+ *  (and swaps in the logo automatically once the file is added). */
 export const PROJECT_LOGOS: LogoItem[] = [
   { name: "whainot", label: "WhaiNot" },
   { name: "halle", label: "Stad en OCMW Halle" },
   { name: "ucll", label: "UCLL Research & Expertise" },
   { name: "vites", label: "ViTeS" },
-];
-
-/** Group 2 of the logo band: the funders. Kept as an array; more may follow. */
-export const SUPPORT_LOGOS: LogoItem[] = [
-  { name: "vlaamsbrabant", label: "Provincie Vlaams-Brabant" },
-];
-
-/** Middle group of the logo band: the sounding board. Logo where we have one,
- *  otherwise LogoSlot falls back to the name as text (and swaps in the logo later). */
-export const KLANKBORD_LOGOS: LogoItem[] = [
   { name: "welzijnskoepel", label: "Welzijnskoepel West-Brabant" },
   { name: "grimbergen", label: "OCMW Grimbergen" },
   { name: "federgon", label: "Federgon" },
+];
+
+/** Banner 2 of the logo band: the funders. Kept as an array; more may follow. */
+export const SUPPORT_LOGOS: LogoItem[] = [
+  { name: "vlaamsbrabant", label: "Provincie Vlaams-Brabant" },
 ];
 
 export interface FaqItem {

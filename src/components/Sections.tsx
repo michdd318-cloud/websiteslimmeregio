@@ -28,41 +28,35 @@ export function ActiveringKost() {
     <section className="section section-alt" id="activering" aria-labelledby="akost-title">
       <div className="wrap">
         <div className="section-head">
-          <h2 id="akost-title">Wat een activeringstraject vandaag kost.</h2>
-          <p className="lead">
-            Herkenbaar? Eén activeringstraject genereert een vaste stroom papierwerk. Van eerste
-            contact tot afsluiting:
-          </p>
+          <p className="eyebrow">De werklast</p>
+          <h2 id="akost-title">Wat een activeringstraject vandaag vraagt.</h2>
         </div>
-        <ul className="cost-list">
-          <li>het sociaal onderzoek uitschrijven en staven;</li>
-          <li>de intake omzetten naar een bruikbaar verslag;</li>
-          <li>het GPMI opmaken, en bij elke wijziging opnieuw actualiseren;</li>
-          <li>na elk gesprek een verslag, ook als het gesprek kort was;</li>
-          <li>evaluatiemomenten voorbereiden, voeren en vastleggen;</li>
-          <li>doorverwijzingen documenteren en opvolgen;</li>
-          <li>
-            de voortgang bijhouden over meerdere levensdomeinen tegelijk: huisvesting, schulden,
-            gezondheid, taal, sociale contacten, werk.
-          </li>
-        </ul>
-        <div className="flow">
-          <p>
-            <Wm /> neemt dat repetitieve werk uit handen. Van gesprek naar een eerste gestructureerd
-            verslag dat de maatschappelijk werker aanvult en valideert. Hetzelfde voor het GPMI en de
-            terugkerende documenten. Niet om de hulpverlening te automatiseren, maar om tijd vrij te
-            maken voor de kern van het werk.
-          </p>
+
+        <div className="workload">
+          <ol className="workload-list">
+            <li><span className="wl-num" aria-hidden="true">01</span><span>het sociaal onderzoek uitschrijven en staven</span></li>
+            <li><span className="wl-num" aria-hidden="true">02</span><span>de mogelijkheden met de cliënt in kaart brengen</span></li>
+            <li><span className="wl-num" aria-hidden="true">03</span><span>het GPMI opmaken, en bij elke wijziging opnieuw actualiseren</span></li>
+            <li><span className="wl-num" aria-hidden="true">04</span><span>evaluatiemomenten voorbereiden, voeren en vastleggen</span></li>
+            <li><span className="wl-num" aria-hidden="true">05</span><span>de voortgang bijhouden over meerdere levensdomeinen tegelijk</span></li>
+            <li><span className="wl-num" aria-hidden="true">06</span><span>registratie op platformen van partners</span></li>
+            <li><span className="wl-num" aria-hidden="true">07</span><span>na elk gesprek een verslag</span></li>
+            <li><span className="wl-num" aria-hidden="true">08</span><span>doorverwijzingen documenteren en opvolgen</span></li>
+          </ol>
+
+          <figure className="workload-quote">
+            <span className="wq-mark" aria-hidden="true">&ldquo;</span>
+            <blockquote>
+              Onze sociale dienst voelt de druk vandaag al toenemen. Voor ons is het belangrijk dat AI
+              geen afstand creëert tussen hulpverlener en cliënt, maar net ruimte vrijmaakt voor betere
+              begeleiding.
+            </blockquote>
+            <figcaption>
+              <span className="wq-name">Jeroen Hofmans</span>
+              <span className="wq-role">Voorzitter bijzonder comité sociale dienst, OCMW Halle</span>
+            </figcaption>
+          </figure>
         </div>
-        <blockquote className="pull-quote">
-          <p>
-            “Onze sociale dienst voelt de druk vandaag al toenemen. We willen niet wachten tot de
-            problemen zich opstapelen, maar actief onderzoeken hoe technologie onze maatschappelijk
-            werkers kan ondersteunen. Voor ons is het belangrijk dat AI geen afstand creëert tussen
-            hulpverlener en cliënt, maar net ruimte vrijmaakt voor betere begeleiding.”
-          </p>
-          <cite>Jeroen Hofmans, voorzitter Bijzonder Comité Sociale Dienst OCMW Halle</cite>
-        </blockquote>
       </div>
     </section>
   );
@@ -79,45 +73,48 @@ export function Uitdaging() {
         </div>
 
         <div className="challenge-grid">
-          <article className="challenge challenge-lead reveal">
+          <article className="challenge reveal">
             <p className="stat">184.000</p>
+            <span className="stat-bar" aria-hidden="true" />
             <p className="stat-label">
-              mensen verliezen naar schatting hun uitkering tussen 1 januari 2026 en 30 juni 2027, met
-              meer dan 10.000 nieuwe instromers per maand.
-            </p>
-            <p className="challenge-body">
-              De beperking van de werkloosheidsuitkering (wet juli 2025) zet OCMW's onder druk die zich
-              niet laat opvangen met extra aanwervingen. Het gaat vaak om mensen voor wie een louter
-              arbeidsgerichte aanpak jarenlang niet werkte. Zij hebben activering nodig in de brede zin,
-              over meerdere levensdomeinen.
+              mensen verliezen naar schatting hun uitkering tussen 1 januari 2026 en 30 juni 2027, meer
+              dan 10.000 nieuwe instromers per maand.
             </p>
           </article>
 
           <article className="challenge reveal">
             <p className="stat">tot 41%</p>
+            <span className="stat-bar" aria-hidden="true" />
             <p className="stat-label">van de arbeidstijd van maatschappelijk werkers gaat naar administratie.</p>
-            <p className="challenge-body">
-              Een werklastmeting van POD MI en Probis (836 medewerkers uit 69 OCMW's) bracht dat in
-              kaart. Die meting dateert van 2014; sindsdien is de caseload gestegen, niet gedaald.
-              "Maatschappelijk werker" is een erkend knelpuntberoep.
-            </p>
           </article>
 
           <article className="challenge reveal">
             <p className="stat">3 tekorten</p>
+            <span className="stat-bar" aria-hidden="true" />
             <p className="stat-label">bij de cliënt, die elkaar versterken.</p>
-            <ul className="mini-list">
-              <li>geen helder zicht op het eigen traject;</li>
-              <li>weinig eigenaarschap, en afhankelijkheid van de hulpverlener;</li>
-              <li>beperkte zelfpresentatie, versterkt door digitale en taalbarrières.</li>
-            </ul>
+            <ol className="challenge-num">
+              <li>
+                <span aria-hidden="true">01</span>geen helder zicht op het eigen traject;
+              </li>
+              <li>
+                <span aria-hidden="true">02</span>weinig eigenaarschap, en afhankelijkheid van de
+                hulpverlener;
+              </li>
+              <li>
+                <span aria-hidden="true">03</span>beperkte zelfpresentatie, versterkt door digitale en
+                taalbarrières.
+              </li>
+            </ol>
           </article>
         </div>
 
-        <p className="challenge-close">
-          De oplossing ligt niet in méér hulpverleners, maar in het structureel versterken van zowel
-          hulpverlener als cliënt.
-        </p>
+        <aside className="challenge-conclusion">
+          <p className="cc-label">De conclusie</p>
+          <p className="cc-text">
+            De oplossing ligt niet in méér hulpverleners, maar in het structureel versterken van{" "}
+            <span>zowel hulpverlener als cliënt</span>.
+          </p>
+        </aside>
       </div>
     </section>
   );
@@ -256,7 +253,7 @@ const TIMELINE: TimelineEntry[] = [
     subtitle: "Overdraagbaar kader",
     description:
       "De aanpak vertalen naar instrumenten die andere OCMW's kunnen overnemen, gedocumenteerd als blauwdruk voor de sector.",
-    button: { url: "#aansluiten", text: "Sluit aan" },
+    button: { url: "#aansluiten", text: "Ik doe mee" },
   },
 ];
 

@@ -194,15 +194,20 @@ img { max-width: 100%; display: block; }
 .hero-brand { margin: 0 0 1.1rem; }
 .hero h1 { font-size: clamp(2.3rem, 1.5rem + 3.4vw, 3.7rem); letter-spacing: -.03em; color: var(--ink); }
 .hero-h1-accent { display: block; color: var(--accent-strong); font-weight: var(--fw-med); }
-.hero-sub { font-size: clamp(1.05rem, .98rem + .5vw, 1.2rem); color: var(--ink-soft); max-width: 34ch; margin-top: 1.1rem; }
-.hero-body { font-size: 1rem; color: var(--ink-soft); max-width: 40ch; margin-top: .9rem; }
+.hero-bar { display: block; width: 120px; height: 4px; background: var(--accent); border-radius: 2px; margin: 1.2rem 0 0; }
+.hero-sub { font-size: clamp(1.05rem, .98rem + .5vw, 1.2rem); color: var(--ink-soft); max-width: 42ch; margin-top: 1.2rem; }
+.hero-split { display: grid; grid-template-columns: 1fr 1fr; margin-top: 2rem; }
+.hero-split-col { padding-right: 1.8rem; }
+.hero-split-col + .hero-split-col { padding-right: 0; padding-left: 1.8rem; border-left: 1px solid var(--line); }
+.hero-split-label { margin: 0 0 .5rem; font-size: .74rem; font-weight: var(--fw-semi); text-transform: uppercase; letter-spacing: .14em; color: var(--accent-strong); }
+.hero-split-text { margin: 0; font-size: .94rem; line-height: 1.45; color: var(--ink-soft); }
 .hero-support {
-  display: flex; align-items: flex-start; gap: .55rem; margin-top: 1.7rem;
-  font-size: .9rem; color: var(--muted); max-width: 46ch;
+  margin-top: 1.7rem; padding-top: 1.2rem; border-top: 1px solid var(--line);
+  font-size: .88rem; color: var(--muted); max-width: none;
 }
-.hero-support svg { color: var(--accent); flex: none; margin-top: 2px; }
 
-.hero-visual { position: relative; }
+.hero-visual { position: relative; background: #0e5347; border-radius: var(--radius-lg); padding: clamp(1.1rem, .5rem + 2vw, 2.3rem); }
+.hero-visual .preview { border: 0; border-radius: 16px; box-shadow: 0 24px 60px rgba(0,0,0,.28); }
 .preview {
   margin: 0; border-radius: var(--radius-lg); overflow: hidden;
   border: 1px solid var(--line); background: var(--surface-2);
@@ -271,23 +276,43 @@ img { max-width: 100%; display: block; }
 .track p { margin: 0; color: var(--ink-soft); }
 .track-base { border-left: 3px solid var(--accent); }
 .track-new { border-left: 3px solid var(--line-strong); }
-.pull-quote { margin: 2rem 0 0; padding: .2rem 0 .2rem 1.5rem; border-left: 3px solid var(--accent); }
-.pull-quote p { margin: 0; font-size: 1.18rem; font-style: italic; line-height: 1.55; color: var(--ink); max-width: 60ch; }
-.pull-quote cite {
-  display: block; margin-top: 1rem; font-style: normal; font-size: .8rem;
-  text-transform: uppercase; letter-spacing: .06em; color: var(--muted); font-weight: var(--fw-semi);
-}
+/* ---------- Werklast (activeringstraject) ---------- */
+.workload { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 0; margin-top: 2.4rem; align-items: start; }
+.workload-list { list-style: none; margin: 0; padding: 0 3.5rem 0 0; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: repeat(4, auto); grid-auto-flow: column; column-gap: 3rem; }
+.workload-list li { display: grid; grid-template-columns: 38px 1fr; align-items: baseline; padding: 1rem 0; border-bottom: 1px solid var(--line); }
+.workload-list li:nth-child(4), .workload-list li:nth-child(8) { border-bottom: 0; }
+.wl-num { font-size: .92rem; font-weight: var(--fw-bold); color: var(--accent-strong); }
+.workload-list li > span:last-child { font-size: 1rem; line-height: 1.35; color: var(--ink-soft); }
+
+.workload-quote { margin: 0; padding-left: 3.5rem; border-left: 1px solid var(--line); display: flex; flex-direction: column; gap: 1.3rem; }
+.wq-mark { font-size: 4rem; line-height: .4; color: var(--line-strong); font-weight: var(--fw-bold); }
+.workload-quote blockquote { margin: 0; font-size: clamp(1.15rem, 1rem + .6vw, 1.35rem); line-height: 1.45; font-weight: var(--fw-semi); color: var(--ink); }
+.workload-quote figcaption { display: flex; flex-direction: column; gap: .25rem; border-top: 1px solid var(--line); padding-top: 1.1rem; }
+.wq-name { font-weight: var(--fw-bold); color: var(--accent-strong); }
+.wq-role { font-size: .9rem; color: var(--muted); }
 
 /* ---------- Uitdaging ---------- */
-.challenge-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 1.3rem; }
-.challenge { padding: 1.7rem 1.6rem; border-radius: var(--radius); background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow-sm); }
-.challenge-lead { grid-row: span 1; }
-.stat { font-size: clamp(2rem, 1.4rem + 2.4vw, 2.9rem); font-weight: var(--fw-bold); color: var(--accent-strong); letter-spacing: -.03em; line-height: 1; margin: 0 0 .7rem; font-variant-numeric: tabular-nums; }
-.stat-label { color: var(--ink); font-weight: var(--fw-med); margin: 0 0 1rem; }
-.challenge-body { color: var(--ink-soft); font-size: .97rem; margin: 0; }
-.mini-list { list-style: disc; margin: 0; padding-left: 1.1rem; color: var(--ink-soft); font-size: .97rem; }
-.mini-list li { margin-bottom: .5rem; }
-.challenge-close { margin: 2.2rem auto 0; max-width: 60ch; font-size: 1.14rem; color: var(--ink); font-weight: var(--fw-med); }
+.challenge-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 2.4rem; }
+.challenge { display: flex; flex-direction: column; gap: 1.1rem; padding: 0 2.2rem; }
+.challenge:first-child { padding-left: 0; }
+.challenge:last-child { padding-right: 0; }
+.challenge + .challenge { border-left: 1px solid var(--line); }
+.stat { font-size: clamp(2.4rem, 1.5rem + 3.4vw, 3.6rem); font-weight: var(--fw-bold); color: var(--accent-strong); letter-spacing: -.035em; line-height: .92; margin: 0; font-variant-numeric: tabular-nums; }
+.stat-bar { display: block; width: 72px; height: 4px; background: var(--accent); border-radius: 2px; }
+.stat-label { color: var(--ink); font-weight: var(--fw-semi); font-size: 1.02rem; line-height: 1.35; margin: 0; }
+.challenge-num { list-style: none; margin: .3rem 0 0; padding: 0; display: grid; gap: .7rem; }
+.challenge-num li { display: grid; grid-template-columns: 26px 1fr; align-items: baseline; color: var(--muted); font-size: .95rem; line-height: 1.4; }
+.challenge-num li span { font-weight: var(--fw-bold); color: var(--accent-strong); font-size: .78rem; }
+
+/* Conclusie-banner: bewust een donkergroen paneel in beide thema's. */
+.challenge-conclusion {
+  margin-top: 2.8rem; border-radius: var(--radius); padding: 1.7rem 2rem;
+  background: #0e5347; color: #f3f7f5;
+  display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 1rem 2.4rem;
+}
+.cc-label { margin: 0; font-size: .76rem; font-weight: var(--fw-semi); letter-spacing: .18em; text-transform: uppercase; color: #7fc3ac; white-space: nowrap; }
+.cc-text { margin: 0; font-size: clamp(1.15rem, 1rem + .7vw, 1.45rem); line-height: 1.32; font-weight: var(--fw-med); }
+.cc-text span { color: #7fc3ac; }
 
 /* ---------- Oplossing: twee symmetrische sporen ---------- */
 .two-tracks { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; align-items: stretch; margin-top: 2.4rem; }
@@ -396,9 +421,6 @@ img { max-width: 100%; display: block; }
 /* Group 2 (funders): a touch smaller, subordinate to the partners. */
 .logoband .logo-row-support li { height: 40px; }
 .logoband .logo-row-support .logo-slot img { height: 34px; }
-/* Klankbordgroep: subordinate to the project partners, a touch smaller. */
-.logoband .logo-row-klankbord li { height: 40px; }
-.logoband .logo-row-klankbord .logo-slot img { height: 32px; }
 
 /* ---------- Project approach ---------- */
 .approach { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.1rem; margin-top: 1rem; }
@@ -517,13 +539,6 @@ img { max-width: 100%; display: block; }
 .hero-sub { max-width: 46ch; }
 .callout { background: var(--surface); }
 
-/* Readable prose blocks */
-.flow p { margin: 1.1rem 0 0; color: var(--ink-soft); }
-
-/* Paperwork / cost list (two columns) */
-.cost-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: .65rem 2.2rem; }
-.cost-list li { position: relative; padding-left: 1.4rem; color: var(--ink-soft); font-size: .98rem; }
-.cost-list li::before { content: ""; position: absolute; left: 0; top: .6em; width: 6px; height: 6px; background: var(--accent); transform: rotate(45deg); }
 
 /* Inline big-stat line */
 .statline { display: flex; align-items: baseline; gap: 1.5rem; margin-top: 1.8rem; padding-top: 1.5rem; border-top: 1px solid var(--line); }
@@ -552,7 +567,6 @@ img { max-width: 100%; display: block; }
 .part-note { font-size: .88rem; color: var(--muted); margin: .9rem 0 0; }
 
 @media (max-width: 768px) {
-  .cost-list { grid-template-columns: 1fr; }
   .statline { flex-direction: column; gap: .4rem; }
   .responsibility-row { grid-template-columns: 1fr; gap: .3rem; }
 }
@@ -572,6 +586,13 @@ img { max-width: 100%; display: block; }
   .hero-visual { order: -1; max-width: 520px; }
   .hero-sub, .hero-support { max-width: none; }
   .tracks, .solution, .challenge-grid, .approach { grid-template-columns: 1fr; }
+  .challenge { padding: 1.6rem 0; }
+  .challenge:first-child { padding-top: 0; }
+  .challenge + .challenge { border-left: 0; border-top: 1px solid var(--line); }
+  .challenge-conclusion { grid-template-columns: 1fr; gap: .8rem; }
+  .workload { grid-template-columns: 1fr; gap: 2.2rem; }
+  .workload-list { padding-right: 0; }
+  .workload-quote { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); padding-top: 1.6rem; }
   .values { grid-template-columns: repeat(2, 1fr); }
   .participate { grid-template-columns: 1fr; }
   .footer-top { grid-template-columns: 1fr 1fr; }
@@ -580,6 +601,12 @@ img { max-width: 100%; display: block; }
 @media (max-width: 600px) {
   body { font-size: 16px; }
   .header-inner { height: 60px; gap: .8rem; }
+  .hero-split { grid-template-columns: 1fr; }
+  .hero-split-col { padding-right: 0; }
+  .hero-split-col + .hero-split-col { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); padding-top: 1.2rem; margin-top: 1.2rem; }
+  .workload-list { grid-template-columns: 1fr; grid-template-rows: none; grid-auto-flow: row; }
+  .workload-list li:nth-child(4) { border-bottom: 1px solid var(--line); }
+  .workload-list li:nth-child(8) { border-bottom: 0; }
   .values { grid-template-columns: 1fr; }
   .partner, .financier-note { grid-template-columns: 1fr; gap: .9rem; }
   .partner-mark { max-width: 240px; }
