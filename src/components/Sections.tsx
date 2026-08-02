@@ -418,8 +418,7 @@ export function Aansluiten() {
               <span className="join-num" aria-hidden="true">01</span>
               <h3>Meelezen</h3>
             </header>
-            <div className="join-rows">
-              <div className="join-row">
+            <div className="join-row">
                 <span className="join-label">Wat het vraagt</span>
                 <div className="join-val">Je e-mailadres.</div>
               </div>
@@ -438,7 +437,6 @@ export function Aansluiten() {
                   DPO's, algemeen directeur, stafmedewerkers, IT.
                 </div>
               </div>
-            </div>
             <div className="join-cta">
               <a href="mailto:info@whainot.be?subject=Inschrijving%20nieuwsbrief%20%7BA%7Dimpact&body=Ik%20schrijf%20me%20graag%20in%20op%20de%20nieuwsbrief%20van%20%7BA%7Dimpact.">
                 Inschrijven op de nieuwsbrief
@@ -452,8 +450,7 @@ export function Aansluiten() {
               <span className="join-num" aria-hidden="true">02</span>
               <h3>Meedenken</h3>
             </header>
-            <div className="join-rows">
-              <div className="join-row">
+            <div className="join-row">
                 <span className="join-label">Wat het vraagt</span>
                 <div className="join-val">Een halve dag per semester neem je deel aan de klankbordgroep.</div>
               </div>
@@ -471,7 +468,6 @@ export function Aansluiten() {
                   DPO's.
                 </div>
               </div>
-            </div>
             <div className="join-cta">
               <a
                 href="mailto:info@whainot.be?subject=Aanmelden%20voor%20de%20klankbordgroep%20van%20%7BA%7Dimpact"
@@ -487,8 +483,7 @@ export function Aansluiten() {
               <span className="join-num" aria-hidden="true">03</span>
               <h3>Mee doen</h3>
             </header>
-            <div className="join-rows">
-              <div className="join-row">
+            <div className="join-row">
                 <span className="join-label">Wat het vraagt</span>
                 <div className="join-val">
                   Een beslissing van je bestuur en tijd van enkele leden van je team voor introductie en
@@ -506,7 +501,6 @@ export function Aansluiten() {
                   OCMW.
                 </div>
               </div>
-            </div>
             <div className="join-cta">
               <a href="mailto:info@whainot.be?subject=Gesprek%20over%20meedoen%20met%20%7BA%7Dimpact">
                 Een gesprek inplannen

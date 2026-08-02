@@ -425,8 +425,8 @@ img { max-width: 100%; display: block; }
 .wp-card-dark .wp-arrow { color: #7fc3ac; }
 
 /* ---------- Aansluiten: drie tiers (oplopend groen) ---------- */
-.join { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; align-items: stretch; margin-top: 2.4rem; }
-.join-card { display: flex; flex-direction: column; gap: 1.4rem; padding: clamp(1.5rem, 2vw, 2.2rem); border-radius: var(--radius); }
+.join { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: repeat(5, auto); gap: 1.2rem 1rem; margin-top: 2.4rem; }
+.join-card { grid-row: span 5; display: grid; grid-template-rows: subgrid; padding: clamp(1.5rem, 2vw, 2.2rem); border-radius: var(--radius); }
 .join-1 { background: #edf3ef; color: #14181a; }
 .join-2 { background: #d3e4db; color: #14181a; }
 .join-3 { background: #0f5140; color: #f3f7f5; }
@@ -435,7 +435,6 @@ img { max-width: 100%; display: block; }
 .join-3 .join-num { color: #7fc3ac; }
 .join-head h3 { margin: 0; font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem); line-height: 1.05; letter-spacing: -.02em; color: #101614; }
 .join-3 .join-head h3 { color: #fff; }
-.join-rows { display: flex; flex-direction: column; gap: 1.1rem; }
 .join-row { display: grid; grid-template-columns: minmax(0, 108px) minmax(0, 1fr); gap: .8rem; align-items: baseline; }
 .join-row + .join-row { border-top: 1px solid #e6e7e0; padding-top: 1.1rem; }
 .join-3 .join-row + .join-row { border-top-color: rgba(255, 255, 255, .18); }
@@ -590,7 +589,8 @@ img { max-width: 100%; display: block; }
   .workload { grid-template-columns: 1fr; gap: 2.2rem; }
   .workload-list { padding-right: 0; }
   .workload-quote { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); padding-top: 1.6rem; }
-  .join { grid-template-columns: 1fr; }
+  .join { grid-template-columns: 1fr; grid-template-rows: none; }
+  .join-card { grid-row: auto; display: flex; flex-direction: column; gap: 1.2rem; }
   .footer-top { grid-template-columns: 1fr 1fr; }
   .footer-brand { grid-column: span 2; }
 }
