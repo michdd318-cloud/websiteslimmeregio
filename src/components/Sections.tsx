@@ -79,45 +79,48 @@ export function Uitdaging() {
         </div>
 
         <div className="challenge-grid">
-          <article className="challenge challenge-lead reveal">
+          <article className="challenge reveal">
             <p className="stat">184.000</p>
+            <span className="stat-bar" aria-hidden="true" />
             <p className="stat-label">
-              mensen verliezen naar schatting hun uitkering tussen 1 januari 2026 en 30 juni 2027, met
-              meer dan 10.000 nieuwe instromers per maand.
-            </p>
-            <p className="challenge-body">
-              De beperking van de werkloosheidsuitkering (wet juli 2025) zet OCMW's onder druk die zich
-              niet laat opvangen met extra aanwervingen. Het gaat vaak om mensen voor wie een louter
-              arbeidsgerichte aanpak jarenlang niet werkte. Zij hebben activering nodig in de brede zin,
-              over meerdere levensdomeinen.
+              mensen verliezen naar schatting hun uitkering tussen 1 januari 2026 en 30 juni 2027, meer
+              dan 10.000 nieuwe instromers per maand.
             </p>
           </article>
 
           <article className="challenge reveal">
             <p className="stat">tot 41%</p>
+            <span className="stat-bar" aria-hidden="true" />
             <p className="stat-label">van de arbeidstijd van maatschappelijk werkers gaat naar administratie.</p>
-            <p className="challenge-body">
-              Een werklastmeting van POD MI en Probis (836 medewerkers uit 69 OCMW's) bracht dat in
-              kaart. Die meting dateert van 2014; sindsdien is de caseload gestegen, niet gedaald.
-              "Maatschappelijk werker" is een erkend knelpuntberoep.
-            </p>
           </article>
 
           <article className="challenge reveal">
             <p className="stat">3 tekorten</p>
+            <span className="stat-bar" aria-hidden="true" />
             <p className="stat-label">bij de cliënt, die elkaar versterken.</p>
-            <ul className="mini-list">
-              <li>geen helder zicht op het eigen traject;</li>
-              <li>weinig eigenaarschap, en afhankelijkheid van de hulpverlener;</li>
-              <li>beperkte zelfpresentatie, versterkt door digitale en taalbarrières.</li>
-            </ul>
+            <ol className="challenge-num">
+              <li>
+                <span aria-hidden="true">01</span>geen helder zicht op het eigen traject;
+              </li>
+              <li>
+                <span aria-hidden="true">02</span>weinig eigenaarschap, en afhankelijkheid van de
+                hulpverlener;
+              </li>
+              <li>
+                <span aria-hidden="true">03</span>beperkte zelfpresentatie, versterkt door digitale en
+                taalbarrières.
+              </li>
+            </ol>
           </article>
         </div>
 
-        <p className="challenge-close">
-          De oplossing ligt niet in méér hulpverleners, maar in het structureel versterken van zowel
-          hulpverlener als cliënt.
-        </p>
+        <aside className="challenge-conclusion">
+          <p className="cc-label">De conclusie</p>
+          <p className="cc-text">
+            De oplossing ligt niet in méér hulpverleners, maar in het structureel versterken van{" "}
+            <span>zowel hulpverlener als cliënt</span>.
+          </p>
+        </aside>
       </div>
     </section>
   );

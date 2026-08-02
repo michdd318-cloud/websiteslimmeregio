@@ -279,15 +279,27 @@ img { max-width: 100%; display: block; }
 }
 
 /* ---------- Uitdaging ---------- */
-.challenge-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 1.3rem; }
-.challenge { padding: 1.7rem 1.6rem; border-radius: var(--radius); background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow-sm); }
-.challenge-lead { grid-row: span 1; }
-.stat { font-size: clamp(2rem, 1.4rem + 2.4vw, 2.9rem); font-weight: var(--fw-bold); color: var(--accent-strong); letter-spacing: -.03em; line-height: 1; margin: 0 0 .7rem; font-variant-numeric: tabular-nums; }
-.stat-label { color: var(--ink); font-weight: var(--fw-med); margin: 0 0 1rem; }
-.challenge-body { color: var(--ink-soft); font-size: .97rem; margin: 0; }
-.mini-list { list-style: disc; margin: 0; padding-left: 1.1rem; color: var(--ink-soft); font-size: .97rem; }
-.mini-list li { margin-bottom: .5rem; }
-.challenge-close { margin: 2.2rem auto 0; max-width: 60ch; font-size: 1.14rem; color: var(--ink); font-weight: var(--fw-med); }
+.challenge-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 2.4rem; }
+.challenge { display: flex; flex-direction: column; gap: 1.1rem; padding: 0 2.2rem; }
+.challenge:first-child { padding-left: 0; }
+.challenge:last-child { padding-right: 0; }
+.challenge + .challenge { border-left: 1px solid var(--line); }
+.stat { font-size: clamp(2.4rem, 1.5rem + 3.4vw, 3.6rem); font-weight: var(--fw-bold); color: var(--accent-strong); letter-spacing: -.035em; line-height: .92; margin: 0; font-variant-numeric: tabular-nums; }
+.stat-bar { display: block; width: 72px; height: 4px; background: var(--accent); border-radius: 2px; }
+.stat-label { color: var(--ink); font-weight: var(--fw-semi); font-size: 1.02rem; line-height: 1.35; margin: 0; }
+.challenge-num { list-style: none; margin: .3rem 0 0; padding: 0; display: grid; gap: .7rem; }
+.challenge-num li { display: grid; grid-template-columns: 26px 1fr; align-items: baseline; color: var(--muted); font-size: .95rem; line-height: 1.4; }
+.challenge-num li span { font-weight: var(--fw-bold); color: var(--accent-strong); font-size: .78rem; }
+
+/* Conclusie-banner: bewust een donkergroen paneel in beide thema's. */
+.challenge-conclusion {
+  margin-top: 2.8rem; border-radius: var(--radius); padding: 1.7rem 2rem;
+  background: #0e5347; color: #f3f7f5;
+  display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 1rem 2.4rem;
+}
+.cc-label { margin: 0; font-size: .76rem; font-weight: var(--fw-semi); letter-spacing: .18em; text-transform: uppercase; color: #7fc3ac; white-space: nowrap; }
+.cc-text { margin: 0; font-size: clamp(1.15rem, 1rem + .7vw, 1.45rem); line-height: 1.32; font-weight: var(--fw-med); }
+.cc-text span { color: #7fc3ac; }
 
 /* ---------- Oplossing: twee symmetrische sporen ---------- */
 .two-tracks { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; align-items: stretch; margin-top: 2.4rem; }
@@ -569,6 +581,10 @@ img { max-width: 100%; display: block; }
   .hero-visual { order: -1; max-width: 520px; }
   .hero-sub, .hero-support { max-width: none; }
   .tracks, .solution, .challenge-grid, .approach { grid-template-columns: 1fr; }
+  .challenge { padding: 1.6rem 0; }
+  .challenge:first-child { padding-top: 0; }
+  .challenge + .challenge { border-left: 0; border-top: 1px solid var(--line); }
+  .challenge-conclusion { grid-template-columns: 1fr; gap: .8rem; }
   .values { grid-template-columns: repeat(2, 1fr); }
   .participate { grid-template-columns: 1fr; }
   .footer-top { grid-template-columns: 1fr 1fr; }
