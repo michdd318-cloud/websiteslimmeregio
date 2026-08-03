@@ -13,17 +13,13 @@ export function Hero() {
             </h1>
             <span className="hero-bar" aria-hidden="true" />
             <p className="hero-sub">
-              De beperking van de werkloosheidsuitkering brengt de komende jaren meer mensen bij het
-              OCMW. Dat verhoogt de druk op sociale diensten die nu al kampen met hoge administratieve
-              lasten en moeilijk in te vullen vacatures.
+              Een AI-gedreven applicatie, speciaal ontwikkeld voor sociale diensten is geen verre
+              droom meer. De vraag is niet meer óf AI een rol kan spelen in hulpverlening, maar hoe je
+              dat verantwoord doet. Verschillende partners uit dit project bouwden de voorbije twee
+              jaar samen aan:
             </p>
 
             <div className="hero-more">
-              <p className="hero-kicker">Van werkend naar breed inzetbaar</p>
-              <p className="hero-lead2">
-                De vraag is niet meer óf AI hier een rol speelt, maar hoe je dat verantwoord doet.
-                Verschillende partners uit dit project bouwden daar de voorbije twee jaar samen aan:
-              </p>
               <ul className="hero-pills">
                 <li>
                   <span className="hp-check" aria-hidden="true">✓</span>Juridisch kader (DPIA / FRIA)
