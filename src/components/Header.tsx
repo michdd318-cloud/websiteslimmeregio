@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { Sun, Moon } from "lucide-react";
+import { Sun, Moon, Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useThemeToggle } from "@/hooks";
+import { useContactModal } from "@/context/contactModal";
 import { Wordmark } from "./primitives";
 
 const PRIMARY = [
@@ -27,9 +28,10 @@ const MOBILE = [
 export function Header({ scrolled }: { scrolled: boolean }) {
   const [open, setOpen] = useState(false);
   const toggleTheme = useThemeToggle();
+  const { open: openContact } = useContactModal();
 
   return (
-    <header className={cn("site-header", scrolled && "is-scrolled")}>
+    <header className={cn("site-header", scrolled && "is-scrolled", open && "is-open")}>
       <div className="wrap header-inner">
         <a className="brand" href="#top" aria-label="{A}impact, naar boven">
           <Wordmark />
@@ -54,9 +56,9 @@ export function Header({ scrolled }: { scrolled: boolean }) {
             <Sun className="i-sun" size={18} strokeWidth={1.6} aria-hidden="true" />
             <Moon className="i-moon" size={18} strokeWidth={1.6} aria-hidden="true" />
           </button>
-          <a className="btn btn-primary btn-sm nav-cta" href="#aansluiten">
+          <button type="button" className="btn btn-primary btn-sm nav-cta" onClick={() => openContact()}>
             Ik doe mee
-          </a>
+          </button>
         </div>
 
         <button
@@ -67,9 +69,7 @@ export function Header({ scrolled }: { scrolled: boolean }) {
           aria-label={open ? "Menu sluiten" : "Menu openen"}
           onClick={() => setOpen((o) => !o)}
         >
-          <span />
-          <span />
-          <span />
+          {open ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
         </button>
       </div>
 
@@ -80,6 +80,16 @@ export function Header({ scrolled }: { scrolled: boolean }) {
               {label}
             </a>
           ))}
+          <button
+            type="button"
+            className="btn btn-primary mobile-cta"
+            onClick={() => {
+              setOpen(false);
+              openContact();
+            }}
+          >
+            Ik doe mee
+          </button>
         </nav>
       )}
     </header>

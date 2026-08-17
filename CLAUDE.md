@@ -98,15 +98,32 @@ verder." leeft nu op de Tijdlijn, en de nav-link "Wat" wijst naar `#activering`.
   tekst-plaatshouder. Elk logo staat op een **witte chip** zodat zwarte/kleur/
   JPG-logo's leesbaar zijn in beide thema's.
 - **Basisnamen (hoofdlettergevoelig op Linux/Render!):** `whainot`, `halle`,
-  `ucll`, `vites`, `grimbergen`, `welzijnskoepel`, `vlaamsbrabant`.
+  `ucll`, `vites`, `grimbergen`, `welzijnskoepel`, `federgon`, `openarmen`,
+  `vlaamsbrabant`.
 - `LOGOS[]` in `data.ts`: `financier: true` (provincie, met scheidingslijn),
   `topOnly: true` (enkel in de bovenbalk, niet in de footer — bv. Grimbergen,
   Welzijnskoepel).
-- **Bovenbalk-logo's** zijn bewust groot (`.logoband .logo-slot img { height: 62px }`);
-  **Partners-logo's** 64px. Verhouding blijft via `object-fit: contain`.
+- **Bovenbalk én klankbordgroep:** elk logo staat in een **even groot wit frame**
+  (`.logoband .logo-slot, .klankbord-logos .partner-mark` — vaste breedte/hoogte),
+  gecentreerd via `object-fit: contain`. Frames zijn identiek van maat; het logo
+  schaalt binnenin. Dit houdt zwarte marks (Vlaams-Brabant) en witte-achtergrond-
+  JPG's (Grimbergen, ViTeS) leesbaar in beide thema's. **Partners-logo's** (de
+  grote kaarten) staan zónder frame direct op de achtergrond, 64px; ViTeS is daar
+  gecentreerd omdat het een klein vierkant mark is naast brede wordmarks.
 - **Buurthuis Ommekaar is bewust overal verwijderd** (tekst én logo). Niet
   terugzetten zonder expliciete vraag. Grimbergen + Welzijnskoepel staan in de
   bovenbalk én worden vermeld in de klankbordgroep-tekst bij Partners.
+
+## Contactformulier (modal)
+
+- Eén modal (`src/components/ContactModal.tsx`) waar **alle CTA-knoppen** naar
+  verwijzen, via de context in `src/context/` (`useContactModal`). De knop bepaalt
+  welke **reden** al aangevinkt is: Meelezen -> `meelezen`, Meedenken ->
+  `meedenken`, Meedoen + alle "Ik doe mee"-knoppen -> `meedoen`.
+- Verzendt naar een **Make.com webhook** (`WEBHOOK_URL` in `ContactModal.tsx`,
+  hook.eu2.make.com/...). Overschrijfbaar via `VITE_MAKE_WEBHOOK_URL`. Enkel als
+  er helemaal geen URL is valt het terug op een `mailto:` naar `michael@whainot.be`.
+  Honeypot-veld tegen bots is aanwezig.
 
 ## Deploy (Render)
 

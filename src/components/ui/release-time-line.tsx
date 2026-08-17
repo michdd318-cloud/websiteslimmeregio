@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useState, type ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
 export type TimelineStep = {
@@ -6,7 +6,9 @@ export type TimelineStep = {
   meta: string;
   title: ReactNode;
   description: ReactNode;
-  cta?: { url: string; text: string };
+  /** A closing call to action. `reason` is passed to `onCta` (e.g. to open the
+   *  contact form with that reason pre-selected). */
+  cta?: { text: string; reason?: string };
 };
 
 export type TimelineIntro = {
@@ -16,41 +18,24 @@ export type TimelineIntro = {
 };
 
 /**
- * Scroll-driven "parcours": a sticky intro with a progress bar on the left, and
- * a column of steps on the right. The active step (the furthest one whose top
- * has passed the viewport midpoint) lights up; at the bottom the last step is
- * forced active. Progress runs first -> last as you scroll. Theme-aware via the
- * design tokens; respects prefers-reduced-motion (transitions disabled in CSS).
+ * "Parcours": a sticky intro with a progress bar on the left, and a column of
+ * steps on the right. Focus is driven by HOVER (and keyboard focus), not by
+ * scroll position: pointing at a step lights it up and advances the progress
+ * bar. This is calmer and more predictable than the old scroll-hijacking, which
+ * felt unnatural. The active step changes colour/emphasis only (no size change),
+ * so moving across the list never reflows the layout. Respects
+ * prefers-reduced-motion (transitions disabled in CSS).
  */
-export function ReleaseTimeLine({ intro, steps }: { intro: TimelineIntro; steps: TimelineStep[] }) {
+export function ReleaseTimeLine({
+  intro,
+  steps,
+  onCta,
+}: {
+  intro: TimelineIntro;
+  steps: TimelineStep[];
+  onCta?: (reason?: string) => void;
+}) {
   const [active, setActive] = useState(0);
-  const refs = useRef<(HTMLLIElement | null)[]>([]);
-
-  useEffect(() => {
-    let raf = 0;
-    const compute = () => {
-      raf = 0;
-      const mid = window.innerHeight * 0.5;
-      let best = 0;
-      refs.current.forEach((el, i) => {
-        if (el && el.getBoundingClientRect().top <= mid) best = i;
-      });
-      const doc = document.documentElement;
-      if (window.scrollY + window.innerHeight >= doc.scrollHeight - 4) best = steps.length - 1;
-      setActive(best);
-    };
-    const onScroll = () => {
-      if (!raf) raf = requestAnimationFrame(compute);
-    };
-    compute();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
-      if (raf) cancelAnimationFrame(raf);
-    };
-  }, [steps.length]);
 
   const total = steps.length;
   const pct = ((active + 1) / total) * 100;
@@ -81,9 +66,9 @@ export function ReleaseTimeLine({ intro, steps }: { intro: TimelineIntro; steps:
               key={step.num}
               className={cn("parcours-step", on && "is-active")}
               aria-current={on ? "step" : undefined}
-              ref={(el) => {
-                refs.current[i] = el;
-              }}
+              tabIndex={0}
+              onMouseEnter={() => setActive(i)}
+              onFocus={() => setActive(i)}
             >
               <div className="ps-meta">
                 <span className="ps-num">{step.num}</span>
@@ -94,9 +79,9 @@ export function ReleaseTimeLine({ intro, steps }: { intro: TimelineIntro; steps:
                 <p className="ps-desc">{step.description}</p>
                 {on && step.cta && (
                   <div className="ps-cta">
-                    <a className="btn btn-primary" href={step.cta.url}>
+                    <button type="button" className="btn btn-primary" onClick={() => onCta?.(step.cta!.reason)}>
                       {step.cta.text}
-                    </a>
+                    </button>
                   </div>
                 )}
               </div>

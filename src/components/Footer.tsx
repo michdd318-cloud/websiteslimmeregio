@@ -15,7 +15,7 @@ export function Footer() {
           <h3>Contact</h3>
           <p>WhaiNot, Michaël De Donder</p>
           <p>
-            <a href="mailto:info@whainot.be">info@whainot.be</a>
+            <a href="mailto:michael@whainot.be">michael@whainot.be</a>
           </p>
           <p>
             <a href="tel:+3233777811">03 377 78 11</a>

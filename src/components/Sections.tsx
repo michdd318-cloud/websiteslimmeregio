@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
 import { FAQ } from "@/data";
+import { useContactModal, type ContactReason } from "@/context/contactModal";
 import { Wm, Preview, LogoSlot } from "./primitives";
 import { ReleaseTimeLine, type TimelineIntro, type TimelineStep } from "./ui/release-time-line";
 
@@ -10,7 +11,7 @@ export function ActiveringKost() {
       <div className="wrap">
         <div className="section-head">
           <p className="eyebrow">De werklast</p>
-          <h2 id="akost-title">Wat een activeringstraject vandaag vraagt.</h2>
+          <h2 id="akost-title">Wat een activeringstraject vandaag vraagt</h2>
         </div>
 
         <div className="workload">
@@ -32,6 +33,7 @@ export function ActiveringKost() {
               geen afstand creëert tussen hulpverlener en cliënt, maar net ruimte vrijmaakt voor betere
               begeleiding.
             </blockquote>
+            <span className="wq-mark wq-mark-close" aria-hidden="true">&rdquo;</span>
             <figcaption>
               <span className="wq-name">Jeroen Hofmans</span>
               <span className="wq-role">Voorzitter bijzonder comité sociale dienst, OCMW Halle</span>
@@ -50,7 +52,7 @@ export function Uitdaging() {
       <div className="wrap">
         <div className="section-head">
           <p className="eyebrow">De uitdaging</p>
-          <h2 id="uit-title">Meer instroom, dezelfde ploeg.</h2>
+          <h2 id="uit-title">Meer instroom, dezelfde ploeg</h2>
         </div>
 
         <div className="challenge-grid">
@@ -75,15 +77,15 @@ export function Uitdaging() {
             <p className="stat-label">bij de cliënt, die elkaar versterken.</p>
             <ol className="challenge-num">
               <li>
-                <span aria-hidden="true">01</span>geen helder zicht op het eigen traject;
+                <span aria-hidden="true">01</span>geen helder zicht op het eigen traject
               </li>
               <li>
                 <span aria-hidden="true">02</span>weinig eigenaarschap, en afhankelijkheid van de
-                hulpverlener;
+                hulpverlener
               </li>
               <li>
                 <span aria-hidden="true">03</span>beperkte zelfpresentatie, versterkt door digitale en
-                taalbarrières.
+                taalbarrières
               </li>
             </ol>
           </article>
@@ -181,6 +183,7 @@ export function Oplossing() {
           alt="Wireframe van de hulpverlener-module en de cliëntruimte van {A}impact."
           caption="Wireframe/screenshot hulpverlener-module én cliëntruimte (toevoegen: assets/img/oplossing.png)"
           wide
+          eager
         />
       </div>
     </section>
@@ -190,9 +193,9 @@ export function Oplossing() {
 /* ---------------- 8. Tijdlijn: het parcours ---------------- */
 const PARCOURS_INTRO: TimelineIntro = {
   eyebrow: "Het parcours",
-  title: "We beginnen niet opnieuw. We bouwen verder.",
+  title: "We beginnen niet opnieuw. We bouwen verder",
   subtitle:
-    "Geen prototype, maar bestaande praktijk die we breed uitgerold krijgen. Scroll door het parcours van de partners.",
+    "Geen prototype, maar bestaande praktijk die we breed uitgerold krijgen. Beweeg over de stappen om ze in beeld te lichten.",
 };
 
 const PARCOURS_STEPS: TimelineStep[] = [
@@ -228,15 +231,20 @@ const PARCOURS_STEPS: TimelineStep[] = [
     title: "Opschaling",
     description:
       "De aanpak en ervaringen vertalen naar instrumenten die andere OCMW's kunnen overnemen, gedocumenteerd als blauwdruk voor de sector.",
-    cta: { url: "#aansluiten", text: "Ik doe mee" },
+    cta: { text: "Ik doe mee" },
   },
 ];
 
 export function Tijdlijn() {
+  const { open } = useContactModal();
   return (
     <section className="section section-alt" id="tijdlijn" aria-labelledby="tl-title">
       <div className="wrap">
-        <ReleaseTimeLine intro={PARCOURS_INTRO} steps={PARCOURS_STEPS} />
+        <ReleaseTimeLine
+          intro={PARCOURS_INTRO}
+          steps={PARCOURS_STEPS}
+          onCta={(r) => open(r as ContactReason | undefined)}
+        />
       </div>
     </section>
   );
@@ -291,7 +299,7 @@ export function Partners() {
     <section className="section section-alt" id="partners" aria-labelledby="par-title">
       <div className="wrap">
         <div className="section-head">
-          <h2 id="par-title">Een quadruple-helix-samenwerking.</h2>
+          <h2 id="par-title">Een quadruple-helix-samenwerking</h2>
           <p className="lead">Overheid, kennisinstelling, bedrijven en burgers, samen aan tafel.</p>
         </div>
 
@@ -364,7 +372,6 @@ const WORKPACKAGES: { num: string; title: string; body: string; outcome: string;
     title: "Samenwerking",
     body: "Een lerend netwerk tussen bestuur, kennisinstelling, bedrijven en burgers, gedocumenteerd als blauwdruk voor andere regio's.",
     outcome: "Een samenwerkingsmodel dat je in je eigen regio kan kopiëren.",
-    dark: true,
   },
 ];
 
@@ -374,7 +381,7 @@ export function Project() {
       <div className="wrap">
         <div className="section-head">
           <p className="eyebrow">Overdraagbaar</p>
-          <h2 id="pro-title">Wat het oplevert voor andere OCMW's.</h2>
+          <h2 id="pro-title">Wat het oplevert voor andere OCMW's</h2>
           <p className="lead">
             <Wm /> loopt van 2026 tot 2028. Er worden verschillende werkpakketten samengesteld die open
             access ter beschikking worden gesteld:
@@ -403,12 +410,13 @@ export function Project() {
 
 /* ---------------- 12. Aansluiten ---------------- */
 export function Aansluiten() {
+  const { open } = useContactModal();
   return (
     <section className="section" id="aansluiten" aria-labelledby="aan-title">
       <div className="wrap">
         <div className="section-head">
           <p className="eyebrow">Aansluiten</p>
-          <h2 id="aan-title">Drie manieren om erbij te zijn.</h2>
+          <h2 id="aan-title">Drie manieren om erbij te zijn</h2>
         </div>
 
         <div className="join">
@@ -419,28 +427,32 @@ export function Aansluiten() {
             </header>
             <div className="join-row">
                 <span className="join-label">Wat het vraagt</span>
-                <div className="join-val">Je e-mailadres.</div>
+                <div className="join-val">Je e-mailadres</div>
               </div>
               <div className="join-row">
                 <span className="join-label">Je ontvangt</span>
                 <ul className="join-list">
-                  <li>de voortgang van het project;</li>
-                  <li>de resultaten van de bevraging bij maatschappelijk werkers;</li>
-                  <li>een seintje wanneer de open access instrumenten klaar zijn.</li>
+                  <li>de voortgang van het project</li>
+                  <li>de resultaten van de bevraging bij maatschappelijk werkers</li>
+                  <li>een seintje wanneer de open access instrumenten klaar zijn</li>
                 </ul>
               </div>
               <div className="join-row">
                 <span className="join-label">Voor wie</span>
-                <div className="join-val">
-                  Maatschappelijk werkers, hoofdmaatschappelijk werkers, diensthoofden sociale dienst,
-                  DPO's, algemeen directeur, stafmedewerkers, IT.
-                </div>
+                <ul className="join-list">
+                  <li>Maatschappelijk werkers</li>
+                  <li>Hoofd maatschappelijk werkers</li>
+                  <li>Diensthoofden sociale dienst</li>
+                  <li>DPO's</li>
+                  <li>Algemeen directeur</li>
+                  <li>Stafmedewerkers</li>
+                  <li>IT</li>
+                </ul>
               </div>
             <div className="join-cta">
-              <a href="mailto:info@whainot.be?subject=Inschrijving%20nieuwsbrief%20%7BA%7Dimpact&body=Ik%20schrijf%20me%20graag%20in%20op%20de%20nieuwsbrief%20van%20%7BA%7Dimpact.">
-                Inschrijven
-                <span aria-hidden="true">→</span>
-              </a>
+              <button type="button" onClick={() => open("meelezen")}>
+                Lees mee
+              </button>
             </div>
           </article>
 
@@ -451,60 +463,62 @@ export function Aansluiten() {
             </header>
             <div className="join-row">
                 <span className="join-label">Wat het vraagt</span>
-                <div className="join-val">Een halve dag per semester neem je deel aan de klankbordgroep.</div>
+                <div className="join-val">Een halve dag per semester neem je deel aan de klankbordgroep</div>
               </div>
               <div className="join-row">
                 <span className="join-label">Je ontvangt</span>
-                <div className="join-val">
-                  Vroege toegang tot het juridisch kader en de adoptiehandleiding, en invloed op wat we
-                  bouwen.
-                </div>
+                <ul className="join-list">
+                  <li>vroege toegang tot het juridisch kader en de adoptiehandleiding</li>
+                  <li>invloed op wat we bouwen</li>
+                </ul>
               </div>
               <div className="join-row">
                 <span className="join-label">Voor wie</span>
-                <div className="join-val">
-                  Maatschappelijk werkers, hoofdmaatschappelijk werkers, diensthoofden sociale dienst,
-                  DPO's.
-                </div>
+                <ul className="join-list">
+                  <li>Maatschappelijk werkers</li>
+                  <li>Hoofd maatschappelijk werkers</li>
+                  <li>Diensthoofden sociale dienst</li>
+                  <li>DPO's</li>
+                </ul>
               </div>
             <div className="join-cta">
-              <a
-                href="mailto:info@whainot.be?subject=Aanmelden%20voor%20de%20klankbordgroep%20van%20%7BA%7Dimpact"
-              >
-                Aanmelden
-                <span aria-hidden="true">→</span>
-              </a>
+              <button type="button" onClick={() => open("meedenken")}>
+                Denk mee
+              </button>
             </div>
           </article>
 
           <article className="join-card join-3">
             <header className="join-head">
               <span className="join-num" aria-hidden="true">03</span>
-              <h3>Mee doen</h3>
+              <h3>Meedoen</h3>
             </header>
             <div className="join-row">
                 <span className="join-label">Wat het vraagt</span>
                 <div className="join-val">
                   Een beslissing van je bestuur en tijd van enkele leden van je team voor introductie en
-                  opvolging.
+                  opvolging
                 </div>
               </div>
               <div className="join-row">
                 <span className="join-label">Je ontvangt</span>
-                <div className="join-val">De module in je eigen dienst, met begeleiding bij de invoering.</div>
+                <ul className="join-list">
+                  <li>de module in je eigen dienst</li>
+                  <li>begeleiding bij de invoering</li>
+                </ul>
               </div>
               <div className="join-row">
                 <span className="join-label">Voor wie</span>
-                <div className="join-val">
-                  Maatschappelijk werkers, hoofdmaatschappelijk werkers en diensthoofden sociale dienst
-                  OCMW.
-                </div>
+                <ul className="join-list">
+                  <li>Maatschappelijk werkers</li>
+                  <li>Hoofd maatschappelijk werkers</li>
+                  <li>Diensthoofden sociale dienst</li>
+                </ul>
               </div>
             <div className="join-cta">
-              <a href="mailto:info@whainot.be?subject=Gesprek%20over%20meedoen%20met%20%7BA%7Dimpact">
-                Gesprek aanvragen
-                <span aria-hidden="true">→</span>
-              </a>
+              <button type="button" onClick={() => open("meedoen")}>
+                Doe mee
+              </button>
             </div>
           </article>
         </div>
