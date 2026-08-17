@@ -1,6 +1,8 @@
 import { useHeaderScrolled, useReveal } from "@/hooks";
+import { ContactModalProvider } from "@/context/ContactModalProvider";
 import { Header } from "./components/Header";
 import { Hero } from "./components/Hero";
+import { ContactModal } from "./components/ContactModal";
 import {
   ActiveringKost,
   Uitdaging,
@@ -18,7 +20,7 @@ export default function App() {
   useReveal();
 
   return (
-    <>
+    <ContactModalProvider>
       <a className="skip-link" href="#hoofdinhoud">
         Naar de inhoud
       </a>
@@ -40,6 +42,7 @@ export default function App() {
       </main>
 
       <Footer />
-    </>
+      <ContactModal />
+    </ContactModalProvider>
   );
 }

@@ -148,20 +148,41 @@ img { max-width: 100%; display: block; }
 .link-arrow:hover svg { transform: translateX(3px); }
 
 /* ---------- Header ---------- */
+/* Like claroo.be / whainot.be: the bar is fixed and fully transparent over the
+   hero, then turns into a frosted-white bar with a soft shadow once you scroll,
+   and its height shrinks (py-5 -> py-3). */
 .site-header {
-  position: sticky; top: 0; z-index: 100;
-  background: color-mix(in srgb, var(--bg) 86%, transparent);
-  backdrop-filter: saturate(1.4) blur(10px);
-  border-bottom: 1px solid transparent;
-  transition: border-color .3s var(--ease), background .3s var(--ease);
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: transparent; border-bottom: 1px solid transparent;
+  transition: background .3s var(--ease), border-color .3s var(--ease), box-shadow .3s var(--ease);
 }
-.site-header.is-scrolled { border-bottom-color: var(--line); background: color-mix(in srgb, var(--bg) 94%, transparent); }
-.header-inner { display: flex; align-items: center; gap: 1.5rem; height: 68px; }
+.site-header.is-scrolled, .site-header.is-open {
+  background: color-mix(in srgb, var(--bg) 90%, transparent);
+  backdrop-filter: saturate(1.4) blur(12px);
+  border-bottom-color: var(--line);
+  box-shadow: var(--shadow-sm);
+}
+.header-inner { display: flex; align-items: center; gap: 1.5rem; padding: 1.15rem 0; transition: padding .3s var(--ease); }
+.site-header.is-scrolled .header-inner { padding: .7rem 0; }
 .brand { text-decoration: none; margin-right: auto; }
 .brand .wordmark { font-size: 1.3rem; }
-.primary-nav { display: flex; gap: 1.55rem; }
-.primary-nav a { color: var(--ink-soft); text-decoration: none; font-size: .95rem; font-weight: var(--fw-med); transition: color .18s var(--ease); }
-.primary-nav a:hover { color: var(--accent-strong); }
+/* Nav links match the claroo.be / whainot.be sites exactly: text-lg (1.125rem)
+   font-medium, muted-to-deep on hover, with a 2px teal underline that grows from
+   the left (-bottom-1). Link gap-6 (1.5rem); CTA px-5 py-2.5 rounded-lg. */
+.primary-nav { display: flex; align-items: center; gap: 1.5rem; }
+.primary-nav a {
+  position: relative; color: var(--ink-soft); text-decoration: none;
+  font-size: 1.125rem; font-weight: var(--fw-semi); line-height: 1.2;
+  transition: color .2s var(--ease);
+}
+.primary-nav a::after {
+  content: ""; position: absolute; left: 0; bottom: -4px; height: 2px; width: 0;
+  background: var(--accent); border-radius: 2px; transition: width .3s var(--ease);
+}
+.primary-nav a:hover { color: var(--ink); }
+.primary-nav a:hover::after { width: 100%; }
+/* CTA button sized like the claroo/whainot pill (px-5 py-2.5, text-base, rounded-lg). */
+.nav-cta.btn-sm { padding: .625rem 1.25rem; font-size: 1rem; font-weight: var(--fw-semi); border-radius: 10px; }
 .header-actions { display: flex; align-items: center; gap: .7rem; }
 
 .theme-toggle {
@@ -178,18 +199,21 @@ img { max-width: 100%; display: block; }
   :root[data-theme="auto"] .theme-toggle .i-moon { display: block; }
 }
 
-.menu-btn { display: none; flex-direction: column; gap: 5px; width: 42px; height: 38px; background: none; border: 1px solid var(--line-strong); border-radius: 9px; cursor: pointer; align-items: center; justify-content: center; }
-.menu-btn span { width: 18px; height: 2px; background: var(--ink); border-radius: 2px; transition: transform .2s var(--ease), opacity .2s var(--ease); }
-.menu-btn[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-.menu-btn[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
-.menu-btn[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+/* Icon hamburger (lucide Menu/X), like the claroo.be / whainot.be sites. */
+.menu-btn { display: none; padding: .5rem; background: none; border: 0; color: var(--ink); cursor: pointer; align-items: center; justify-content: center; }
 
-.mobile-nav { display: flex; flex-direction: column; padding: .5rem clamp(20px,5vw,40px) 1.2rem; border-bottom: 1px solid var(--line); background: var(--bg); }
-.mobile-nav a { padding: .7rem 0; color: var(--ink); text-decoration: none; font-weight: var(--fw-med); border-bottom: 1px solid var(--line); }
-.mobile-nav a:last-child { border-bottom: none; }
+/* Mobile dropdown menu: vertical links with a top divider and a full-width CTA. */
+.mobile-nav { display: flex; flex-direction: column; gap: 1rem; padding: 1rem clamp(20px,5vw,40px) 1.4rem; border-top: 1px solid var(--line); background: var(--bg); }
+.mobile-nav a { color: var(--ink-soft); text-decoration: none; font-size: .95rem; font-weight: var(--fw-med); transition: color .2s var(--ease); }
+.mobile-nav a:hover { color: var(--ink); }
+.mobile-nav .mobile-cta { margin-top: .5rem; width: 100%; justify-content: center; color: var(--accent-contrast); }
+.mobile-nav .mobile-cta:hover { color: var(--accent-contrast); }
 
 /* ---------- Hero ---------- */
-.hero { padding: clamp(3rem, 2rem + 5vw, 5.5rem) 0 clamp(2rem,1.4rem+2.6vw,3.2rem); overflow: hidden; }
+/* Extra top padding clears the fixed header (which no longer takes flow space).
+   Note: whitespace around + is required inside clamp(), else the whole padding
+   shorthand is dropped by the parser. */
+.hero { padding: clamp(8.5rem, 6.5rem + 5vw, 11rem) 0 clamp(2rem, 1.4rem + 2.6vw, 3.2rem); overflow: hidden; }
 .hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(2rem, 1rem + 4vw, 4rem); align-items: stretch; }
 .hero-h1 { display: flex; flex-direction: column; gap: .5rem; margin: 0; }
 .h1-under, .h1-over { display: block; }
@@ -200,7 +224,10 @@ img { max-width: 100%; display: block; }
 
 .hero-more { margin-top: 1.8rem; display: flex; flex-direction: column; gap: 1.1rem; }
 .hero-lead2 { margin: 0; font-size: .97rem; line-height: 1.5; color: var(--ink-soft); max-width: 58ch; }
-.hero-pills { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: .6rem; }
+/* Tidy 2x2 grid whose columns are sized to their content (not stretched to half
+   the hero width, and not raggedly wrapped). A single full-width row does not fit
+   because the labels are too long. */
+.hero-pills { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, max-content); gap: .55rem .7rem; }
 .hero-pills li { display: flex; align-items: center; gap: .6rem; background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: .45rem .95rem .45rem .5rem; font-size: .9rem; font-weight: var(--fw-semi); color: var(--ink); }
 .hp-check { flex: none; width: 24px; height: 24px; border-radius: 50%; background: #0f5140; color: #fff; display: inline-grid; place-items: center; font-size: .78rem; font-weight: var(--fw-bold); }
 .hero-tags { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: .6rem; }
@@ -214,19 +241,13 @@ img { max-width: 100%; display: block; }
   box-shadow: var(--shadow-halo); aspect-ratio: 4 / 3; position: relative;
 }
 .preview img { width: 100%; height: 100%; object-fit: cover; }
-.preview.is-empty { display: grid; place-items: center; }
-.preview.is-empty img { display: none; }
-.preview.is-empty::after {
-  content: attr(data-caption);
-  display: block; padding: 1.6rem; max-width: 32ch; text-align: center;
-  color: var(--muted); font-size: .9rem; line-height: 1.5;
-}
-.preview.is-empty::before {
-  content: ""; position: absolute; inset: 0;
-  background:
-    repeating-linear-gradient(135deg, color-mix(in srgb, var(--accent) 7%, transparent) 0 2px, transparent 2px 16px);
-  opacity: .6;
-}
+/* Screenshot placeholders stay fully hidden until the real image is added.
+   The <img> onError sets .is-empty; once the file exists the frame appears.
+   In the hero we also collapse the green visual panel and drop back to a single
+   column so there is no empty box while the screenshots are still missing. */
+.preview.is-empty { display: none; }
+.hero-visual:has(.preview.is-empty) { display: none; }
+.hero-grid:has(.preview.is-empty) { grid-template-columns: 1fr; }
 .preview-wide { aspect-ratio: 16 / 7; margin-top: 2.4rem; }
 
 /* ---------- Logo band ---------- */
@@ -285,6 +306,7 @@ img { max-width: 100%; display: block; }
 
 .workload-quote { margin: 0; padding-left: 3.5rem; border-left: 1px solid var(--line); display: flex; flex-direction: column; gap: 1.3rem; }
 .wq-mark { font-size: 4rem; line-height: .4; color: var(--line-strong); font-weight: var(--fw-bold); }
+.wq-mark-close { align-self: flex-end; margin-top: -.6rem; }
 .workload-quote blockquote { margin: 0; font-size: clamp(1.15rem, 1rem + .6vw, 1.35rem); line-height: 1.45; font-weight: var(--fw-semi); color: var(--ink); }
 .workload-quote figcaption { display: flex; flex-direction: column; gap: .25rem; border-top: 1px solid var(--line); padding-top: 1.1rem; }
 .wq-name { font-weight: var(--fw-bold); color: var(--accent-strong); }
@@ -368,11 +390,9 @@ img { max-width: 100%; display: block; }
 .partner-role { color: var(--accent-strong); font-weight: var(--fw-semi); font-size: .9rem; margin: 0 0 .6rem; }
 .partner-body p { margin: 0 0 .5rem; color: var(--ink-soft); font-size: .97rem; }
 .partner-contact { font-size: .9rem; color: var(--muted); }
-.klankbord-logos { list-style: none; margin: 1.1rem 0 0; padding: 0; display: flex; flex-wrap: wrap; align-items: center; gap: .9rem 1.4rem; }
+.klankbord-logos { list-style: none; margin: 1.1rem 0 0; padding: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.2rem; }
 .klankbord-logos li { display: flex; }
-.klankbord-logos .partner-mark { min-height: 46px; }
-.klankbord-logos .partner-mark .logo-slot img { height: 38px; max-width: 170px; }
-.klankbord-logos .partner-mark .logo-slot { font-size: .84rem; }
+/* Klankbordgroep uses the same uniform white frames as the top band (see below). */
 .financier-note { display: grid; grid-template-columns: 240px 1fr; gap: 1.6rem; align-items: center; margin-top: 1.4rem; padding: 1.5rem 1.6rem; border-radius: var(--radius); background: var(--accent-tint); border: 1px solid color-mix(in srgb, var(--accent) 22%, transparent); }
 .financier-note p { margin: 0; color: var(--ink); }
 
@@ -385,39 +405,75 @@ img { max-width: 100%; display: block; }
 }
 .partner-mark:has(img) { background: transparent; border-color: transparent; padding: 0; min-height: 0; overflow: visible; }
 .partner-mark .logo-slot img { height: 64px; max-width: 220px; }
-/* Top logo band: logos sit directly on the background, no chips.
-   A fixed row height plus object-fit: contain normalises the optical size;
-   per-logo overrides correct the ones that read too big or too small. */
+/* ViTeS is the only square mark among wide wordmarks. Indent it partway toward
+   the centre of its column (not hard-left, not fully centred), and vertically
+   centre it inside a box as tall as the wide logos (64px) so its optical centre
+   lines up with the other partner logos. */
+.partner .partner-mark:has([data-logo="vites"]) { justify-content: flex-start; align-items: center; min-height: 64px; padding-left: 2.75rem; }
+.partner .partner-mark:has([data-logo="vites"]) .logo-slot img { max-height: 58px; }
+/* Uniform white logo frames (top band + klankbordgroep): every logo sits in an
+   identically sized white frame and is centered via object-fit: contain. So all
+   frames are equal in size ("elk frame even groot"), the logo just scales to fit,
+   and black marks (Vlaams-Brabant), full-colour logos and white-background JPGs
+   (Grimbergen, ViTeS) all stay clearly legible in both themes. */
 .logoband { padding: clamp(3.2rem, 2.2rem + 3vw, 5rem) 0 2.8rem; }
-.logoband .logo-row { gap: 1.1rem 2.6rem; }
-.logoband .logo-row li { height: 48px; display: flex; align-items: center; }
-.logoband .logo-slot { height: 100%; }
-.logoband .logo-slot img {
-  height: 40px; width: auto; max-width: 200px; object-fit: contain;
-  background: transparent; padding: 0; border-radius: 0;
+.logoband .logo-row { gap: 1.2rem 1.2rem; }
+.logoband .logo-row li { height: auto; display: flex; }
+.logoband .logo-slot,
+.klankbord-logos .partner-mark {
+  box-sizing: border-box; flex: none;
+  width: clamp(132px, 13vw, 168px); height: 84px;
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 12px 16px; background: #fff; border: 0; border-radius: 12px;
+  box-shadow: var(--shadow-sm); overflow: hidden; min-height: 0;
+  opacity: 1; filter: none;
 }
-/* Optical normalisation: wordmark-heavy logos down, compact marks up. */
-.logoband .logo-slot[data-logo="halle"] img { height: 32px; }
-.logoband .logo-slot[data-logo="vites"] img { height: 46px; }
-/* Group 2 (funders): a touch smaller, subordinate to the partners. */
-.logoband .logo-row-support li { height: 40px; }
-.logoband .logo-row-support .logo-slot img { height: 34px; }
+.logoband .logo-slot img,
+.klankbord-logos .partner-mark .logo-slot img {
+  display: block; height: auto; max-height: 100%; width: auto; max-width: 100%;
+  min-width: 0; min-height: 0; object-fit: contain;
+  background: transparent; padding: 0; border-radius: 0; box-shadow: none;
+}
+/* Per-logo optical tuning inside the uniform frames:
+   - Vites is near-square and fills the full frame height; cap it so it sits at
+     the same height as the (wide) UCLL logo and lines up with it.
+   - Federgon is visually top-heavy (bold wordmark up top, faint disc below):
+     nudge it down so it reads as vertically centred.
+   (Grimbergen is now tightly cropped in the file, so it fills the frame on its
+   own without a scale.) */
+.logoband .logo-slot[data-logo="vites"] img { max-height: 76%; }
+.logoband .logo-slot[data-logo="federgon"] img { object-position: 50% 80%; }
+/* Klankbord frame wraps the logo-slot, so make it fill the frame for centering. */
+.klankbord-logos .partner-mark .logo-slot {
+  width: 100%; height: 100%; display: inline-flex; align-items: center; justify-content: center;
+}
+/* Text fallback (logo file not added yet) sits centered in the same frame. */
+.logoband .logo-slot:not(:has(img)),
+.klankbord-logos .partner-mark .logo-slot {
+  color: #14181a; font-size: .86rem; text-align: center; white-space: normal; line-height: 1.2;
+}
 
 /* ---------- Project: werkpakketten (gevulde kaarten) ---------- */
 .wp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; margin-top: 2.4rem; }
-.wp-card { display: flex; flex-direction: column; gap: 1rem; padding: clamp(1.6rem, 2vw, 2.2rem); border-radius: 20px; background: #edf3ef; color: #14181a; }
-.wp-card-dark { background: #0f5140; color: #f3f7f5; }
+.wp-card {
+  display: flex; flex-direction: column; gap: 1rem; padding: clamp(1.6rem, 2vw, 2.2rem);
+  border-radius: 20px; background: #edf3ef; color: #14181a;
+  transition: transform .3s var(--ease), box-shadow .3s var(--ease), background .3s var(--ease), color .3s var(--ease);
+}
+/* Bring any card into focus on hover/focus (was: only card 04, always on). */
+.wp-card:hover, .wp-card:focus-within, .wp-card-dark { background: #0f5140; color: #f3f7f5; }
+.wp-card:hover, .wp-card:focus-within { transform: translateY(-4px); box-shadow: var(--shadow-md); }
 .wp-head { display: flex; align-items: baseline; gap: 1rem; }
-.wp-num { flex: none; font-size: .82rem; font-weight: var(--fw-bold); letter-spacing: .14em; color: #17795f; }
-.wp-card-dark .wp-num { color: #7fc3ac; }
-.wp-head h3 { margin: 0; font-size: clamp(1.3rem, 1rem + 1vw, 1.7rem); line-height: 1.05; letter-spacing: -.02em; color: #101614; }
-.wp-card-dark .wp-head h3 { color: #fff; }
-.wp-body { margin: 0; font-size: .97rem; line-height: 1.5; color: #3e4744; }
-.wp-card-dark .wp-body { color: #dbe7e1; }
-.wp-outcome { margin: auto 0 0; display: flex; align-items: baseline; gap: .7rem; background: #fff; border-radius: 12px; padding: .9rem 1.1rem; font-size: .95rem; line-height: 1.4; font-weight: var(--fw-semi); color: #0f5140; }
-.wp-card-dark .wp-outcome { background: rgba(255, 255, 255, .12); color: #fff; }
-.wp-arrow { flex: none; font-weight: var(--fw-bold); color: #17795f; }
-.wp-card-dark .wp-arrow { color: #7fc3ac; }
+.wp-num { flex: none; font-size: .82rem; font-weight: var(--fw-bold); letter-spacing: .14em; color: #17795f; transition: color .3s var(--ease); }
+.wp-card:hover .wp-num, .wp-card:focus-within .wp-num, .wp-card-dark .wp-num { color: #7fc3ac; }
+.wp-head h3 { margin: 0; font-size: clamp(1.3rem, 1rem + 1vw, 1.7rem); line-height: 1.05; letter-spacing: -.02em; color: #101614; transition: color .3s var(--ease); }
+.wp-card:hover .wp-head h3, .wp-card:focus-within .wp-head h3, .wp-card-dark .wp-head h3 { color: #fff; }
+.wp-body { margin: 0; font-size: .97rem; line-height: 1.5; color: #3e4744; transition: color .3s var(--ease); }
+.wp-card:hover .wp-body, .wp-card:focus-within .wp-body, .wp-card-dark .wp-body { color: #dbe7e1; }
+.wp-outcome { margin: auto 0 0; display: flex; align-items: baseline; gap: .7rem; background: #fff; border-radius: 12px; padding: .9rem 1.1rem; font-size: .95rem; line-height: 1.4; font-weight: var(--fw-semi); color: #0f5140; transition: background .3s var(--ease), color .3s var(--ease); }
+.wp-card:hover .wp-outcome, .wp-card:focus-within .wp-outcome, .wp-card-dark .wp-outcome { background: rgba(255, 255, 255, .12); color: #fff; }
+.wp-arrow { flex: none; font-weight: var(--fw-bold); color: #17795f; transition: color .3s var(--ease); }
+.wp-card:hover .wp-arrow, .wp-card:focus-within .wp-arrow, .wp-card-dark .wp-arrow { color: #7fc3ac; }
 
 /* ---------- Aansluiten: drie tiers (oplopend groen) ---------- */
 .join { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: repeat(5, auto); gap: 1.2rem 1rem; margin-top: 2.4rem; }
@@ -440,18 +496,20 @@ img { max-width: 100%; display: block; }
 .join-list { list-style: none; margin: 0; padding: 0; display: grid; gap: .5rem; font-size: .95rem; line-height: 1.45; color: #3e4744; }
 .join-list li { position: relative; padding-left: 1.1rem; }
 .join-list li::before { content: ""; position: absolute; left: 0; top: .5em; width: 6px; height: 6px; border-radius: 50%; background: #17795f; }
+.join-3 .join-list { color: #dbe7e1; }
+.join-3 .join-list li::before { background: #7fc3ac; }
 .join-cta { margin-top: auto; padding-top: .3rem; }
-.join-cta a {
+.join-cta a, .join-cta button {
   display: inline-flex; align-items: center; gap: .6rem; text-decoration: none;
-  font-size: .95rem; font-weight: var(--fw-bold); line-height: 1.2;
+  font: inherit; font-size: .95rem; font-weight: var(--fw-bold); line-height: 1.2; cursor: pointer;
   padding: .8rem 1.5rem; border-radius: 999px; border: 2px solid; transition: background .2s var(--ease), color .2s var(--ease);
 }
-.join-1 .join-cta a { color: #f6f5f0; background: #0f5140; border-color: #0f5140; }
-.join-1 .join-cta a:hover { background: #17795f; border-color: #17795f; }
-.join-2 .join-cta a { color: #0f5140; background: transparent; border-color: #0f5140; }
-.join-2 .join-cta a:hover { background: #0f5140; color: #f6f5f0; }
-.join-3 .join-cta a { color: #0f5140; background: #fff; border-color: #fff; }
-.join-3 .join-cta a:hover { background: #7fc3ac; border-color: #7fc3ac; }
+.join-1 .join-cta a, .join-1 .join-cta button { color: #f6f5f0; background: #0f5140; border-color: #0f5140; }
+.join-1 .join-cta a:hover, .join-1 .join-cta button:hover { background: #17795f; border-color: #17795f; }
+.join-2 .join-cta a, .join-2 .join-cta button { color: #0f5140; background: transparent; border-color: #0f5140; }
+.join-2 .join-cta a:hover, .join-2 .join-cta button:hover { background: #0f5140; color: #f6f5f0; }
+.join-3 .join-cta a, .join-3 .join-cta button { color: #0f5140; background: #fff; border-color: #fff; }
+.join-3 .join-cta a:hover, .join-3 .join-cta button:hover { background: #7fc3ac; border-color: #7fc3ac; }
 
 /* ---------- FAQ ---------- */
 .faq { display: grid; gap: .1rem; border-top: 1px solid var(--line); }
@@ -495,7 +553,7 @@ img { max-width: 100%; display: block; }
 .footer-links a { color: var(--ink-soft); text-decoration: none; font-size: .87rem; font-weight: var(--fw-med); }
 .footer-links a:hover { color: var(--accent-strong); }
 
-/* ---------- Tijdlijn: scroll-driven parcours ---------- */
+/* ---------- Tijdlijn: hover-driven parcours ---------- */
 .parcours { display: grid; grid-template-columns: minmax(0, 340px) minmax(0, 1fr); gap: clamp(2rem, 4vw, 5rem); align-items: start; margin-top: 1rem; }
 .parcours-aside { position: sticky; top: 96px; display: flex; flex-direction: column; gap: 1.1rem; }
 .parcours-title { font-size: clamp(1.8rem, 1.3rem + 1.8vw, 2.6rem); line-height: 1.02; letter-spacing: -.03em; color: var(--ink); margin: 0; }
@@ -507,32 +565,100 @@ img { max-width: 100%; display: block; }
 .pp-fill { position: absolute; inset: 0 auto 0 0; background: var(--accent); transition: width .34s var(--ease); }
 
 .parcours-steps { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 1rem; }
+/* Fixed size for every step (padding + title size do NOT change on focus), so
+   hovering across the list only recolours the active step and never reflows. */
 .parcours-step {
   display: grid; grid-template-columns: minmax(0, 76px) minmax(0, 1fr); gap: 1.3rem; align-items: start;
-  padding: 1.1rem 1.4rem; border: 1px solid transparent; border-left: 4px solid var(--line-strong);
-  border-radius: var(--radius); background: transparent; opacity: .82;
-  transition: background .34s var(--ease), border-color .34s var(--ease), box-shadow .34s var(--ease), opacity .34s var(--ease), padding .34s var(--ease);
+  padding: clamp(1.3rem, 1.8vw, 1.7rem) 1.4rem; border: 1px solid transparent; border-left: 4px solid var(--line-strong);
+  border-radius: var(--radius); background: transparent; opacity: .72;
+  transition: background .3s var(--ease), border-color .3s var(--ease), box-shadow .3s var(--ease), opacity .3s var(--ease);
 }
+.parcours-step:focus-visible { outline: 2px solid var(--accent-strong); outline-offset: 2px; }
 .parcours-step.is-active {
   background: var(--surface); border-color: var(--line); border-left-color: var(--accent-strong);
-  box-shadow: var(--shadow-md); opacity: 1; padding: clamp(1.4rem, 2vw, 2rem);
+  box-shadow: var(--shadow-md); opacity: 1;
 }
 .ps-meta { display: flex; flex-direction: column; gap: .4rem; padding-top: .15rem; }
-.ps-num { font-size: .78rem; font-weight: var(--fw-bold); letter-spacing: .14em; color: var(--line-strong); transition: color .34s var(--ease); }
+.ps-num { font-size: .78rem; font-weight: var(--fw-bold); letter-spacing: .14em; color: var(--line-strong); transition: color .3s var(--ease); }
 .parcours-step.is-active .ps-num { color: var(--accent-strong); }
 .ps-metatxt { font-size: .78rem; line-height: 1.3; color: var(--muted); }
 .ps-body { min-width: 0; display: flex; flex-direction: column; gap: .7rem; }
-.ps-title { margin: 0; font-size: 1.15rem; line-height: 1.15; letter-spacing: -.02em; color: var(--muted); transition: color .34s var(--ease), font-size .34s var(--ease); }
-.parcours-step.is-active .ps-title { color: var(--ink); font-size: clamp(1.35rem, 1rem + 1.1vw, 1.8rem); }
-.ps-desc { margin: 0; font-size: .97rem; line-height: 1.55; color: var(--muted); transition: color .34s var(--ease); }
+.ps-title { margin: 0; font-size: clamp(1.2rem, 1rem + .6vw, 1.5rem); line-height: 1.15; letter-spacing: -.02em; color: var(--muted); transition: color .3s var(--ease); }
+.parcours-step.is-active .ps-title { color: var(--ink); }
+.ps-desc { margin: 0; font-size: .97rem; line-height: 1.55; color: var(--muted); transition: color .3s var(--ease); }
 .parcours-step.is-active .ps-desc { color: var(--ink-soft); }
 .ps-cta { padding-top: .5rem; }
 @media (max-width: 940px) {
   .parcours { grid-template-columns: 1fr; gap: 1.6rem; }
   .parcours-aside { position: static; }
+  /* No hover on touch: show every step at full readability. */
+  .parcours-step { opacity: 1; }
 }
 @media (prefers-reduced-motion: reduce) {
   .parcours-step, .ps-title, .ps-num, .ps-desc, .pp-fill { transition: none; }
+  .wp-card, .wp-card * { transition: none; }
+  .wp-card:hover, .wp-card:focus-within { transform: none; }
+}
+
+/* ---------- Contactformulier (modal) ---------- */
+.cm-overlay {
+  position: fixed; inset: 0; z-index: 200; display: flex; align-items: center; justify-content: center;
+  padding: 1rem; background: color-mix(in srgb, #0a0f0d 64%, transparent); backdrop-filter: blur(6px);
+  animation: cmFade .2s var(--ease);
+}
+@keyframes cmFade { from { opacity: 0; } to { opacity: 1; } }
+.cm-dialog {
+  position: relative; width: 100%; max-width: 540px; max-height: 90vh; overflow-y: auto;
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-halo); padding: clamp(1.5rem, 1rem + 2vw, 2.4rem);
+  animation: cmRise .28s var(--ease);
+}
+@keyframes cmRise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+.cm-dialog:focus { outline: none; }
+.cm-close {
+  position: absolute; top: 1rem; right: 1rem; width: 36px; height: 36px; display: inline-grid; place-items: center;
+  border-radius: 50%; border: 1px solid var(--line); background: var(--surface-2); color: var(--ink-soft);
+  cursor: pointer; transition: color .2s var(--ease), border-color .2s var(--ease);
+}
+.cm-close:hover { color: var(--accent-strong); border-color: var(--accent); }
+.cm-head { margin: 0 2.2rem 1.4rem 0; }
+.cm-head h2 { margin: .7rem 0 0; font-size: clamp(1.4rem, 1.1rem + 1vw, 1.9rem); line-height: 1.1; letter-spacing: -.02em; color: var(--ink); }
+.cm-form { display: flex; flex-direction: column; gap: 1.05rem; }
+.cm-field { display: flex; flex-direction: column; gap: .4rem; }
+.cm-label { font-size: .74rem; font-weight: var(--fw-semi); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.cm-label span { color: var(--accent-strong); }
+.cm-input, .cm-textarea {
+  width: 100%; padding: .8rem 1rem; border-radius: var(--radius-sm); border: 1px solid var(--line-strong);
+  background: var(--surface-2); color: var(--ink); font: inherit; font-size: .97rem;
+  transition: border-color .2s var(--ease), box-shadow .2s var(--ease);
+}
+.cm-input::placeholder, .cm-textarea::placeholder { color: var(--muted); }
+.cm-input:focus, .cm-textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-tint); }
+.cm-input.has-error { border-color: #d64545; }
+.cm-textarea { resize: vertical; min-height: 90px; margin-top: .3rem; }
+.cm-error { font-size: .82rem; color: #d64545; }
+.cm-reasons { display: grid; gap: .5rem; }
+.cm-reason {
+  display: flex; align-items: center; gap: .7rem; padding: .7rem .9rem; border-radius: var(--radius-sm);
+  border: 1px solid var(--line); background: var(--surface-2); color: var(--ink); text-align: left;
+  cursor: pointer; font: inherit; font-size: .95rem; transition: border-color .2s var(--ease), background .2s var(--ease);
+}
+.cm-reason:hover { border-color: var(--accent); }
+.cm-reason.is-on { border-color: var(--accent); background: var(--accent-tint); }
+.cm-check {
+  flex: none; width: 20px; height: 20px; border-radius: 6px; border: 2px solid var(--line-strong);
+  display: inline-grid; place-items: center; color: var(--accent-contrast);
+  transition: background .2s var(--ease), border-color .2s var(--ease);
+}
+.cm-reason.is-on .cm-check { background: var(--accent); border-color: var(--accent); }
+.cm-submit { margin-top: .3rem; width: 100%; justify-content: center; }
+.cm-note { margin: 0; font-size: .8rem; color: var(--muted); text-align: center; }
+.cm-success { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 1rem; padding: 1.4rem 0 .6rem; }
+.cm-success h2 { margin: 0; font-size: 1.5rem; color: var(--ink); }
+.cm-success p { margin: 0; color: var(--ink-soft); max-width: 34ch; }
+.cm-success-icon { width: 60px; height: 60px; border-radius: 50%; display: grid; place-items: center; background: var(--accent-tint); color: var(--accent-strong); }
+@media (prefers-reduced-motion: reduce) {
+  .cm-overlay, .cm-dialog { animation: none; }
 }
 
 /* ---------- v2 content elements ---------- */
