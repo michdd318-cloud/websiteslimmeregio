@@ -1,5 +1,5 @@
 import { PROJECT_LOGOS, SUPPORT_LOGOS } from "@/data";
-import { Preview, LogoSlot } from "./primitives";
+import { LogoSlot } from "./primitives";
 
 export function Hero() {
   return (
@@ -41,15 +41,6 @@ export function Hero() {
                 <li>Cliëntgericht</li>
               </ul>
             </div>
-          </div>
-
-          <div className="hero-visual reveal">
-            <Preview
-              src="assets/img/hero-clientruimte.png"
-              alt="De cliëntruimte en de hulpverlener-module van {A}impact naast elkaar."
-              caption="Screenshot cliëntruimte + hulpverlener-module (toevoegen: assets/img/hero-clientruimte.png)"
-              eager
-            />
           </div>
         </div>
       </section>
