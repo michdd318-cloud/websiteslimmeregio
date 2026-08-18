@@ -162,17 +162,21 @@ img { max-width: 100%; display: block; }
   border-bottom-color: var(--line);
   box-shadow: var(--shadow-sm);
 }
-.header-inner { display: flex; align-items: center; gap: 1.5rem; padding: 1.15rem 0; transition: padding .3s var(--ease); }
+.header-inner { position: relative; display: flex; align-items: center; gap: 1.5rem; padding: 1.15rem 0; transition: padding .3s var(--ease); }
 .site-header.is-scrolled .header-inner { padding: .7rem 0; }
 .brand { text-decoration: none; margin-right: auto; }
 .brand .wordmark { font-size: 1.3rem; }
-/* Nav links match the claroo.be / whainot.be sites exactly: text-lg (1.125rem)
-   font-medium, muted-to-deep on hover, with a 2px teal underline that grows from
-   the left (-bottom-1). Link gap-6 (1.5rem); CTA px-5 py-2.5 rounded-lg. */
-.primary-nav { display: flex; align-items: center; gap: 1.5rem; }
+/* Layout like claroo.be / whainot.be: logo left, nav centered, actions right.
+   The nav is absolutely centred on the bar so it stays dead-centre regardless of
+   the (narrower) logo and (wider) actions. Links: text-lg (1.125rem), teal
+   underline that grows from the left on hover. */
+.primary-nav {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+  display: flex; align-items: center; gap: 1.5rem;
+}
 .primary-nav a {
   position: relative; color: var(--ink-soft); text-decoration: none;
-  font-size: 1.125rem; font-weight: var(--fw-semi); line-height: 1.2;
+  font-size: 1.125rem; font-weight: var(--fw-med); line-height: 1.2;
   transition: color .2s var(--ease);
 }
 .primary-nav a::after {
