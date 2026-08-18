@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 import { FAQ } from "@/data";
 import { useContactModal, type ContactReason } from "@/context/contactModal";
-import { Wm, Preview, LogoSlot } from "./primitives";
+import { Wm, LogoSlot } from "./primitives";
 import { ReleaseTimeLine, type TimelineIntro, type TimelineStep } from "./ui/release-time-line";
 
 /* ---------------- 4. Wat een activeringstraject vandaag kost ---------------- */
@@ -178,13 +178,6 @@ export function Oplossing() {
           </article>
         </div>
 
-        <Preview
-          src="assets/img/oplossing.png"
-          alt="Wireframe van de hulpverlener-module en de cliëntruimte van {A}impact."
-          caption="Wireframe/screenshot hulpverlener-module én cliëntruimte (toevoegen: assets/img/oplossing.png)"
-          wide
-          eager
-        />
       </div>
     </section>
   );
