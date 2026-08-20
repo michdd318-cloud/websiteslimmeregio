@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 import { FAQ } from "@/data";
 import { useContactModal, type ContactReason } from "@/context/contactModal";
-import { Wm, LogoSlot } from "./primitives";
+import { Wm, LogoSlot, LinkArrow } from "./primitives";
 import { ReleaseTimeLine, type TimelineIntro, type TimelineStep } from "./ui/release-time-line";
 
 /* ---------------- 4. Wat een activeringstraject vandaag kost ---------------- */
@@ -330,10 +330,18 @@ export function Partners() {
           <div className="partner-mark partner-mark-lg">
             <LogoSlot name="vlaamsbrabant" label="Provincie Vlaams-Brabant" />
           </div>
-          <p>
-            <Wm /> wordt gesteund door de provincie Vlaams-Brabant, in het kader van het programma
-            Slimme Regio (thema Slim Bestuur).
-          </p>
+          <div className="financier-note-body">
+            <p>
+              <Wm /> wordt gesteund door de provincie Vlaams-Brabant, in het kader van het programma
+              Slimme Regio (thema Slim Bestuur).
+            </p>
+            <LinkArrow
+              href="https://pers.vlaamsbrabant.be/aimpact-helpt-ocmw-clienten-sneller-vooruit-richting-werk-en-participatie"
+              external
+            >
+              Lees het persbericht van de provincie Vlaams-Brabant
+            </LinkArrow>
+          </div>
         </div>
       </div>
     </section>
