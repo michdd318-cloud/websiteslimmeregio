@@ -56,7 +56,7 @@ export function Header({ scrolled }: { scrolled: boolean }) {
             <Sun className="i-sun" size={18} strokeWidth={1.6} aria-hidden="true" />
             <Moon className="i-moon" size={18} strokeWidth={1.6} aria-hidden="true" />
           </button>
-          <button type="button" className="btn btn-primary btn-sm nav-cta" onClick={() => openContact()}>
+          <button type="button" className="btn btn-primary btn-cta nav-cta" onClick={() => openContact()}>
             Ik doe mee
           </button>
         </div>
@@ -82,7 +82,7 @@ export function Header({ scrolled }: { scrolled: boolean }) {
           ))}
           <button
             type="button"
-            className="btn btn-primary mobile-cta"
+            className="btn btn-primary btn-cta mobile-cta"
             onClick={() => {
               setOpen(false);
               openContact();

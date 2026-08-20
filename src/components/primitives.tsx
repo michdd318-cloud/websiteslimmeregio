@@ -111,10 +111,22 @@ export function Preview({
   );
 }
 
-/** Text link with an arrow that nudges on hover. */
-export function LinkArrow({ href, children }: { href: string; children: React.ReactNode }) {
+/** Text link with an arrow that nudges on hover. `external` opens in a new tab. */
+export function LinkArrow({
+  href,
+  children,
+  external,
+}: {
+  href: string;
+  children: React.ReactNode;
+  external?: boolean;
+}) {
   return (
-    <a className="link-arrow" href={href}>
+    <a
+      className="link-arrow"
+      href={href}
+      {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+    >
       {children}
       <ArrowRight size={16} aria-hidden="true" />
     </a>

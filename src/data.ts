@@ -16,6 +16,7 @@ export const PROJECT_LOGOS: LogoItem[] = [
   { name: "vites", label: "ViTeS" },
   { name: "welzijnskoepel", label: "Welzijnskoepel West-Brabant" },
   { name: "grimbergen", label: "OCMW Grimbergen" },
+  { name: "openarmen", label: "Open Armen vzw" },
   { name: "federgon", label: "Federgon" },
 ];
 

@@ -79,7 +79,7 @@ export function ReleaseTimeLine({
                 <p className="ps-desc">{step.description}</p>
                 {on && step.cta && (
                   <div className="ps-cta">
-                    <button type="button" className="btn btn-primary" onClick={() => onCta?.(step.cta!.reason)}>
+                    <button type="button" className="btn btn-primary btn-cta" onClick={() => onCta?.(step.cta!.reason)}>
                       {step.cta.text}
                     </button>
                   </div>

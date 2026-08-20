@@ -185,8 +185,9 @@ img { max-width: 100%; display: block; }
 }
 .primary-nav a:hover { color: var(--ink); }
 .primary-nav a:hover::after { width: 100%; }
-/* CTA button sized like the claroo/whainot pill (px-5 py-2.5, text-base, rounded-lg). */
-.nav-cta.btn-sm { padding: .625rem 1.25rem; font-size: 1rem; font-weight: var(--fw-semi); border-radius: 10px; }
+/* Shared "Ik doe mee" CTA size (reference: the top-right nav button). Applied to
+   every instance so the button looks identical everywhere. */
+.btn-cta { padding: .625rem 1.25rem; font-size: 1rem; font-weight: var(--fw-semi); border-radius: 10px; }
 .header-actions { display: flex; align-items: center; gap: .7rem; }
 
 .theme-toggle {
@@ -213,31 +214,55 @@ img { max-width: 100%; display: block; }
 .mobile-nav .mobile-cta { margin-top: .5rem; width: 100%; justify-content: center; color: var(--accent-contrast); }
 .mobile-nav .mobile-cta:hover { color: var(--accent-contrast); }
 
-/* ---------- Hero ---------- */
-/* Extra top padding clears the fixed header (which no longer takes flow space).
-   Note: whitespace around + is required inside clamp(), else the whole padding
-   shorthand is dropped by the parser. */
-.hero { padding: clamp(8.5rem, 6.5rem + 5vw, 11rem) 0 clamp(2rem, 1.4rem + 2.6vw, 3.2rem); overflow: hidden; }
-/* Single column: the screenshot panel is removed until the real screenshots
-   exist. Copy is capped so the lines stay readable. */
-.hero-grid { display: block; max-width: 46rem; }
-.hero-h1 { display: flex; flex-direction: column; gap: .5rem; margin: 0; }
+/* ---------- Hero (claroo.be / whainot.be-stijl) ---------- */
+/* Soft, theme-aware gradient backdrop with blurred accent orbs and a fine noise
+   overlay, like the reference sites. Top padding clears the fixed header.
+   NB: whitespace around + is required inside clamp() or the shorthand is dropped. */
+.hero {
+  position: relative; overflow: hidden;
+  padding: clamp(8.5rem, 6.5rem + 5vw, 11rem) 0 clamp(3rem, 2rem + 3vw, 5rem);
+  background: linear-gradient(160deg,
+    var(--bg) 0%,
+    color-mix(in srgb, var(--accent) 7%, var(--bg)) 52%,
+    color-mix(in srgb, var(--accent) 14%, var(--bg)) 100%);
+}
+.hero::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .035;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.hero .wrap { position: relative; z-index: 1; }
+.hero-orbs { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+.hero-orb { position: absolute; border-radius: 50%; filter: blur(60px); opacity: .14; background: radial-gradient(circle, var(--accent) 0%, transparent 70%); }
+.hero-orb-1 { width: 560px; height: 560px; top: -190px; right: -120px; animation: heroFloat 14s ease-in-out infinite; }
+.hero-orb-2 { width: 380px; height: 380px; bottom: -130px; left: -90px; animation: heroFloat 18s ease-in-out infinite reverse; }
+@keyframes heroFloat { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(0, -26px); } }
+
+.hero-copy { max-width: 60rem; }
+.hero-badge {
+  display: inline-flex; align-items: center; gap: .5rem; margin: 0 0 1.5rem;
+  padding: .5rem 1rem; border-radius: 999px; background: var(--accent-tint);
+  border: 1px solid color-mix(in srgb, var(--accent) 22%, transparent);
+  color: var(--accent-strong); font-size: .92rem; font-weight: var(--fw-semi);
+}
+.hero-h1 { display: flex; flex-direction: column; gap: .4rem; margin: 0; }
 .h1-under, .h1-over { display: block; }
 .h1-under { font-size: clamp(1.5rem, 1.1rem + 1.6vw, 2.3rem); font-weight: var(--fw-bold); color: var(--muted); line-height: 1.05; }
-.h1-over { font-size: clamp(2.1rem, 1.3rem + 3.1vw, 3.5rem); font-weight: var(--fw-bold); color: var(--accent-strong); line-height: .98; letter-spacing: -.03em; }
-.hero-bar { display: block; width: 140px; height: 4px; background: var(--accent); border-radius: 2px; margin: 1.4rem 0 0; }
-.hero-sub { font-size: clamp(1.02rem, .96rem + .5vw, 1.18rem); color: var(--ink-soft); max-width: 52ch; margin-top: 1.3rem; }
+.h1-over { font-size: clamp(2.2rem, 1.3rem + 3.3vw, 3.75rem); font-weight: var(--fw-bold); color: var(--accent-strong); line-height: 1; letter-spacing: -.03em; }
+.hero-sub { font-size: clamp(1.02rem, .96rem + .5vw, 1.2rem); color: var(--ink-soft); max-width: none; margin-top: 1.4rem; line-height: 1.6; }
+.hero-cta { display: flex; flex-wrap: wrap; gap: .9rem; margin-top: 2rem; }
+/* Secondary button on a white background for contrast against the gradient. */
+.hero-cta .btn-ghost { background: var(--surface); border-color: var(--line-strong); }
+.hero-cta .btn-ghost:hover { background: var(--surface); border-color: var(--accent); color: var(--accent-strong); }
 
-.hero-more { margin-top: 1.8rem; display: flex; flex-direction: column; gap: 1.1rem; }
-.hero-lead2 { margin: 0; font-size: .97rem; line-height: 1.5; color: var(--ink-soft); max-width: 58ch; }
-/* Tidy 2x2 grid whose columns are sized to their content (not stretched to half
-   the hero width, and not raggedly wrapped). A single full-width row does not fit
-   because the labels are too long. */
-.hero-pills { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, max-content); gap: .55rem .7rem; }
-.hero-pills li { display: flex; align-items: center; gap: .6rem; background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: .45rem .95rem .45rem .5rem; font-size: .9rem; font-weight: var(--fw-semi); color: var(--ink); }
-.hp-check { flex: none; width: 24px; height: 24px; border-radius: 50%; background: #0f5140; color: #fff; display: inline-grid; place-items: center; font-size: .78rem; font-weight: var(--fw-bold); }
-.hero-tags { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: .6rem; }
-.hero-tags li { background: #edf3ef; border-radius: 12px; padding: .85rem 1rem; text-align: center; font-size: .8rem; font-weight: var(--fw-bold); letter-spacing: .1em; text-transform: uppercase; color: #0f5140; }
+/* The two groups sit side by side (partners-built with a 2-column checklist, and
+   "developing further" one per line), top-aligned. Checkmark bullets, no boxes. */
+.hero-more { margin-top: 2.4rem; display: flex; flex-wrap: wrap; align-items: flex-start; gap: 1.6rem 4rem; }
+.hero-lead2 { margin: 0 0 .85rem; font-size: .97rem; line-height: 1.5; color: var(--ink); font-weight: var(--fw-semi); }
+.hero-checklist { list-style: none; margin: 0; padding: 0; display: grid; gap: .65rem; }
+.hero-checklist-2col { grid-template-columns: 1fr 1fr; gap: .65rem 1.8rem; }
+.hero-checklist-row { display: flex; flex-wrap: wrap; gap: .65rem 1.8rem; }
+.hero-checklist li { display: flex; align-items: center; gap: .6rem; font-size: 1rem; line-height: 1.3; color: var(--ink); }
+.hc-check { flex: none; color: var(--accent); }
 
 /* Preview component styles kept for when the real screenshots are added back. */
 .preview {
@@ -389,11 +414,12 @@ img { max-width: 100%; display: block; }
 .partner-role { color: var(--accent-strong); font-weight: var(--fw-semi); font-size: .9rem; margin: 0 0 .6rem; }
 .partner-body p { margin: 0 0 .5rem; color: var(--ink-soft); font-size: .97rem; }
 .partner-contact { font-size: .9rem; color: var(--muted); }
-.klankbord-logos { list-style: none; margin: 1.1rem 0 0; padding: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.2rem; }
+.klankbord-logos { list-style: none; margin: 1.1rem 0 0; padding: 0; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 1rem 1.2rem; }
 .klankbord-logos li { display: flex; }
 /* Klankbordgroep uses the same uniform white frames as the top band (see below). */
 .financier-note { display: grid; grid-template-columns: 240px 1fr; gap: 1.6rem; align-items: center; margin-top: 1.4rem; padding: 1.5rem 1.6rem; border-radius: var(--radius); background: var(--accent-tint); border: 1px solid color-mix(in srgb, var(--accent) 22%, transparent); }
 .financier-note p { margin: 0; color: var(--ink); }
+.financier-note-body { display: grid; gap: .55rem; }
 
 /* Uploaded logos sit on a white chip, so any format/colour (black, full-colour,
    or a JPG with a white background) stays legible in both light and dark. */
@@ -417,6 +443,9 @@ img { max-width: 100%; display: block; }
    (Grimbergen, ViTeS) all stay clearly legible in both themes. */
 .logoband { padding: clamp(3.2rem, 2.2rem + 3vw, 5rem) 0 2.8rem; }
 .logoband .logo-row { gap: 1.2rem 1.2rem; }
+/* Project row: cap the width so exactly 4 frames fit per row -> row 1 whainot/
+   halle/ucll/vites, row 2 welzijnskoepel/grimbergen/federgon. */
+.logoband .logo-row:not(.logo-row-support) { max-width: 730px; margin-inline: auto; }
 .logoband .logo-row li { height: auto; display: flex; }
 .logoband .logo-slot,
 .klankbord-logos .partner-mark {
@@ -497,18 +526,32 @@ img { max-width: 100%; display: block; }
 .join-list li::before { content: ""; position: absolute; left: 0; top: .5em; width: 6px; height: 6px; border-radius: 50%; background: #17795f; }
 .join-3 .join-list { color: #dbe7e1; }
 .join-3 .join-list li::before { background: #7fc3ac; }
-.join-cta { margin-top: auto; padding-top: .3rem; }
+.join-cta { margin-top: auto; padding-top: .3rem; text-align: center; }
 .join-cta a, .join-cta button {
   display: inline-flex; align-items: center; gap: .6rem; text-decoration: none;
   font: inherit; font-size: .95rem; font-weight: var(--fw-bold); line-height: 1.2; cursor: pointer;
-  padding: .8rem 1.5rem; border-radius: 999px; border: 2px solid; transition: background .2s var(--ease), color .2s var(--ease);
+  padding: .8rem 1.5rem; border-radius: 999px; border: 2px solid; transition: background .2s var(--ease), color .2s var(--ease), border-color .2s var(--ease);
 }
-.join-1 .join-cta a, .join-1 .join-cta button { color: #f6f5f0; background: #0f5140; border-color: #0f5140; }
-.join-1 .join-cta a:hover, .join-1 .join-cta button:hover { background: #17795f; border-color: #17795f; }
-.join-2 .join-cta a, .join-2 .join-cta button { color: #0f5140; background: transparent; border-color: #0f5140; }
-.join-2 .join-cta a:hover, .join-2 .join-cta button:hover { background: #0f5140; color: #f6f5f0; }
-.join-3 .join-cta a, .join-3 .join-cta button { color: #0f5140; background: #fff; border-color: #fff; }
-.join-3 .join-cta a:hover, .join-3 .join-cta button:hover { background: #7fc3ac; border-color: #7fc3ac; }
+/* Aansluiten CTAs (variant 2, cross-swap): left dark green, middle accent-teal,
+   right light, so each button contrasts with its own card. */
+.join-1 .join-cta a, .join-1 .join-cta button {
+  color: #f3f7f5; background: #0f5140; border-color: #0f5140;
+}
+.join-1 .join-cta a:hover, .join-1 .join-cta button:hover {
+  background: #17795f; border-color: #17795f;
+}
+.join-2 .join-cta a, .join-2 .join-cta button {
+  color: var(--accent-contrast); background: var(--accent); border-color: var(--accent);
+}
+.join-2 .join-cta a:hover, .join-2 .join-cta button:hover {
+  background: var(--accent-strong); border-color: var(--accent-strong);
+}
+.join-3 .join-cta a, .join-3 .join-cta button {
+  color: #14181a; background: #edf3ef; border-color: #edf3ef;
+}
+.join-3 .join-cta a:hover, .join-3 .join-cta button:hover {
+  background: #dce7e1; border-color: #dce7e1;
+}
 
 /* ---------- FAQ ---------- */
 .faq { display: grid; gap: .1rem; border-top: 1px solid var(--line); }
@@ -597,6 +640,7 @@ img { max-width: 100%; display: block; }
   .parcours-step, .ps-title, .ps-num, .ps-desc, .pp-fill { transition: none; }
   .wp-card, .wp-card * { transition: none; }
   .wp-card:hover, .wp-card:focus-within { transform: none; }
+  .hero-orb { animation: none; }
 }
 
 /* ---------- Contactformulier (modal) ---------- */
@@ -661,7 +705,6 @@ img { max-width: 100%; display: block; }
 }
 
 /* ---------- v2 content elements ---------- */
-.hero-sub { max-width: 46ch; }
 .callout { background: var(--surface); }
 
 
@@ -703,6 +746,7 @@ img { max-width: 100%; display: block; }
   .primary-nav, .nav-cta { display: none; }
   .menu-btn { display: flex; }
   .hero-sub { max-width: none; }
+  .hero-checklist-2col { grid-template-columns: 1fr; }
   .tracks, .solution, .challenge-grid { grid-template-columns: 1fr; }
   .challenge { padding: 1.6rem 0; }
   .challenge:first-child { padding-top: 0; }
