@@ -75,10 +75,11 @@ verder." leeft nu op de Tijdlijn, en de nav-link "Wat" wijst naar `#activering`.
 
 Tweede pagina van de site, gebouwd als **multi-page Vite-build** (geen router):
 `voortgang.html` -> `src/voortgang.tsx` -> `src/components/Voortgang.tsx`. Zelfde
-header, footer, contactmodal en tokens als de one-pager. Live op
-`/voortgang.html`; `render.yaml` voorziet daarnaast een rewrite zodat ook
-`/voortgang` werkt (bewust geen catch-all, want de logo-probe in `LogoSlot`
-rekent op echte 404's).
+header, footer, contactmodal en tokens als de one-pager. **De canonieke URL is
+`/voortgang`**: `render.yaml` rewrite die naar `voortgang.html` (bewust geen
+catch-all, want de logo-probe in `LogoSlot` rekent op echte 404's). Alle interne
+links en de `<link rel="canonical">` wijzen naar `/voortgang`; `/voortgang.html`
+blijft werken voor links die al verspreid zijn.
 
 **Een bericht toevoegen:** bovenaan in `LOGBOEK` in `src/data.ts`. Houd het
 scanbaar: één kernzin (`kern`), hoogstens twee korte alinea's (`body`), maximaal
