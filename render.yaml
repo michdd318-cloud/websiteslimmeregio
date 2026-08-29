@@ -9,6 +9,13 @@ services:
     envVars:
       - key: NODE_VERSION
         value: "22.12.0"
+    routes:
+      # Nette URL voor het logboek: /voortgang toont voortgang.html.
+      # Bewust geen catch-all, zodat ontbrekende bestanden een echte 404 blijven
+      # geven (de logo-probe in LogoSlot rekent daarop).
+      - type: rewrite
+        source: /voortgang
+        destination: /voortgang.html
     headers:
       - path: /assets/*
         name: Cache-Control
