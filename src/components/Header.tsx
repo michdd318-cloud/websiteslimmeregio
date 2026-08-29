@@ -19,7 +19,7 @@ const MOBILE = [
   ["#oplossing", "De oplossing"],
   ["#tijdlijn", "Tijdlijn"],
   ["#project", "Het project"],
-  ["voortgang.html", "Voortgang"],
+  ["voortgang", "Voortgang"],
   ["#partners", "Partners"],
   ["#aansluiten", "Aansluiten"],
   ["#faq", "FAQ"],
@@ -34,7 +34,7 @@ export function Header({ scrolled, page = "home" }: { scrolled: boolean; page?: 
   const toggleTheme = useThemeToggle();
   const { open: openContact } = useContactModal();
   const prefix = page === "home" ? "" : asset("");
-  const voortgang = asset("voortgang.html");
+  const voortgang = asset("voortgang");
 
   return (
     <header className={cn("site-header", scrolled && "is-scrolled", open && "is-open")}>

@@ -239,7 +239,7 @@ export function Tijdlijn() {
           onCta={(r) => open(r as ContactReason | undefined)}
         />
         <p className="tijdlijn-log">
-          <LinkArrow href={asset("voortgang.html")}>
+          <LinkArrow href={asset("voortgang")}>
             Volg de voortgang in het logboek
           </LinkArrow>
         </p>
