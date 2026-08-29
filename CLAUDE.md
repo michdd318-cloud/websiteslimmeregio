@@ -42,20 +42,23 @@ npm run preview   # dist/ serveren (LET OP: SPA-fallback, zie Testen)
 ## Structuur
 
 ```
-index.html                 # Vite-entry (data-theme="auto" op <html>)
+index.html                 # Vite-entry startpagina (data-theme="auto" op <html>)
+voortgang.html             # Vite-entry logboekpagina (tweede pagina, zelfde shell)
 src/
-  main.tsx                 # entry: thema herstellen + reveal-armed
+  main.tsx                 # entry startpagina
+  voortgang.tsx            # entry logboekpagina (Header page="voortgang")
+  boot.ts                  # gedeelde bootstrap: thema herstellen + reveal-armed
   App.tsx                  # sectievolgorde (zie hieronder)
   index.css                # Tailwind-directives + design tokens + ALLE componentstijlen
   data.ts                  # LOGOS[] + FAQ[]
   hooks.ts                 # useThemeToggle, useHeaderScrolled, useReveal (GSAP)
   lib/utils.ts             # cn() + asset()
   components/
-    Header.tsx  Hero.tsx  Sections.tsx  Footer.tsx
+    Header.tsx  Hero.tsx  Sections.tsx  Footer.tsx  Voortgang.tsx
     primitives.tsx         # Wordmark, Wm, LogoSlot, Preview, LinkArrow
     ui/release-time-line.tsx  # scroll-actieve tijdlijn
 public/assets/
-  favicon.svg  logos/  img/
+  favicon.svg  logos/  img/  brand/   # losse {A}impact-logobestanden (SVG/PNG)
 render.yaml  .node-version  tailwind.config.js  postcss.config.js  vite.config.ts
 ```
 
@@ -67,6 +70,26 @@ Faq (`#faq`) → Footer (`#contact`). Nagenoeg alle sectie-inhoud staat in
 `src/components/Sections.tsx`. De secties GeenGreenfield (`#wat`) en WatHetNiet
 (`#watnietis`) zijn verwijderd; de kop "We beginnen niet opnieuw. We bouwen
 verder." leeft nu op de Tijdlijn, en de nav-link "Wat" wijst naar `#activering`.
+
+## Voortgang (logboekpagina)
+
+Tweede pagina van de site, gebouwd als **multi-page Vite-build** (geen router):
+`voortgang.html` -> `src/voortgang.tsx` -> `src/components/Voortgang.tsx`. Zelfde
+header, footer, contactmodal en tokens als de one-pager. Live op
+`/voortgang.html`; `render.yaml` voorziet daarnaast een rewrite zodat ook
+`/voortgang` werkt (bewust geen catch-all, want de logo-probe in `LogoSlot`
+rekent op echte 404's).
+
+**Een bericht toevoegen:** bovenaan in `LOGBOEK` in `src/data.ts`. Houd het
+scanbaar: één kernzin (`kern`), hoogstens twee korte alinea's (`body`), maximaal
+vier `points`, en een `next` met de volgende stap. `id` wordt het anker
+(`/voortgang.html#opstartvergadering`). Werk `LOGBOEK_META.bijgewerkt` bij, en
+`STATUS` (drie kaarten "waar we nu staan") wanneer de fase verschuift.
+
+**Afspraak met de partners:** externe communicatie wordt vooraf ter nazicht
+gedeeld met een duidelijke deadline; wie niet reageert, wordt geacht akkoord te
+gaan. Zet dus geen budgetcijfers, namen van individuele medewerkers of interne
+discussies op deze pagina.
 
 ## Design-systeem & conventies (belangrijk)
 
@@ -131,6 +154,8 @@ verder." leeft nu op de Tijdlijn, en de nav-link "Wat" wijst naar `#activering`.
   gekoppeld aan branch **`main`** (auto-deploy bij elke push naar main).
   `render.yaml` is een Blueprint; `.node-version` = 22.12.0 (Vite 7-vereiste).
 - Alles wordt van **`main`** gedeployd. Wijzigingen worden pas live na merge.
+- De build levert **twee** pagina's op: `dist/index.html` en
+  `dist/voortgang.html` (zie `build.rollupOptions.input` in `vite.config.ts`).
 
 ## Werkwijze / git
 

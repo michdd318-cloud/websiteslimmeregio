@@ -81,3 +81,94 @@ export const FAQ: FaqItem[] = [
     a: "Ja, op drie niveaus: meelezen, meedenken of meedraaien. Zie hierboven.",
   },
 ];
+
+/* ---------------------------------------------------------------------------
+   Voortgang (logboek). Nieuwe berichten bovenaan toevoegen in LOGBOEK.
+   Houd het kort en scanbaar: een kernzin, hoogstens twee korte alinea's,
+   maximaal vier opsommingspunten. Braces in "{A}impact" zijn hier gewone tekst.
+   --------------------------------------------------------------------------- */
+
+/** Kopregel van de pagina: wanneer ze laatst is bijgewerkt en wat er volgt. */
+export const LOGBOEK_META = {
+  bijgewerkt: "28 augustus 2026",
+  volgendOverleg: "5 november 2026",
+};
+
+export interface StatusItem {
+  /** Wanneer: "Nu bezig", "September 2026", ... */
+  fase: string;
+  title: string;
+  body: string;
+  /** Alleen de lopende stap krijgt nadruk. */
+  actief?: boolean;
+}
+
+/** Waar het project vandaag staat. Drie stappen, niet meer. */
+export const STATUS: StatusItem[] = [
+  {
+    fase: "Nu bezig",
+    title: "De functionele analyse herwerken",
+    body: "De leerpunten van anderhalf jaar praktijk verwerken in de analyse die de basis vormt voor wat we bouwen.",
+    actief: true,
+  },
+  {
+    fase: "September 2026",
+    title: "Aftoetsen bij de hulpverleners",
+    body: "Een vragenlijst, en daarna een sessie ter plaatse. Wat daar boven komt, gaat rechtstreeks in de analyse.",
+  },
+  {
+    fase: "Najaar 2026",
+    title: "Juridisch kader naar de DPO's",
+    body: "Het herwerkte kader gaat na de juridische screening naar de DPO's van de partners. Het cliëntluik volgt daarna.",
+  },
+];
+
+export interface LogEntry {
+  /** Ankerpunt in de URL, bv. "opstartvergadering". */
+  id: string;
+  /** Machineleesbare datum voor <time>, bv. "2026-08-28". */
+  date: string;
+  dateLabel: string;
+  tag: string;
+  title: string;
+  /** De kern in één zin. Wie enkel dit leest, weet genoeg. */
+  kern: string;
+  body: string[];
+  pointsLabel?: string;
+  points?: string[];
+  next?: string;
+}
+
+export const LOGBOEK: LogEntry[] = [
+  {
+    id: "opstartvergadering",
+    date: "2026-08-28",
+    dateLabel: "28 augustus 2026",
+    tag: "Opstart",
+    title: "De partners zijn voor het eerst samen aan tafel gegaan",
+    kern: "Het project is gestart. De vier partners hebben de samenwerking vastgelegd en de planning bevestigd zoals ze is ingediend.",
+    body: [
+      "WhaiNot, Stad en OCMW Halle, UCLL Research & Expertise en ViTeS overliepen samen het volledige parcours tot de zomer van 2028. Er kwamen geen verrassingen boven. De eerste maanden gaan naar drie zaken: de coördinatie van het project, het juridisch-ethisch kader en de technische voorbereiding.",
+    ],
+    pointsLabel: "Wat we afspraken",
+    points: [
+      "Elke partner duidt één vast aanspreekpunt aan.",
+      "De kerngroep komt elk trimester samen. Volgend overleg: 5 november 2026.",
+      "Andere OCMW's mogen gratis meetesten, ook al zijn ze geen projectpartner.",
+      "We houden de voortgang publiek bij, op deze pagina.",
+    ],
+    next: "De bevraging bij de hulpverleners, ten laatste begin oktober.",
+  },
+  {
+    id: "groen-licht-provincie",
+    date: "2026-07-31",
+    dateLabel: "Eind juli 2026",
+    tag: "Subsidie",
+    title: "Groen licht van de provincie",
+    kern: "De provincie Vlaams-Brabant keurde het project goed binnen het programma Slimme Regio, met weinig opmerkingen bij de eerste terugkoppeling.",
+    body: [
+      "Twee punten nemen we uitdrukkelijk mee. Ten eerste de vraag hoe de aanpak overdraagbaar wordt naar andere OCMW's, en niet enkel werkt bij de partners die vandaag meedoen. Ten tweede de vraag welke architecturale keuzes er zijn voor de AI-laag, met een eerlijk beeld van wat elke keuze een bestuur kost om in te voeren en te beheren.",
+    ],
+    next: "Beide punten krijgen een plaats in de eerste fase van het project.",
+  },
+];

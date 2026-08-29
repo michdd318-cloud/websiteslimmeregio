@@ -1,3 +1,4 @@
+import { asset } from "@/lib/utils";
 import { Wordmark, LogoSlot } from "./primitives";
 
 export function Footer() {
@@ -36,6 +37,7 @@ export function Footer() {
           {"© 2026 {A}impact. Een project van WhaiNot, Stad en OCMW Halle, UCLL en ViTeS."}
         </p>
         <p className="footer-links">
+          <a href={asset("voortgang.html")}>Voortgang</a>
           <a href="#top">Naar boven</a>
         </p>
       </div>

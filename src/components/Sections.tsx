@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils";
+import { asset, cn } from "@/lib/utils";
 import { FAQ } from "@/data";
 import { useContactModal, type ContactReason } from "@/context/contactModal";
 import { Wm, LogoSlot, LinkArrow } from "./primitives";
@@ -238,6 +238,11 @@ export function Tijdlijn() {
           steps={PARCOURS_STEPS}
           onCta={(r) => open(r as ContactReason | undefined)}
         />
+        <p className="tijdlijn-log">
+          <LinkArrow href={asset("voortgang.html")}>
+            Volg de voortgang in het logboek
+          </LinkArrow>
+        </p>
       </div>
     </section>
   );
