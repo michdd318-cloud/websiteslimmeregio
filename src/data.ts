@@ -141,6 +141,19 @@ export interface LogEntry {
 
 export const LOGBOEK: LogEntry[] = [
   {
+    id: "juridisch-traject",
+    date: "2026-09-12",
+    dateLabel: "12 september 2026",
+    tag: "Juridisch",
+    title: "Het juridische traject is opgestart",
+    kern: "Samen met Serius Legal is het juridische luik van het project gestart. Eerste stap: de bestaande DPIA en FRIA tegen het licht houden.",
+    body: [
+      "De DPIA en de FRIA die er vandaag al zijn, worden geanalyseerd en bijgestuurd waar het beter kan. Wat daaruit komt, gaat daarna naar de DPO's van de partners. Zo ligt het kader vast voor er gebouwd wordt, niet erna.",
+      "Die basis dekt de kant van de hulpverlener. In fase 2 komt het lastigste stuk erbij: op welke grondslag en onder welke voorwaarden informatie uit het dossier met de cliënt zelf gedeeld wordt.",
+    ],
+    next: "De analyse van Serius Legal, en daarna de voorlegging aan de DPO's van de partners.",
+  },
+  {
     id: "amai-burgerpanel",
     date: "2026-09-12",
     dateLabel: "12 september 2026",
