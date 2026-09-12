@@ -90,7 +90,7 @@ export const FAQ: FaqItem[] = [
 
 /** Kopregel van de pagina: wanneer ze laatst is bijgewerkt en wat er volgt. */
 export const LOGBOEK_META = {
-  bijgewerkt: "28 augustus 2026",
+  bijgewerkt: "12 september 2026",
   volgendOverleg: "5 november 2026",
 };
 
@@ -140,6 +140,25 @@ export interface LogEntry {
 }
 
 export const LOGBOEK: LogEntry[] = [
+  {
+    id: "amai-burgerpanel",
+    date: "2026-09-12",
+    dateLabel: "12 september 2026",
+    tag: "Burgerpanel",
+    title: "{A}impact wordt voorgelegd aan een burgerpanel",
+    kern: "{A}impact is geselecteerd als een van de acht Vlaamse AI-innovaties die amai! Vlaanderen dit najaar aan een burgerpanel voorlegt.",
+    body: [
+      "amai! Vlaanderen legt een reeks Vlaamse AI-projecten voor aan burgers. De cliëntruimte van {A}impact zit daar dit najaar tussen. Burgers krijgen te zien wat we willen bouwen en zeggen wat ze ervan vinden, voor het af is. Wie de tool straks moet gebruiken, mag eerst zeggen wat er niet deugt.",
+      "Dat gaat over de vragen waar wij zelf geen sluitend antwoord op hebben. Wat wordt zichtbaar in de ruimte van de cliënt, wie beslist daarover, en wat doet het met het vertrouwen tussen cliënt en hulpverlener wanneer een deel van de uitleg via een systeem loopt.",
+    ],
+    pointsLabel: "Waar en wanneer",
+    points: [
+      "6 tot 16 oktober, Digitale Week: de acht projecten staan op digitale zuilen op verschillende locaties, waar je je mening kan achterlaten.",
+      "24 en 25 oktober, FTI-festival (Expeditie Next, Mechelen): demo's en gesprek met de projecten zelf.",
+      "Ons moment: zondag 25 oktober, van 13 tot 14 uur.",
+    ],
+    next: "Wat het panel aangeeft over zichtbaarheid, taal en grenzen gaat mee in de functionele analyse van de cliëntruimte.",
+  },
   {
     id: "opstartvergadering",
     date: "2026-08-28",
