@@ -112,14 +112,15 @@ export const STATUS: StatusItem[] = [
     actief: true,
   },
   {
+    fase: "Nu bezig",
+    title: "Het juridisch kader screenen",
+    body: "Serius Legal analyseert de bestaande DPIA en FRIA. Wat daaruit komt, gaat naar de DPO's van de partners. Het cliëntluik volgt in fase 2.",
+    actief: true,
+  },
+  {
     fase: "September 2026",
     title: "Aftoetsen bij de hulpverleners",
     body: "Een vragenlijst, en daarna een sessie ter plaatse. Wat daar boven komt, gaat rechtstreeks in de analyse.",
-  },
-  {
-    fase: "Najaar 2026",
-    title: "Juridisch kader naar de DPO's",
-    body: "Het herwerkte kader gaat na de juridische screening naar de DPO's van de partners. Het cliëntluik volgt daarna.",
   },
 ];
 
