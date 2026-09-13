@@ -24,8 +24,10 @@ const WEBHOOK_URL =
   "https://hook.eu2.make.com/11s7cvjjb3q74ugr53q9kbrabmq13rf1";
 
 const EMPTY = {
-  naam: "",
+  voornaam: "",
+  achternaam: "",
   email: "",
+  functie: "",
   organisatie: "",
   redenen: [] as ContactReason[],
   andereReden: "",
@@ -35,7 +37,12 @@ const EMPTY = {
 export function ContactModal() {
   const { isOpen, close, initialReason } = useContactModal();
   const [form, setForm] = useState({ ...EMPTY });
-  const [errors, setErrors] = useState<{ naam?: string; email?: string; redenen?: string }>({});
+  const [errors, setErrors] = useState<{
+    voornaam?: string;
+    achternaam?: string;
+    email?: string;
+    redenen?: string;
+  }>({});
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const dialogRef = useRef<HTMLDivElement>(null);
@@ -95,7 +102,8 @@ export function ContactModal() {
 
   const validate = () => {
     const e: typeof errors = {};
-    if (!form.naam.trim()) e.naam = "Naam is verplicht";
+    if (!form.voornaam.trim()) e.voornaam = "Voornaam is verplicht";
+    if (!form.achternaam.trim()) e.achternaam = "Naam is verplicht";
     if (!form.email.trim()) e.email = "E-mailadres is verplicht";
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) e.email = "Ongeldig e-mailadres";
     if (form.redenen.length === 0) e.redenen = "Kies minstens één reden";
@@ -105,8 +113,10 @@ export function ContactModal() {
   const sendByMail = () => {
     const redenen = form.redenen.map((r) => REASON_LABEL[r]).join(", ");
     const lines = [
-      `Naam: ${form.naam}`,
+      `Voornaam: ${form.voornaam}`,
+      `Naam: ${form.achternaam}`,
       `E-mailadres: ${form.email}`,
+      form.functie && `Functie: ${form.functie}`,
       form.organisatie && `Organisatie: ${form.organisatie}`,
       `Reden: ${redenen}`,
       form.andereReden && `Toelichting: ${form.andereReden}`,
@@ -145,8 +155,13 @@ export function ContactModal() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           type: "contact",
-          naam: form.naam,
+          // `naam` stays the full name so the existing Make scenario, which maps
+          // that single field, keeps working. The split fields are additive.
+          naam: `${form.voornaam} ${form.achternaam}`.trim(),
+          voornaam: form.voornaam,
+          achternaam: form.achternaam,
           email: form.email,
+          functie: form.functie,
           organisatie: form.organisatie,
           reden: form.redenen.map((r) => REASON_LABEL[r]).join(", "),
           andereReden: form.andereReden,
@@ -220,21 +235,41 @@ export function ContactModal() {
             </div>
 
             <div className="cm-field">
-              <label className="cm-label" htmlFor="cm-naam">
+              <label className="cm-label" htmlFor="cm-voornaam">
+                Voornaam <span aria-hidden="true">*</span>
+              </label>
+              <input
+                id="cm-voornaam"
+                className={cn("cm-input", errors.voornaam && "has-error")}
+                type="text"
+                autoComplete="given-name"
+                placeholder="Jouw voornaam"
+                value={form.voornaam}
+                onChange={(e) => {
+                  setForm((f) => ({ ...f, voornaam: e.target.value }));
+                  setErrors((er) => ({ ...er, voornaam: undefined }));
+                }}
+              />
+              {errors.voornaam && <span className="cm-error">{errors.voornaam}</span>}
+            </div>
+
+            <div className="cm-field">
+              <label className="cm-label" htmlFor="cm-achternaam">
                 Naam <span aria-hidden="true">*</span>
               </label>
               <input
-                id="cm-naam"
-                className={cn("cm-input", errors.naam && "has-error")}
+                id="cm-achternaam"
+                className={cn("cm-input", errors.achternaam && "has-error")}
                 type="text"
-                placeholder="Jouw naam"
-                value={form.naam}
+                autoComplete="family-name"
+                placeholder="Jouw familienaam"
+                value={form.achternaam}
                 onChange={(e) => {
-                  setForm((f) => ({ ...f, naam: e.target.value }));
-                  setErrors((er) => ({ ...er, naam: undefined }));
+                  setForm((f) => ({ ...f, achternaam: e.target.value }));
+                  setErrors((er) => ({ ...er, achternaam: undefined }));
                 }}
               />
-              {errors.naam && <span className="cm-error">{errors.naam}</span>}
+              {errors.achternaam && <span className="cm-error">{errors.achternaam}</span>}
             </div>
 
             <div className="cm-field">
@@ -245,6 +280,7 @@ export function ContactModal() {
                 id="cm-email"
                 className={cn("cm-input", errors.email && "has-error")}
                 type="email"
+                autoComplete="email"
                 placeholder="naam@gemeente.be"
                 value={form.email}
                 onChange={(e) => {
@@ -256,6 +292,21 @@ export function ContactModal() {
             </div>
 
             <div className="cm-field">
+              <label className="cm-label" htmlFor="cm-functie">
+                Functie
+              </label>
+              <input
+                id="cm-functie"
+                className="cm-input"
+                type="text"
+                autoComplete="organization-title"
+                placeholder="Bijvoorbeeld maatschappelijk werker of diensthoofd"
+                value={form.functie}
+                onChange={(e) => setForm((f) => ({ ...f, functie: e.target.value }))}
+              />
+            </div>
+
+            <div className="cm-field">
               <label className="cm-label" htmlFor="cm-org">
                 Gemeente / stad / organisatie
               </label>
@@ -263,6 +314,7 @@ export function ContactModal() {
                 id="cm-org"
                 className="cm-input"
                 type="text"
+                autoComplete="organization"
                 placeholder="Gemeente, stad of organisatie"
                 value={form.organisatie}
                 onChange={(e) => setForm((f) => ({ ...f, organisatie: e.target.value }))}
