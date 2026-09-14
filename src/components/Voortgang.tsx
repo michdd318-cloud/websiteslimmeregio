@@ -107,6 +107,16 @@ function Berichten() {
                   </>
                 )}
 
+                {e.bron && (
+                  <p className="log-text">
+                    {e.bron.tekst}{" "}
+                    <a className="log-link" href={e.bron.url} target="_blank" rel="noopener noreferrer">
+                      {e.bron.linkTekst}
+                    </a>
+                    .
+                  </p>
+                )}
+
                 {e.next && (
                   <p className="log-next">
                     <ArrowRight size={16} aria-hidden="true" />

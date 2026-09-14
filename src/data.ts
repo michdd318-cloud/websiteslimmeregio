@@ -137,6 +137,8 @@ export interface LogEntry {
   body: string[];
   pointsLabel?: string;
   points?: string[];
+  /** Optionele bronzin met een externe link, tussen de punten en de volgende stap. */
+  bron?: { tekst: string; linkTekst: string; url: string };
   next?: string;
 }
 
@@ -171,6 +173,11 @@ export const LOGBOEK: LogEntry[] = [
       "24 en 25 oktober, FTI-festival (Expeditie Next, Mechelen): demo's en gesprek met de projecten zelf.",
       "Ons moment: zondag 25 oktober, van 13 tot 14 uur.",
     ],
+    bron: {
+      tekst: "Meer over het burgerpanel lees je op",
+      linkTekst: "amai! Vlaanderen",
+      url: "https://amai.vlaanderen/use-cases-burgerpanel-2026",
+    },
     next: "Wat het panel aangeeft over zichtbaarheid, taal en grenzen gaat mee in de functionele analyse van de cliëntruimte.",
   },
   {
