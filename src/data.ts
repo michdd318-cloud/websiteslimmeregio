@@ -90,7 +90,7 @@ export const FAQ: FaqItem[] = [
 
 /** Kopregel van de pagina: wanneer ze laatst is bijgewerkt en wat er volgt. */
 export const LOGBOEK_META = {
-  bijgewerkt: "12 september 2026",
+  bijgewerkt: "18 oktober 2026",
   volgendOverleg: "5 november 2026",
 };
 
@@ -118,9 +118,9 @@ export const STATUS: StatusItem[] = [
     actief: true,
   },
   {
-    fase: "September 2026",
-    title: "Aftoetsen bij de hulpverleners",
-    body: "Een vragenlijst, en daarna een sessie ter plaatse. Wat daar boven komt, gaat rechtstreeks in de analyse.",
+    fase: "November 2026",
+    title: "Het rapport van de bevraging",
+    body: "De bevraging bij de hulpverleners is gebeurd. Het rapport volgt in november en gaat rechtstreeks in de analyse.",
   },
 ];
 
@@ -143,6 +143,19 @@ export interface LogEntry {
 }
 
 export const LOGBOEK: LogEntry[] = [
+  {
+    id: "bevraging-hulpverleners",
+    date: "2026-10-13",
+    dateLabel: "13 oktober 2026",
+    tag: "Bevraging",
+    title: "De hulpverleners zeiden wat ze echt nodig hebben",
+    kern: "Samen met UCLL overliepen we met maatschappelijk werkers van Stad en OCMW Halle wat het platform moet kunnen. Hun input gaat rechtstreeks in de functionele analyse.",
+    body: [
+      "Geen theoretische wensenlijst, maar de dagelijkse praktijk: welke gegevens ze in elk document nodig hebben, wat ze vandaag nog in Excel bijhouden en wat hen de meeste tijd kost.",
+      "Ook de keerzijde kwam op tafel. Wat betekent het voor het vak als een systeem mee schrijft? Die vraag nemen we mee in het ontwerp: de hulpverlener blijft zelf schrijven en beslissen.",
+    ],
+    next: "In november volgt het rapport van de bevraging. Wat erin staat, verwerken we in de functionele analyse.",
+  },
   {
     id: "juridisch-traject",
     date: "2026-09-12",
