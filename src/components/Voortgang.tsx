@@ -96,6 +96,17 @@ function Berichten() {
                   </p>
                 ))}
 
+                {e.lists?.map((l) => (
+                  <div key={l.label}>
+                    <p className="log-points-label">{l.label}</p>
+                    <ul className="log-points">
+                      {l.items.map((p) => (
+                        <li key={p}>{p}</li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+
                 {e.points && (
                   <>
                     <p className="log-points-label">{e.pointsLabel ?? "In het kort"}</p>

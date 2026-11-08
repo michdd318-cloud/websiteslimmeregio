@@ -90,8 +90,8 @@ export const FAQ: FaqItem[] = [
 
 /** Kopregel van de pagina: wanneer ze laatst is bijgewerkt en wat er volgt. */
 export const LOGBOEK_META = {
-  bijgewerkt: "18 oktober 2026",
-  volgendOverleg: "5 november 2026",
+  bijgewerkt: "8 november 2026",
+  volgendOverleg: "14 januari 2027",
 };
 
 export interface StatusItem {
@@ -107,20 +107,20 @@ export interface StatusItem {
 export const STATUS: StatusItem[] = [
   {
     fase: "Nu bezig",
-    title: "De functionele analyse herwerken",
-    body: "De leerpunten van anderhalf jaar praktijk verwerken in de analyse die de basis vormt voor wat we bouwen.",
+    title: "De functionele analyse afronden",
+    body: "De bevraging, de feedback van ViTeS en het opvolgmoment van 23 november verwerken. Eind november ligt de analyse vast.",
     actief: true,
   },
   {
     fase: "Nu bezig",
-    title: "Het juridisch kader screenen",
-    body: "Serius Legal analyseert de bestaande DPIA en FRIA. Wat daaruit komt, gaat naar de DPO's van de partners. Het cliëntluik volgt in fase 2.",
+    title: "Het juridisch kader verwerken",
+    body: "De geactualiseerde analyse ligt op tafel. Mee te nemen: data delen tussen organisaties, testen door een extra organisatie en toegang van de cliënt tot de cliëntruimte.",
     actief: true,
   },
   {
-    fase: "November 2026",
-    title: "Het rapport van de bevraging",
-    body: "De bevraging bij de hulpverleners is gebeurd. Het rapport volgt in november en gaat rechtstreeks in de analyse.",
+    fase: "December 2026",
+    title: "De ontwikkeling start",
+    body: "Op basis van de definitieve analyse begint de bouw.",
   },
 ];
 
@@ -135,6 +135,8 @@ export interface LogEntry {
   /** De kern in één zin. Wie enkel dit leest, weet genoeg. */
   kern: string;
   body: string[];
+  /** Optionele lijsten met eigen kop, getoond vóór de punten. */
+  lists?: { label: string; items: string[] }[];
   pointsLabel?: string;
   points?: string[];
   /** Optionele bronzin met een externe link, tussen de punten en de volgende stap. */
@@ -143,6 +145,34 @@ export interface LogEntry {
 }
 
 export const LOGBOEK: LogEntry[] = [
+  {
+    id: "kerngroep-november",
+    date: "2026-11-05",
+    dateLabel: "5 november 2026",
+    tag: "Kerngroep",
+    title: "De analyse rondt af, begin december start de bouw",
+    kern: "Tweede overleg van de kerngroep.",
+    body: [],
+    lists: [
+      {
+        label: "Sinds de opstart in augustus is er veel gebeurd",
+        items: [
+          "De functionele analyse van de cliëntruimte is af en werd via amai! voorgelegd aan burgers.",
+          "De hulpverleners van Halle werden uitgebreid bevraagd door UCLL en WhaiNot.",
+          "ViTeS bekeek de demo vanuit het perspectief van de werkgever.",
+          "De juridische analyse is geactualiseerd en wordt nu verwerkt.",
+        ],
+      },
+    ],
+    pointsLabel: "Wat nog moet gebeuren voor december",
+    points: [
+      "23 november: een kleine groep maatschappelijk werkers loopt door de klikbare versie en geeft finale feedback.",
+      "Eind november: de functionele analyse voor de cliëntruimte en voor de hulpverlener wordt definitief.",
+      "UCLL werkt op basis van de bevraging persona's uit. Die vormen de basis voor de nulmeting.",
+      "Welzijnskoepel West-Brabant start als eerste organisatie buiten de partners met testen in de software.",
+    ],
+    next: "Begin december start de ontwikkeling. De kerngroep komt opnieuw samen op 14 januari 2027.",
+  },
   {
     id: "bevraging-hulpverleners",
     date: "2026-10-13",
