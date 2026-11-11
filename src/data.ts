@@ -113,8 +113,8 @@ export const STATUS: StatusItem[] = [
   },
   {
     fase: "Nu bezig",
-    title: "Het juridisch kader verwerken",
-    body: "De geactualiseerde analyse ligt op tafel. Mee te nemen: data delen tussen organisaties, testen door een extra organisatie en toegang van de cliënt tot de cliëntruimte.",
+    title: "DPIA en FRIA laten screenen",
+    body: "De DPIA en FRIA voor de hulpverlener zijn klaar en liggen bij de eerste DPO. Daarna volgen de DPO's van de andere partners en het cliëntluik.",
     actief: true,
   },
   {
@@ -145,6 +145,19 @@ export interface LogEntry {
 }
 
 export const LOGBOEK: LogEntry[] = [
+  {
+    id: "dpia-fria-hulpverlener",
+    date: "2026-11-11",
+    dateLabel: "11 november 2026",
+    tag: "Juridisch",
+    title: "DPIA en FRIA voor de hulpverlener zijn klaar",
+    kern: "De DPIA en de FRIA voor de kant van de hulpverlener zijn afgewerkt. De eerste DPO van de partners screent ze nu.",
+    body: [
+      "Het zijn de geactualiseerde versies, met de analyse van Serius Legal verwerkt. Zo ligt het kader voor de hulpverlener vast voor de bouw begin december start.",
+      "Het cliëntluik volgt daarna: welke informatie uit het dossier met de cliënt zelf gedeeld wordt, en onder welke voorwaarden.",
+    ],
+    next: "Na de eerste DPO gaan de documenten naar de DPO's van de andere partners.",
+  },
   {
     id: "ai-research-week-berlijn",
     date: "2026-11-11",
