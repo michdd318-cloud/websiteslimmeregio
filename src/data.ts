@@ -90,7 +90,7 @@ export const FAQ: FaqItem[] = [
 
 /** Kopregel van de pagina: wanneer ze laatst is bijgewerkt en wat er volgt. */
 export const LOGBOEK_META = {
-  bijgewerkt: "8 november 2026",
+  bijgewerkt: "11 november 2026",
   volgendOverleg: "14 januari 2027",
 };
 
@@ -145,6 +145,29 @@ export interface LogEntry {
 }
 
 export const LOGBOEK: LogEntry[] = [
+  {
+    id: "ai-research-week-berlijn",
+    date: "2026-11-11",
+    dateLabel: "11 november 2026",
+    tag: "Congres",
+    title: "{A}impact op de AI Research Week in Berlijn",
+    kern: "UCLL stelt {A}impact voor op de International Research Week on AI and Social Services in Berlijn. De bijdrage werd geselecteerd als praktijkcase.",
+    body: [
+      "De titel: \"Using AI in social services to boost efficiency and empower clients: a practical case\". Het verhaal van een OCMW-project dat de hulpverlener tijd teruggeeft en de cliënt meer zicht geeft op het eigen traject, naast onderzoek uit Denemarken, Duitsland, Nederland en daarbuiten.",
+    ],
+    pointsLabel: "Waar en wanneer",
+    points: [
+      "Vrijdag 13 november 2026, van 9 tot 11 uur.",
+      "Sessie 3: AI as a Partner in Social Services.",
+      "Katholische Hochschule für Sozialwesen Berlin.",
+    ],
+    bron: {
+      tekst: "Het volledige programma staat op de website van",
+      linkTekst: "KHSB Berlin",
+      url: "https://www.khsb-berlin.de/international-research-week-on-ai-and-social-services.html",
+    },
+    next: "Wat onderzoekers en praktijkmensen in Berlijn terugzeggen, nemen we mee naar het kerngroepoverleg van 14 januari 2027.",
+  },
   {
     id: "kerngroep-november",
     date: "2026-11-05",
