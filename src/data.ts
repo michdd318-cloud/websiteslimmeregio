@@ -155,12 +155,6 @@ export const LOGBOEK: LogEntry[] = [
     body: [
       "De titel: \"Using AI in social services to boost efficiency and empower clients: a practical case\". Het verhaal van een OCMW-project dat de hulpverlener tijd teruggeeft en de cliënt meer zicht geeft op het eigen traject, naast onderzoek uit Denemarken, Duitsland, Nederland en daarbuiten.",
     ],
-    pointsLabel: "Waar en wanneer",
-    points: [
-      "Vrijdag 13 november 2026, van 9 tot 11 uur.",
-      "Sessie 3: AI as a Partner in Social Services.",
-      "Katholische Hochschule für Sozialwesen Berlin.",
-    ],
     bron: {
       tekst: "Het volledige programma staat op de website van",
       linkTekst: "KHSB Berlin",
